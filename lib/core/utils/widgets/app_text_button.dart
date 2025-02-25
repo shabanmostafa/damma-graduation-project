@@ -38,8 +38,8 @@ class AppTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
-      height: 54.h,
+      width: buttonWidth ?? double.infinity,
+      height: buttonHeight ?? 54.h,
       child: TextButton(
         style: ButtonStyle(
           shape: WidgetStateProperty.all<RoundedRectangleBorder>(

@@ -1,6 +1,5 @@
 import 'package:damma_project/core/utils/routing/routes.dart';
 
-import '../../../../core/utils/app_colors.dart';
 import '../widgets/on_boarding_view_body.dart';
 import 'package:flutter/material.dart';
 
