@@ -4,6 +4,7 @@ import 'package:damma_project/core/utils/widgets/app_text_button.dart';
 import 'package:damma_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingViewBody extends StatelessWidget {
   const OnBoardingViewBody({
@@ -11,70 +12,67 @@ class OnBoardingViewBody extends StatelessWidget {
     required this.pages,
     required this.currentPage,
     required this.onNext,
+    required this.pageController,
   });
 
   final List pages;
   final int currentPage;
   final VoidCallback onNext;
+  final PageController pageController;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(
-          width: double.infinity,
-          height: MediaQuery.of(context).size.height * 0.5,
-          child: Image.asset(
-            pages[currentPage]["image"],
-            fit: BoxFit.cover,
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(top: 68.0.h, right: 18.w, left: 18.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('اهلا بك في ضمة', style: AppStyles.styleBold36),
-              Text('تطبيق تواصل اجتماعي عربي', style: AppStyles.styleLight24),
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 49.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(
-              pages.length,
-              (index) => _buildDot(index),
+    return SizedBox.expand(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height * 0.55,
+            child: Image.asset(
+              pages[currentPage]["image"],
+              fit: BoxFit.cover,
             ),
           ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(
-              top: 68.0.h, bottom: 45.h, right: 15.w, left: 15.w),
-          child: AppTextButton(
-            buttonText: S.of(context).next,
-            textStyle:
-                AppStyles.styleMedium16.copyWith(fontWeight: FontWeight.w500),
-            onPressed: onNext,
+          Padding(
+            padding: EdgeInsets.only(top: 25.h, right: 18.w, left: 18.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(S.of(context).welcomInDamma, style: AppStyles.styleBold36),
+                Text(S.of(context).socialMediaApp,
+                    style: AppStyles.styleLight24),
+              ],
+            ),
           ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildDot(int index) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 300),
-      margin: const EdgeInsets.symmetric(horizontal: 5),
-      height: 8,
-      width: currentPage == index ? 30 : 8,
-      decoration: BoxDecoration(
-        color: currentPage == index
-            ? AppColors.primaryColor
-            : AppColors.inActiveDotsColor,
-        borderRadius: BorderRadius.circular(8),
+          // SmoothPageIndicator before the button
+          Padding(
+            padding: EdgeInsets.only(top: 40.h),
+            child: Center(
+              child: SmoothPageIndicator(
+                controller: pageController,
+                count: pages.length,
+                effect: const ExpandingDotsEffect(
+                  dotHeight: 8,
+                  dotWidth: 8,
+                  activeDotColor:
+                      AppColors.primaryColor, // Change to match your theme
+                  dotColor: Colors.grey,
+                ),
+              ),
+            ),
+          ),
+          const Spacer(), // Pushes the button to the bottom
+          Padding(
+            padding: EdgeInsets.only(bottom: 30.h, left: 15.w, right: 15.w),
+            child: AppTextButton(
+              buttonText: S.of(context).next,
+              textStyle:
+                  AppStyles.styleMedium16.copyWith(fontWeight: FontWeight.w500),
+              onPressed: onNext,
+            ),
+          ),
+        ],
       ),
     );
   }

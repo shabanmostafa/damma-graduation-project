@@ -1,5 +1,3 @@
-import 'package:damma_project/features/friend_requests/presentation/widgets/friend_requests_appbar.dart';
-import 'package:damma_project/features/friend_requests/presentation/widgets/friend_requests_list_view.dart';
 import 'package:flutter/material.dart';
 
 class FriendRequestViewBody extends StatelessWidget {
@@ -50,13 +48,14 @@ class FriendRequestViewBody extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        FriendRequestsAppbar(
-          numberOfRequests: friendRequests.length,
-        ),
-        FriendRequestsListView(friendRequests: friendRequests),
-      ],
-    );
+    return const Center(child: Text("FriendRequestViewBody"));
+    // Column(
+    //   children: [
+    //     FriendRequestsAppbar(
+    //       numberOfRequests: friendRequests.length,
+    //     ),
+    //     FriendRequestsListView(friendRequests: friendRequests),
+    //   ],
+    // );
   }
 }
