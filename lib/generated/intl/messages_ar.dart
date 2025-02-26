@@ -55,6 +55,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterCorrectPhone":
             MessageLookupByLibrary.simpleMessage("يرجى إدخال رقم هاتف صالح"),
         "seconedName": MessageLookupByLibrary.simpleMessage("الاسم الاخير"),
+        "socialMediaApp":
+            MessageLookupByLibrary.simpleMessage("تطبيق تواصل اجتماعي عربي"),
+        "welcomInDamma":
+            MessageLookupByLibrary.simpleMessage("اهلا بك في ضمّة"),
         "whatIsYourBirthOfDate":
             MessageLookupByLibrary.simpleMessage("ادخل تاريخ ميلادك"),
         "whatIsYourEmail":

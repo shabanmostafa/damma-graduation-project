@@ -1,9 +1,9 @@
-import 'package:damma_project/features/friend_requests/presentation/views/friend_requests_view.dart';
 import 'core/utils/routing/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'features/onBoarding/presentation/views/on_boarding_view.dart';
 import 'generated/l10n.dart';
 
 class Damma extends StatelessWidget {
@@ -24,7 +24,7 @@ class Damma extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
-        home: const FriendRequestsView(),
+        home: const OnBoardingView(),
         theme: ThemeData(
             //textTheme: GoogleFonts.gess
             ),

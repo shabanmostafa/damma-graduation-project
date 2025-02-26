@@ -54,6 +54,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterCorrectPhone":
             MessageLookupByLibrary.simpleMessage("Please enter correct phone"),
         "seconedName": MessageLookupByLibrary.simpleMessage("seconed name"),
+        "socialMediaApp":
+            MessageLookupByLibrary.simpleMessage("Social Media App"),
+        "welcomInDamma":
+            MessageLookupByLibrary.simpleMessage("Welcom in Damma"),
         "whatIsYourBirthOfDate":
             MessageLookupByLibrary.simpleMessage("What Is Your Birth Of Date"),
         "whatIsYourEmail":
