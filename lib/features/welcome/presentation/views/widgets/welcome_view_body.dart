@@ -11,11 +11,11 @@ class WelcomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
+        SizedBox(
           height: double.infinity,
           width: double.infinity,
           child: Image.asset(
-            Assets.welcomeImg,
+            Assets.svgsWelcome,
             fit: BoxFit.cover,
           ),
         ),
@@ -24,7 +24,7 @@ class WelcomeViewBody extends StatelessWidget {
             top: 162.h,
             left: 85.w,
             right: 85.w,
-            child: Image.asset(Assets.appLogo),
+            child: Image.asset(Assets.svgsLogoWithoutWord),
           ),
         ),
         const WelcomeTextSection(),

@@ -319,6 +319,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Welcom in Damma`
+  String get welcomInDamma {
+    return Intl.message(
+      'Welcom in Damma',
+      name: 'welcomInDamma',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Social Media App`
+  String get socialMediaApp {
+    return Intl.message(
+      'Social Media App',
+      name: 'socialMediaApp',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

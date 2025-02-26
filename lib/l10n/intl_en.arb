@@ -25,5 +25,7 @@
     "PasswordConfirmatiomFieldRequired": "PasswordConfirmatiomFieldRequired",
     "passwordNotTheSame": "passwordNotTheSame",
     "createPassword": "createPassword",
-    "passwordConfirmation": "passwordConfirmation"
+    "passwordConfirmation": "passwordConfirmation",
+    "welcomInDamma": "Welcom in Damma",
+    "socialMediaApp": "Social Media App"
 }

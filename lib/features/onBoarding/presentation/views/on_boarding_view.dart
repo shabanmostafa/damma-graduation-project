@@ -1,7 +1,7 @@
 import 'package:damma_project/core/utils/routing/routes.dart';
+import 'package:flutter/material.dart';
 
 import '../widgets/on_boarding_view_body.dart';
-import 'package:flutter/material.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
@@ -11,7 +11,7 @@ class OnBoardingView extends StatefulWidget {
 }
 
 class _OnBoardingViewState extends State<OnBoardingView> {
-  final PageController _pageController = PageController();
+  final PageController pageController = PageController();
   int _currentPage = 0;
 
   final List<Map<String, String>> onboardingData = [
@@ -22,7 +22,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
   void _goToNextPage() {
     if (_currentPage < onboardingData.length - 1) {
-      _pageController.nextPage(
+      pageController.nextPage(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
@@ -33,28 +33,31 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: PageView.builder(
-              controller: _pageController,
-              onPageChanged: (index) {
-                setState(() {
-                  _currentPage = index;
-                });
-              },
-              itemCount: onboardingData.length,
-              itemBuilder: (context, index) {
-                return OnBoardingViewBody(
-                  pages: onboardingData,
-                  currentPage: _currentPage,
-                  onNext: _goToNextPage,
-                );
-              },
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            Expanded(
+              child: PageView.builder(
+                controller: pageController,
+                onPageChanged: (index) {
+                  setState(() {
+                    _currentPage = index;
+                  });
+                },
+                itemCount: onboardingData.length,
+                itemBuilder: (context, index) {
+                  return OnBoardingViewBody(
+                    pages: onboardingData,
+                    currentPage: index,
+                    onNext: _goToNextPage,
+                    pageController: pageController, // Pass controller here
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

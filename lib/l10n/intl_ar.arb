@@ -25,5 +25,7 @@
     "PasswordConfirmatiomFieldRequired": "تأكيد كلمة المرور مطلوب",
     "passwordNotTheSame": "كلمة المرور غير متطابقة",
     "createPassword": "ادخل كلمة المرور",
-    "passwordConfirmation": "تأكيد كلمة المرور"
+    "passwordConfirmation": "تأكيد كلمة المرور",
+    "welcomInDamma": "اهلا بك في ضمّة",
+    "socialMediaApp": "تطبيق تواصل اجتماعي عربي"
 }
