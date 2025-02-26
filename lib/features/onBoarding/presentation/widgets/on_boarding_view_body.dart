@@ -64,7 +64,7 @@ class OnBoardingViewBody extends StatelessWidget {
           ),
           const Spacer(), // Pushes the button to the bottom
           Padding(
-            padding: EdgeInsets.only(bottom: 30.h, left: 15.w, right: 15.w),
+            padding: EdgeInsets.only(bottom: 31.h, left: 15.w, right: 15.w),
             child: AppTextButton(
               buttonText: S.of(context).next,
               textStyle:
