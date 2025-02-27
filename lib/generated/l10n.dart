@@ -359,6 +359,16 @@ class S {
       args: [],
     );
   }
+
+  /// `What Do You Think?`
+  String get whatDoYouThink {
+    return Intl.message(
+      'What Do You Think?',
+      name: 'whatDoYouThink',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

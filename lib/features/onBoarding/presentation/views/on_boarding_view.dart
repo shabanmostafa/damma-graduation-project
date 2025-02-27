@@ -33,9 +33,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Column(
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
           children: [
             Expanded(
               child: PageView.builder(

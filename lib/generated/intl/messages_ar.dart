@@ -62,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تطبيق تواصل اجتماعي عربي"),
         "welcomInDamma":
             MessageLookupByLibrary.simpleMessage("اهلا بك في ضمّة"),
+        "whatDoYouThink": MessageLookupByLibrary.simpleMessage("ماذا تفكر؟"),
         "whatIsYourBirthOfDate":
             MessageLookupByLibrary.simpleMessage("ادخل تاريخ ميلادك"),
         "whatIsYourEmail":

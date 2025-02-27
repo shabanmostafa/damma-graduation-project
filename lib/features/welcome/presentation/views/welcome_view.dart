@@ -1,4 +1,4 @@
-import 'package:damma_project/features/welcome/presentation/views/widgets/welcome_view_body.dart';
+import 'package:damma_project/features/welcome/presentation/widgets/welcome_view_body.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeView extends StatelessWidget {
@@ -6,10 +6,8 @@ class WelcomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
-      child: Scaffold(
-        body: WelcomeViewBody(),
-      ),
+    return const Scaffold(
+      body: SafeArea(child: WelcomeViewBody()),
     );
   }
 }

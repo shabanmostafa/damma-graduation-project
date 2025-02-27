@@ -61,6 +61,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Social Media App"),
         "welcomInDamma":
             MessageLookupByLibrary.simpleMessage("Welcom in Damma"),
+        "whatDoYouThink":
+            MessageLookupByLibrary.simpleMessage("What Do You Think?"),
         "whatIsYourBirthOfDate":
             MessageLookupByLibrary.simpleMessage("What Is Your Birth Of Date"),
         "whatIsYourEmail":

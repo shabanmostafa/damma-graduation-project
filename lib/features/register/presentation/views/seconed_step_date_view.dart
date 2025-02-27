@@ -10,7 +10,7 @@ class SeconedStepDateView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: AppColors.whiteColor,
-      body: SeconedStepDateViewBody(),
+      body: SafeArea(child: SeconedStepDateViewBody()),
     );
   }
 }

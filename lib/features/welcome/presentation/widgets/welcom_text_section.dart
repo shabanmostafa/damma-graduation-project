@@ -3,7 +3,7 @@ import 'package:damma_project/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../generated/l10n.dart';
+import '../../../../generated/l10n.dart';
 
 class WelcomeTextSection extends StatelessWidget {
   const WelcomeTextSection({

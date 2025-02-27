@@ -1,12 +1,12 @@
 import 'package:damma_project/core/utils/app_colors.dart';
 import 'package:damma_project/core/utils/app_styles.dart';
 import 'package:damma_project/core/utils/widgets/app_text_button.dart';
-import 'package:damma_project/features/welcome/presentation/views/widgets/welcom_text_section.dart';
+import 'package:damma_project/features/welcome/presentation/widgets/welcom_text_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/utils/routing/routes.dart';
-import '../../../../../generated/l10n.dart';
+import '../../../../core/utils/routing/routes.dart';
+import '../../../../generated/l10n.dart';
 
 class WelcomeViewBody extends StatelessWidget {
   const WelcomeViewBody({super.key});

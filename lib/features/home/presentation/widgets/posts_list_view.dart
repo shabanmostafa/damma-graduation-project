@@ -1,52 +1,52 @@
-import 'package:damma_project/features/home/presentation/widgets/post_card_view.dart';
-import 'package:damma_project/features/home/presentation/widgets/what_thinking_section.dart';
+import 'package:damma_project/features/home/presentation/widgets/post_section.dart';
 import 'package:flutter/material.dart';
+import '../../../../core/utils/spacing.dart';
+import '../../models/post_model.dart';
 
 class PostsListView extends StatelessWidget {
   const PostsListView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: const [
-        WhatThinkingSection(), // ✅ إضافة قسم كتابة المنشور
-        PostCard(
-          username: "شعبان مصطفي",
-          userImage: "assets/1.jpg",
-          postImage: "assets/images/1.jpg",
-          description: "أيٌظلم لي ليلُ و انتِ قمري",
-          likes: 32,
-          comments: 77,
-          shares: 9,
+    // Sample list of posts
+    List<PostModel> posts = [
+      PostModel(
+        postOwnerPic: 'assets/images/shaban.jpg',
+        postOwnerName: 'Shabaan Mostafa',
+        postOwnerfriends: '5,432 متابع',
+        postImage: 'assets/images/shaban.jpg',
+        postContent:
+            'من يسكن البحر ويحبه الناس لونه اصفر مربع حساس ، دي مش عجبااااك اتفراااااج',
+        numberOfLikes: '0',
+        numberOfComments: '345',
+        numberOfShares: '120',
+        userProfilePic: 'assets/images/shaban.jpg',
+      ),
+      PostModel(
+        postOwnerPic: 'assets/images/shaban.jpg',
+        postOwnerName: 'شعبان مصطفي',
+        postOwnerfriends: '5,432 متابع',
+        postImage: 'assets/images/shaban.jpg',
+        postContent:
+            'من يسكن البحر ويحبه الناس لونه اصفر مربع حساس ، دي مش عجبااااك اتفراااااج',
+        numberOfLikes: '12',
+        numberOfComments: '345',
+        numberOfShares: '120',
+        userProfilePic: 'assets/images/shaban.jpg',
+      ),
+    ];
+
+    return Column(
+      children: List.generate(
+        posts.length,
+        (index) => Column(
+          children: [
+            PostSection(postModel: posts[index]),
+            const Divider(),
+            verticalSpace(10),
+          ],
         ),
-        PostCard(
-          username: "سيف الدين حاتم",
-          userImage: "assets/images/1.jpg",
-          postImage: null, // بوست بدون صورة
-          description: "زي اخويا شعبان م بيقول أيٌظلم لي ليلُ و انتِ قمري",
-          likes: 50,
-          comments: 20,
-          shares: 8,
-        ),
-        PostCard(
-          username: "شعبان مصطفي",
-          userImage: "assets/images/1.jpg",
-          postImage: "assets/4.jpg",
-          description: "أيٌظلم لي ليلُ و انتِ قمري",
-          likes: 32,
-          comments: 77,
-          shares: 9,
-        ),
-        PostCard(
-          username: "سيف الدين حاتم",
-          userImage: "assets/images/1.jpg",
-          postImage: null, // بوست بدون صورة
-          description: "زي اخويا شعبان م بيقول أيٌظلم لي ليلُ و انتِ قمري",
-          likes: 50,
-          comments: 20,
-          shares: 8,
-        ),
-      ],
+      ),
     );
   }
 }

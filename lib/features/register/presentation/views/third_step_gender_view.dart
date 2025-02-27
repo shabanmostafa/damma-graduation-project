@@ -10,7 +10,7 @@ class ThirdStepGenderView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: AppColors.whiteColor,
-      body: ThirdStepGenderViewBody(),
+      body: SafeArea(child: ThirdStepGenderViewBody()),
     );
   }
 }

@@ -1,12 +1,15 @@
 import 'package:damma_project/features/home/presentation/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/utils/app_colors.dart';
+
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.whiteColor,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 2,
         selectedItemColor: Colors.black,
@@ -20,7 +23,9 @@ class HomeView extends StatelessWidget {
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "بروفايلي"),
         ],
       ),
-      body: const HomeViewBody(),
+      body: const SafeArea(
+        child: HomeViewBody(),
+      ),
     );
   }
 }

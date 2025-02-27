@@ -2,6 +2,18 @@
 class Assets {
   Assets._();
   
+  /// Assets for svgsAddImage
+  /// assets/svgs/add_image.svg
+  static const String svgsAddImage = "assets/svgs/add_image.svg";
+
+  /// Assets for svgsArrowsRepeat
+  /// assets/svgs/arrows-repeat.svg
+  static const String svgsArrowsRepeat = "assets/svgs/arrows-repeat.svg";
+
+  /// Assets for svgsBell
+  /// assets/svgs/bell.svg
+  static const String svgsBell = "assets/svgs/bell.svg";
+
   /// Assets for svgsBlackLogo
   /// assets/svgs/black_logo.svg
   static const String svgsBlackLogo = "assets/svgs/black_logo.svg";
@@ -10,6 +22,10 @@ class Assets {
   /// assets/svgs/calendar_month.svg
   static const String svgsCalendarMonth = "assets/svgs/calendar_month.svg";
 
+  /// Assets for svgsCommen
+  /// assets/svgs/commen.svg
+  static const String svgsCommen = "assets/svgs/commen.svg";
+
   /// Assets for svgsEye
   /// assets/svgs/eye.svg
   static const String svgsEye = "assets/svgs/eye.svg";
@@ -17,6 +33,14 @@ class Assets {
   /// Assets for svgsInvisibleEye
   /// assets/svgs/invisibleEye.svg
   static const String svgsInvisibleEye = "assets/svgs/invisibleEye.svg";
+
+  /// Assets for svgsLike
+  /// assets/svgs/like.svg
+  static const String svgsLike = "assets/svgs/like.svg";
+
+  /// Assets for svgsLikeOutlined
+  /// assets/svgs/like_outlined.svg
+  static const String svgsLikeOutlined = "assets/svgs/like_outlined.svg";
 
   /// Assets for svgsLock
   /// assets/svgs/lock.svg
@@ -33,6 +57,42 @@ class Assets {
   /// Assets for svgsMobile
   /// assets/svgs/mobile.svg
   static const String svgsMobile = "assets/svgs/mobile.svg";
+
+  /// Assets for svgsNavigationAddFriendSelected
+  /// assets/svgs/navigation_add_friend_selected.svg
+  static const String svgsNavigationAddFriendSelected = "assets/svgs/navigation_add_friend_selected.svg";
+
+  /// Assets for svgsNavigationAddFriendUnselected
+  /// assets/svgs/navigation_add_friend_unselected.svg
+  static const String svgsNavigationAddFriendUnselected = "assets/svgs/navigation_add_friend_unselected.svg";
+
+  /// Assets for svgsNavigationHomeSelected
+  /// assets/svgs/navigation_home_selected.svg
+  static const String svgsNavigationHomeSelected = "assets/svgs/navigation_home_selected.svg";
+
+  /// Assets for svgsNavigationHomeUnselected
+  /// assets/svgs/navigation_home_unselected.svg
+  static const String svgsNavigationHomeUnselected = "assets/svgs/navigation_home_unselected.svg";
+
+  /// Assets for svgsNavigationProfileSelected
+  /// assets/svgs/navigation_profile_selected.svg
+  static const String svgsNavigationProfileSelected = "assets/svgs/navigation_profile_selected.svg";
+
+  /// Assets for svgsNavigationProfileUnselected
+  /// assets/svgs/navigation_profile_unselected.svg
+  static const String svgsNavigationProfileUnselected = "assets/svgs/navigation_profile_unselected.svg";
+
+  /// Assets for svgsNavigationSearchSelected
+  /// assets/svgs/navigation_search_selected.svg
+  static const String svgsNavigationSearchSelected = "assets/svgs/navigation_search_selected.svg";
+
+  /// Assets for svgsNavigationSerachUnselected
+  /// assets/svgs/navigation_serach_unselected.svg
+  static const String svgsNavigationSerachUnselected = "assets/svgs/navigation_serach_unselected.svg";
+
+  /// Assets for svgsShare
+  /// assets/svgs/share.svg
+  static const String svgsShare = "assets/svgs/share.svg";
 
   /// Assets for svgsUser
   /// assets/svgs/user.svg

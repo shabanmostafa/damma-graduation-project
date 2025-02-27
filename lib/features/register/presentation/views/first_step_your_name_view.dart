@@ -10,7 +10,7 @@ class FirstStepYourNameView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: AppColors.whiteColor,
-      body: FirstSterpYourNameViewBody(),
+      body: SafeArea(child: FirstSterpYourNameViewBody()),
     );
   }
 }

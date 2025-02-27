@@ -5,7 +5,7 @@ import 'package:damma_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/utils/widgets/app_text_button.dart';
+import '../../../../core/utils/widgets/app_text_button.dart';
 
 class ButtonsSection extends StatelessWidget {
   const ButtonsSection({
