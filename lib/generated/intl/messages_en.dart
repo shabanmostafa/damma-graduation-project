@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "PasswordConfirmatiomFieldRequired"),
         "createAccount": MessageLookupByLibrary.simpleMessage("Create Account"),
+        "createAccountToKnowInfo":
+            MessageLookupByLibrary.simpleMessage("Create Account To Know Info"),
         "createPassword":
             MessageLookupByLibrary.simpleMessage("createPassword"),
         "email": MessageLookupByLibrary.simpleMessage("email"),
@@ -37,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "forgetPasswoerd":
             MessageLookupByLibrary.simpleMessage("Forget Password?"),
         "homeView": MessageLookupByLibrary.simpleMessage("home View"),
+        "letsStart": MessageLookupByLibrary.simpleMessage("Lets Start !"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "loginLoading": MessageLookupByLibrary.simpleMessage("Login Loading"),
         "male": MessageLookupByLibrary.simpleMessage("male"),

@@ -1,8 +1,12 @@
-import 'package:damma_project/core/utils/assets.dart';
-import 'package:damma_project/features/welcome/presentation/views/widgets/buttons_section.dart';
+import 'package:damma_project/core/utils/app_colors.dart';
+import 'package:damma_project/core/utils/app_styles.dart';
+import 'package:damma_project/core/utils/widgets/app_text_button.dart';
 import 'package:damma_project/features/welcome/presentation/views/widgets/welcom_text_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../../core/utils/routing/routes.dart';
+import '../../../../../generated/l10n.dart';
 
 class WelcomeViewBody extends StatelessWidget {
   const WelcomeViewBody({super.key});
@@ -11,24 +15,49 @@ class WelcomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        SizedBox(
-          height: double.infinity,
-          width: double.infinity,
+        Positioned.fill(
           child: Image.asset(
-            Assets.svgsWelcome,
+            'assets/images/welcome_background.png',
             fit: BoxFit.cover,
           ),
         ),
-        Expanded(
-          child: Positioned(
-            top: 162.h,
-            left: 85.w,
-            right: 85.w,
-            child: Image.asset(Assets.svgsLogoWithoutWord),
+        const WelcomeTextSection(),
+        Positioned(
+          bottom: 115.h,
+          left: 0,
+          right: 0,
+          child: Center(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15.0.w),
+              child: AppTextButton(
+                buttonText: S.of(context).login,
+                textStyle: AppStyles.styleMedium16,
+                onPressed: () {
+                  Navigator.pushNamed(context, Routes.loginView);
+                },
+              ),
+            ),
           ),
         ),
-        const WelcomeTextSection(),
-        const ButtonsSection(),
+        Positioned(
+          bottom: 41.h,
+          left: 0,
+          right: 0,
+          child: Center(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15.0.w),
+              child: AppTextButton(
+                backgroundColor: AppColors.whiteColor,
+                buttonText: S.of(context).createAccount,
+                textStyle: AppStyles.styleMedium16
+                    .copyWith(color: AppColors.blackTextColor),
+                onPressed: () {
+                  Navigator.pushNamed(context, Routes.firstStepYourNameView);
+                },
+              ),
+            ),
+          ),
+        ),
       ],
     );
   }

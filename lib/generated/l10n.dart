@@ -339,6 +339,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Lets Start !`
+  String get letsStart {
+    return Intl.message(
+      'Lets Start !',
+      name: 'letsStart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create Account To Know Info`
+  String get createAccountToKnowInfo {
+    return Intl.message(
+      'Create Account To Know Info',
+      name: 'createAccountToKnowInfo',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -27,5 +27,7 @@
     "createPassword": "createPassword",
     "passwordConfirmation": "passwordConfirmation",
     "welcomInDamma": "Welcom in Damma",
-    "socialMediaApp": "Social Media App"
+    "socialMediaApp": "Social Media App",
+    "letsStart": "Lets Start !",
+    "createAccountToKnowInfo": "Create Account To Know Info"
 }

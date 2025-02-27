@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "PasswordConfirmatiomFieldRequired":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور مطلوب"),
         "createAccount": MessageLookupByLibrary.simpleMessage("انشاء حساب"),
+        "createAccountToKnowInfo": MessageLookupByLibrary.simpleMessage(
+            "انشأ حسابا لتستطيع الاطلاع علي\nاهم اخبار العرب ومعرفه اشخاص\nجدد"),
         "createPassword":
             MessageLookupByLibrary.simpleMessage("ادخل كلمة المرور"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
@@ -37,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "forgetPasswoerd":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
         "homeView": MessageLookupByLibrary.simpleMessage("الصفحة الرئيسية"),
+        "letsStart": MessageLookupByLibrary.simpleMessage("هيا لنبدأ !"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "loginLoading":
             MessageLookupByLibrary.simpleMessage("جاري تسجيل الدخول"),

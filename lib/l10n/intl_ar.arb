@@ -27,5 +27,7 @@
     "createPassword": "ادخل كلمة المرور",
     "passwordConfirmation": "تأكيد كلمة المرور",
     "welcomInDamma": "اهلا بك في ضمّة",
-    "socialMediaApp": "تطبيق تواصل اجتماعي عربي"
+    "socialMediaApp": "تطبيق تواصل اجتماعي عربي",
+    "letsStart": "هيا لنبدأ !",
+    "createAccountToKnowInfo": "انشأ حسابا لتستطيع الاطلاع علي\nاهم اخبار العرب ومعرفه اشخاص\nجدد"
 }
