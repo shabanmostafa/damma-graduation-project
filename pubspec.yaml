@@ -39,6 +39,7 @@ dependencies:
   flutter_svg: ^2.0.17
   flutter_svg_provider: ^1.0.7
   google_fonts: ^6.2.1
+  modal_bottom_sheet: ^3.0.0
   smooth_page_indicator: ^1.2.1
 
 dev_dependencies:
