@@ -25,12 +25,25 @@ class PostSection extends StatefulWidget {
 class _PostSectionState extends State<PostSection> {
   late int likeCount;
   late bool isLiked;
+  late int commentCount;
+  List<String> comments = [];
 
   @override
   void initState() {
     super.initState();
     likeCount = convertLikesToInt(widget.postModel.numberOfLikes);
+    commentCount = int.parse(widget.postModel.numberOfComments);
+    comments = List.from(widget.postModel.comments);
     isLiked = false;
+  }
+
+  void addComment(String comment) {
+    if (comment.trim().isNotEmpty) {
+      setState(() {
+        comments.add(comment);
+        commentCount++; // Ensure this is updated
+      });
+    }
   }
 
   void updateLikeCount() {
@@ -47,11 +60,14 @@ class _PostSectionState extends State<PostSection> {
   void showCommentSheet(BuildContext context) {
     showCupertinoModalBottomSheet(
       context: context,
-      isDismissible: true, // Allow dragging down to close
-      expand: false, // Prevents it from covering the whole screen
+      isDismissible: true,
+      expand: false,
       backgroundColor: Colors.white,
-      topRadius: Radius.circular(20.r), // Rounded top corners
-      builder: (context) => const CommentSectionView(),
+      topRadius: Radius.circular(20.r),
+      builder: (context) => CommentSectionView(
+        comments: comments,
+        onCommentAdded: addComment,
+      ),
     );
   }
 
@@ -128,7 +144,7 @@ class _PostSectionState extends State<PostSection> {
               ),
               const Spacer(),
               Text(
-                '${widget.postModel.numberOfComments} تعليق',
+                '$commentCount تعليق', // Use updated count instead of widget.postModel.numberOfComments
                 style: AppStyles.styleMedium12,
               ),
               horizontalSpace(10),
@@ -141,9 +157,11 @@ class _PostSectionState extends State<PostSection> {
           const Divider(),
           verticalSpace(8),
           PostActions(
-              onLikePressed: updateLikeCount,
-              isLiked: isLiked,
-              onCommentPressed: () => showCommentSheet(context)),
+            onLikePressed: updateLikeCount,
+            isLiked: isLiked,
+            onCommentPressed: () => showCommentSheet(context),
+            commentCount: commentCount, // Pass commentCount here
+          ),
           verticalSpace(10),
           Row(
             children: [

@@ -8,6 +8,7 @@ class PostModel {
   final String numberOfComments;
   final String numberOfShares;
   final String userProfilePic;
+  List<String> comments;
 
   PostModel({
     required this.postOwnerPic,
@@ -19,5 +20,6 @@ class PostModel {
     required this.numberOfComments,
     required this.numberOfShares,
     required this.userProfilePic,
+    this.comments = const [],
   });
 }

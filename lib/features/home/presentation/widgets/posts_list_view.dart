@@ -18,7 +18,7 @@ class PostsListView extends StatelessWidget {
         postContent:
             'من يسكن البحر ويحبه الناس لونه اصفر مربع حساس ، دي مش عجبااااك اتفراااااج',
         numberOfLikes: '0',
-        numberOfComments: '345',
+        numberOfComments: '0',
         numberOfShares: '120',
         userProfilePic: 'assets/images/shaban.jpg',
       ),
@@ -30,7 +30,7 @@ class PostsListView extends StatelessWidget {
         postContent:
             'من يسكن البحر ويحبه الناس لونه اصفر مربع حساس ، دي مش عجبااااك اتفراااااج',
         numberOfLikes: '12',
-        numberOfComments: '345',
+        numberOfComments: '0',
         numberOfShares: '120',
         userProfilePic: 'assets/images/shaban.jpg',
       ),

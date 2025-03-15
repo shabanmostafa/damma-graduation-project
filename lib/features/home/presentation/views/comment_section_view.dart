@@ -3,13 +3,23 @@ import 'package:damma_project/features/home/presentation/widgets/comment_section
 import 'package:flutter/material.dart';
 
 class CommentSectionView extends StatelessWidget {
-  const CommentSectionView({super.key});
+  final List<String> comments;
+  final Function(String) onCommentAdded;
+
+  const CommentSectionView({
+    super.key,
+    required this.comments,
+    required this.onCommentAdded,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: AppColors.whiteColor,
-      body: CommentSection(),
+      body: CommentSection(
+        comments: comments,
+        onCommentAdded: onCommentAdded,
+      ),
     );
   }
 }
