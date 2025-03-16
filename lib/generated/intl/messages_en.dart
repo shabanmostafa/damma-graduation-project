@@ -72,6 +72,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "whatIsYourPhone":
             MessageLookupByLibrary.simpleMessage("What is your Phone?"),
         "whatIsYourType":
-            MessageLookupByLibrary.simpleMessage("what Is Your Type")
+            MessageLookupByLibrary.simpleMessage("what Is Your Type"),
+        "post": MessageLookupByLibrary.simpleMessage("post"),
+        "whatWillYouTalkAbout":
+            MessageLookupByLibrary.simpleMessage("What Will You Talk About ?"),
+        "whoCanSeeThisPost":
+            MessageLookupByLibrary.simpleMessage("Who can see this post?"),
+        "anyOne": MessageLookupByLibrary.simpleMessage("any one"),
+        "noOne": MessageLookupByLibrary.simpleMessage("no one"),
+        "onlyfriends": MessageLookupByLibrary.simpleMessage("only friends"),
+        "whocancomment":
+            MessageLookupByLibrary.simpleMessage("Who can comment"),
       };
 }

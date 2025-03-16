@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_single_quotes
 class Assets {
   Assets._();
-  
+
   /// Assets for svgsAddImage
   /// assets/svgs/add_image.svg
   static const String svgsAddImage = "assets/svgs/add_image.svg";
@@ -60,35 +60,43 @@ class Assets {
 
   /// Assets for svgsNavigationAddFriendSelected
   /// assets/svgs/navigation_add_friend_selected.svg
-  static const String svgsNavigationAddFriendSelected = "assets/svgs/navigation_add_friend_selected.svg";
+  static const String svgsNavigationAddFriendSelected =
+      "assets/svgs/navigation_add_friend_selected.svg";
 
   /// Assets for svgsNavigationAddFriendUnselected
   /// assets/svgs/navigation_add_friend_unselected.svg
-  static const String svgsNavigationAddFriendUnselected = "assets/svgs/navigation_add_friend_unselected.svg";
+  static const String svgsNavigationAddFriendUnselected =
+      "assets/svgs/navigation_add_friend_unselected.svg";
 
   /// Assets for svgsNavigationHomeSelected
   /// assets/svgs/navigation_home_selected.svg
-  static const String svgsNavigationHomeSelected = "assets/svgs/navigation_home_selected.svg";
+  static const String svgsNavigationHomeSelected =
+      "assets/svgs/navigation_home_selected.svg";
 
   /// Assets for svgsNavigationHomeUnselected
   /// assets/svgs/navigation_home_unselected.svg
-  static const String svgsNavigationHomeUnselected = "assets/svgs/navigation_home_unselected.svg";
+  static const String svgsNavigationHomeUnselected =
+      "assets/svgs/navigation_home_unselected.svg";
 
   /// Assets for svgsNavigationProfileSelected
   /// assets/svgs/navigation_profile_selected.svg
-  static const String svgsNavigationProfileSelected = "assets/svgs/navigation_profile_selected.svg";
+  static const String svgsNavigationProfileSelected =
+      "assets/svgs/navigation_profile_selected.svg";
 
   /// Assets for svgsNavigationProfileUnselected
   /// assets/svgs/navigation_profile_unselected.svg
-  static const String svgsNavigationProfileUnselected = "assets/svgs/navigation_profile_unselected.svg";
+  static const String svgsNavigationProfileUnselected =
+      "assets/svgs/navigation_profile_unselected.svg";
 
   /// Assets for svgsNavigationSearchSelected
   /// assets/svgs/navigation_search_selected.svg
-  static const String svgsNavigationSearchSelected = "assets/svgs/navigation_search_selected.svg";
+  static const String svgsNavigationSearchSelected =
+      "assets/svgs/navigation_search_selected.svg";
 
   /// Assets for svgsNavigationSerachUnselected
   /// assets/svgs/navigation_serach_unselected.svg
-  static const String svgsNavigationSerachUnselected = "assets/svgs/navigation_serach_unselected.svg";
+  static const String svgsNavigationSerachUnselected =
+      "assets/svgs/navigation_serach_unselected.svg";
 
   /// Assets for svgsShare
   /// assets/svgs/share.svg
@@ -101,5 +109,44 @@ class Assets {
   /// Assets for svgsWelcome
   /// assets/svgs/welcome.svg
   static const String svgsWelcome = "assets/svgs/welcome.svg";
-}
 
+  /// Assets for svgEx
+  /// assets/svgs/ex.svg
+  static const String svgEx = "assets/svgs/ex.svg";
+
+  /// Assets for svgclock
+  /// assets/svgs/clock.svg
+  static const String svgClock = "assets/svgs/clock.svg";
+
+  /// Assets for svgclock
+  /// assets/svgs/clock.svg
+  static const String svgGallary = "assets/svgs/gallary.svg";
+
+  /// Assets for svgclock
+  /// assets/svgs/clock.svg
+  static const String svgVedio = "assets/svgs/vedio.svg";
+
+  /// Assets for svgclock
+  /// assets/svgs/clock.svg
+  static const String svgArrowDown = "assets/svgs/arrow_down.svg";
+
+  /// Assets for svgArrowUp
+  /// assets/svgs/arrow_up.svg
+  static const String svgArrowUp = "assets/svgs/arrow_up.svg";
+
+  /// Assets for svgworld
+  /// assets/svgs/world.svg
+  static const String svgworld = "assets/svgs/world.svg";
+
+  /// Assets for svgfriends
+  /// assets/svgs/friends.svg
+  static const String svgfriends = "assets/svgs/friends.svg";
+
+  /// Assets for svgNoComment
+  /// assets/svgs/noComments.svg
+  static const String svgNoComment = "assets/svgs/noComments.svg";
+
+  /// Assets for svgno_one
+  /// assets/svgs/no_one.svg
+  static const String svgNoOne = "assets/svgs/no_one.svg";
+}

@@ -70,6 +70,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "whatIsYourName": MessageLookupByLibrary.simpleMessage("ادخل اسمك"),
         "whatIsYourPhone":
             MessageLookupByLibrary.simpleMessage("ادخل رقم الهاتف"),
-        "whatIsYourType": MessageLookupByLibrary.simpleMessage("ماهو جنسك؟")
+        "whatIsYourType": MessageLookupByLibrary.simpleMessage("ماهو جنسك؟"),
+        "post": MessageLookupByLibrary.simpleMessage("نشر"),
+        "whatWillYouTalkAbout":
+            MessageLookupByLibrary.simpleMessage("عن ماذا تريد أن تتحدث ؟"),
+        "whoCanSeeThisPost":
+            MessageLookupByLibrary.simpleMessage("من يستطيع رؤية المنشور؟"),
+        "anyOne": MessageLookupByLibrary.simpleMessage("أي شخص"),
+        "noOne": MessageLookupByLibrary.simpleMessage("لا أحد"),
+        "onlyfriends": MessageLookupByLibrary.simpleMessage("الأصدقاء فقط"),
+        "whocancomment":
+            MessageLookupByLibrary.simpleMessage("التحكم في التعليقات"),
       };
 }

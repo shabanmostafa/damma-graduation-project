@@ -369,6 +369,71 @@ class S {
       args: [],
     );
   }
+
+  /// `post`
+  String get post {
+    return Intl.message(
+      'post',
+      name: 'post',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `what Will You Talk About`
+  String get whatWillYouTalkAbout {
+    return Intl.message(
+      'What Will You Talk About',
+      name: 'whatWillYouTalkAbout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get whoCanSeeThisPost {
+    return Intl.message(
+      'who Can See This Post',
+      name: 'whoCanSeeThisPost',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get whocancomment {
+    return Intl.message(
+      'who can comment',
+      name: 'whocancomment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get onlyfriends {
+    return Intl.message(
+      'Only Friends',
+      name: 'onlyfriends',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get noOne {
+    return Intl.message(
+      'no One',
+      name: 'noOne',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get anyOne {
+    return Intl.message(
+      'any One',
+      name: 'anyOne',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
