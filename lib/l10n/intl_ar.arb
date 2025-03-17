@@ -30,5 +30,23 @@
     "socialMediaApp": "تطبيق تواصل اجتماعي عربي",
     "letsStart": "هيا لنبدأ !",
     "createAccountToKnowInfo": "انشأ حسابا لتستطيع الاطلاع علي\nاهم اخبار العرب ومعرفه اشخاص\nجدد",
-    "whatDoYouThink": "ماذا تفكر؟"
+    "whatDoYouThink": "ماذا تفكر؟",
+    "post": "نشرِ",
+    "whatWillYouTalkAbout":"عن ماذا تريد أن تتحدث ؟",
+    "anyOne":"أي شخص",
+    "noOne":"لا احد",
+    "onlyFriends":"الأصدقاء فقط",
+    "whocancomment":"التحكم في التعليقات",
+    "whoCanSeeThisPost":"من يستطيع رؤية المنشور؟",
+    "postAccepted":"تم النشر بنجاح",
+    "postRejected":"رفض المنشور",
+    "postSended":"لقد اكتمل تنزيل المنشور",
+    "postUnsended":"لقد تم رفض المنشور الخاص بك",
+    "backToHome":"عودة للصفحة الرئيسية",
+    "retry":"إعادة المحاولة",
+    "exit":"خروج",
+
+
+
+
 }
