@@ -12,7 +12,9 @@ class AppColors {
   static const Color blackTextColor = Color(0xff020100);
   static const Color red400Color = Color(0xffE23341);
   static const Color red500Color = Color(0xffDB0011);
+  static const Color redDarkColor = Color(0xffB80C08);
   static const Color hintTextColor = Color(0xffA1A1A1);
   static const Color inactiveButtonColor = Color(0xff6f7384);
   static const Color inActiveDotsColor = Color(0x41414141);
+  static const Color exitButton = Color(0xffDADBDE);
 }

@@ -434,6 +434,69 @@ class S {
       args: [],
     );
   }
+
+  String get postAccepted {
+    return Intl.message(
+      'post Accepted',
+      name: 'postAccepted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get postRejected {
+    return Intl.message(
+      'post Rejected',
+      name: 'postRejected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get postSended {
+    return Intl.message(
+      'post Sended',
+      name: 'postSended',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get postUnsended {
+    return Intl.message(
+      'post Unsended',
+      name: 'postUnsended',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get exit {
+    return Intl.message(
+      'exit',
+      name: 'exit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get retry {
+    return Intl.message(
+      'retry',
+      name: 'retry',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get backToHome {
+    return Intl.message(
+      'back To Home',
+      name: 'backToHome',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

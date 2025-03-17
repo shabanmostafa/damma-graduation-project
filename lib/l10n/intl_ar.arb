@@ -38,6 +38,15 @@
     "onlyFriends":"الأصدقاء فقط",
     "whocancomment":"التحكم في التعليقات",
     "whoCanSeeThisPost":"من يستطيع رؤية المنشور؟",
+    "postAccepted":"تم النشر بنجاح",
+    "postRejected":"رفض المنشور",
+    "postSended":"لقد اكتمل تنزيل المنشور",
+    "postUnsended":"لقد تم رفض المنشور الخاص بك",
+    "backToHome":"عودة للصفحة الرئيسية",
+    "retry":"إعادة المحاولة",
+    "exit":"خروج",
+
+
 
 
 }

@@ -47,7 +47,10 @@ class _AddPostViewBodyState extends State<AddPostViewBody> {
               const RightPartOfRow(),
               const PrivacyInfo(),
               const Spacer(),
-              LeftPartOfRow(isButtonActive: isButtonActive),
+              LeftPartOfRow(
+                isButtonActive: isButtonActive,
+                postContent: _textController.text, // تمرير المحتوى
+              ),
             ],
           ),
           const SizedBox(height: 10),

@@ -81,5 +81,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "onlyfriends": MessageLookupByLibrary.simpleMessage("الأصدقاء فقط"),
         "whocancomment":
             MessageLookupByLibrary.simpleMessage("التحكم في التعليقات"),
+        "postAccepted": MessageLookupByLibrary.simpleMessage("تم النشر بنجاح"),
+        "postRejected": MessageLookupByLibrary.simpleMessage(" رفض المنشور"),
+        "postSended":
+            MessageLookupByLibrary.simpleMessage("لقد اكتمل تنزيل المنشور"),
+        "postUnsended":
+            MessageLookupByLibrary.simpleMessage("لقد تم رفض المنشور الخاص بك"),
+        "retry": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
+        "backToHome":
+            MessageLookupByLibrary.simpleMessage("عودة للصفحة الرئيسية"),
+        "exit": MessageLookupByLibrary.simpleMessage("خروج"),
       };
 }

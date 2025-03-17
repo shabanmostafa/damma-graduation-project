@@ -83,5 +83,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "onlyfriends": MessageLookupByLibrary.simpleMessage("only friends"),
         "whocancomment":
             MessageLookupByLibrary.simpleMessage("Who can comment"),
+        "postAccepted": MessageLookupByLibrary.simpleMessage("post Accepted"),
+        "postRejected": MessageLookupByLibrary.simpleMessage("post Rejected"),
+        "postSended": MessageLookupByLibrary.simpleMessage("post Sended"),
+        "postUnsended": MessageLookupByLibrary.simpleMessage("post Unsended"),
+        "retry": MessageLookupByLibrary.simpleMessage("retry"),
+        "backToHome": MessageLookupByLibrary.simpleMessage("back To Home"),
+        "exit": MessageLookupByLibrary.simpleMessage("exit"),
       };
 }

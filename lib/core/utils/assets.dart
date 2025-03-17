@@ -149,4 +149,16 @@ class Assets {
   /// Assets for svgno_one
   /// assets/svgs/no_one.svg
   static const String svgNoOne = "assets/svgs/no_one.svg";
+
+  /// Assets for svgAccept
+  /// assets/svgs/accept.svg
+  static const String svgAccept = "assets/svgs/accept.svg";
+
+  /// Assets for svgReject
+  /// assets/svgs/reject.svg
+  static const String svgReject = "assets/svgs/reject.svg";
+
+  /// Assets for svgZena
+  /// assets/svgs/zena.svg
+  static const String svgZena = "assets/svgs/zena.svg";
 }
