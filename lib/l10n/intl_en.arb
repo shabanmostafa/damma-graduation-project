@@ -27,5 +27,24 @@
     "createPassword": "createPassword",
     "passwordConfirmation": "passwordConfirmation",
     "welcomInDamma": "Welcom in Damma",
-    "socialMediaApp": "Social Media App"
+    "socialMediaApp": "Social Media App",
+    "letsStart": "Lets Start !",
+    "createAccountToKnowInfo": "Create Account To Know Info",
+    "whatDoYouThink": "What Do You Think?",
+    "post": "post",
+    "whatWillYouTalkAbout":"What Will You Talk About ?",
+    "anyOne":"any One",
+    "noOne":"no One",
+    "onlyFriends":"only Friends",
+    "whocancomment":"who can comment ?",
+    "whoCanSeeThisPost":"who Can See This Post ?",
+    "postAccepted":"post Accepted",
+    "postRejected":"post Rejected",
+    "postSended":"post Sended",
+    "postUnsended":"post Unsended",
+    "backToHome":"back To Home",
+    "retry":"retry",
+    "exit":"exit",
+
+
 }

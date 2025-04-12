@@ -9,6 +9,7 @@ class Routes {
   static const String fourthStepPhoneView = "/FourthStepPhoneView";
   static const String fifthStepEmailView = "/FifthStepEmailView";
   static const String sixStepPasswordView = "/SixStepPasswordView";
+  static const String addPostView = "/AddPostView";
 }
 // The provided Dart code snippet defines a class named Routes that contains
 // static constant string variables such as: onBoardingScreen and loginScreen.

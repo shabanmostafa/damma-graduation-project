@@ -1,3 +1,4 @@
+import 'package:damma_project/features/add_post/presentation/views/add_post_view.dart';
 import 'package:damma_project/features/home/presentation/views/home_view.dart';
 import 'package:damma_project/features/login/presentation/views/login_view.dart';
 import 'package:damma_project/features/register/presentation/views/fifth_step_email_view.dart';
@@ -55,6 +56,10 @@ class AppRouter {
       case Routes.homeView:
         return MaterialPageRoute(
           builder: (context) => const HomeView(),
+        );
+      case Routes.addPostView:
+        return MaterialPageRoute(
+          builder: (context) => const AddPostView(),
         );
 
       default:

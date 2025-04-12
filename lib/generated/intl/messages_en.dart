@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "PasswordConfirmatiomFieldRequired"),
         "createAccount": MessageLookupByLibrary.simpleMessage("Create Account"),
+        "createAccountToKnowInfo":
+            MessageLookupByLibrary.simpleMessage("Create Account To Know Info"),
         "createPassword":
             MessageLookupByLibrary.simpleMessage("createPassword"),
         "email": MessageLookupByLibrary.simpleMessage("email"),
@@ -37,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "forgetPasswoerd":
             MessageLookupByLibrary.simpleMessage("Forget Password?"),
         "homeView": MessageLookupByLibrary.simpleMessage("home View"),
+        "letsStart": MessageLookupByLibrary.simpleMessage("Lets Start !"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "loginLoading": MessageLookupByLibrary.simpleMessage("Login Loading"),
         "male": MessageLookupByLibrary.simpleMessage("male"),
@@ -58,6 +61,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Social Media App"),
         "welcomInDamma":
             MessageLookupByLibrary.simpleMessage("Welcom in Damma"),
+        "whatDoYouThink":
+            MessageLookupByLibrary.simpleMessage("What Do You Think?"),
         "whatIsYourBirthOfDate":
             MessageLookupByLibrary.simpleMessage("What Is Your Birth Of Date"),
         "whatIsYourEmail":
@@ -67,6 +72,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "whatIsYourPhone":
             MessageLookupByLibrary.simpleMessage("What is your Phone?"),
         "whatIsYourType":
-            MessageLookupByLibrary.simpleMessage("what Is Your Type")
+            MessageLookupByLibrary.simpleMessage("what Is Your Type"),
+        "post": MessageLookupByLibrary.simpleMessage("post"),
+        "whatWillYouTalkAbout":
+            MessageLookupByLibrary.simpleMessage("What Will You Talk About ?"),
+        "whoCanSeeThisPost":
+            MessageLookupByLibrary.simpleMessage("Who can see this post?"),
+        "anyOne": MessageLookupByLibrary.simpleMessage("any one"),
+        "noOne": MessageLookupByLibrary.simpleMessage("no one"),
+        "onlyfriends": MessageLookupByLibrary.simpleMessage("only friends"),
+        "whocancomment":
+            MessageLookupByLibrary.simpleMessage("Who can comment"),
+        "postAccepted": MessageLookupByLibrary.simpleMessage("post Accepted"),
+        "postRejected": MessageLookupByLibrary.simpleMessage("post Rejected"),
+        "postSended": MessageLookupByLibrary.simpleMessage("post Sended"),
+        "postUnsended": MessageLookupByLibrary.simpleMessage("post Unsended"),
+        "retry": MessageLookupByLibrary.simpleMessage("retry"),
+        "backToHome": MessageLookupByLibrary.simpleMessage("back To Home"),
+        "exit": MessageLookupByLibrary.simpleMessage("exit"),
       };
 }

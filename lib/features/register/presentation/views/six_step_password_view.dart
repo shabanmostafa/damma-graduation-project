@@ -10,7 +10,7 @@ class SixStepPasswordView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: AppColors.whiteColor,
-      body: SixthStepPasswordViewBody(),
+      body: SafeArea(child: SixthStepPasswordViewBody()),
     );
   }
 }

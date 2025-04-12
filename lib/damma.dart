@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'features/onBoarding/presentation/views/on_boarding_view.dart';
+import 'features/home/presentation/views/home_view.dart';
 import 'generated/l10n.dart';
 
 class Damma extends StatelessWidget {
@@ -24,7 +24,8 @@ class Damma extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
-        home: const OnBoardingView(),
+        home: const HomeView(),
+        //OnBoardingView(),
         theme: ThemeData(
             //textTheme: GoogleFonts.gess
             ),

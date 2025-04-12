@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "PasswordConfirmatiomFieldRequired":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور مطلوب"),
         "createAccount": MessageLookupByLibrary.simpleMessage("انشاء حساب"),
+        "createAccountToKnowInfo": MessageLookupByLibrary.simpleMessage(
+            "انشأ حسابا لتستطيع الاطلاع علي\nاهم اخبار العرب ومعرفه اشخاص\nجدد"),
         "createPassword":
             MessageLookupByLibrary.simpleMessage("ادخل كلمة المرور"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
@@ -37,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "forgetPasswoerd":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
         "homeView": MessageLookupByLibrary.simpleMessage("الصفحة الرئيسية"),
+        "letsStart": MessageLookupByLibrary.simpleMessage("هيا لنبدأ !"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "loginLoading":
             MessageLookupByLibrary.simpleMessage("جاري تسجيل الدخول"),
@@ -59,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تطبيق تواصل اجتماعي عربي"),
         "welcomInDamma":
             MessageLookupByLibrary.simpleMessage("اهلا بك في ضمّة"),
+        "whatDoYouThink": MessageLookupByLibrary.simpleMessage("ماذا تفكر؟"),
         "whatIsYourBirthOfDate":
             MessageLookupByLibrary.simpleMessage("ادخل تاريخ ميلادك"),
         "whatIsYourEmail":
@@ -66,6 +70,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "whatIsYourName": MessageLookupByLibrary.simpleMessage("ادخل اسمك"),
         "whatIsYourPhone":
             MessageLookupByLibrary.simpleMessage("ادخل رقم الهاتف"),
-        "whatIsYourType": MessageLookupByLibrary.simpleMessage("ماهو جنسك؟")
+        "whatIsYourType": MessageLookupByLibrary.simpleMessage("ماهو جنسك؟"),
+        "post": MessageLookupByLibrary.simpleMessage("نشر"),
+        "whatWillYouTalkAbout":
+            MessageLookupByLibrary.simpleMessage("عن ماذا تريد أن تتحدث ؟"),
+        "whoCanSeeThisPost":
+            MessageLookupByLibrary.simpleMessage("من يستطيع رؤية المنشور؟"),
+        "anyOne": MessageLookupByLibrary.simpleMessage("أي شخص"),
+        "noOne": MessageLookupByLibrary.simpleMessage("لا أحد"),
+        "onlyfriends": MessageLookupByLibrary.simpleMessage("الأصدقاء فقط"),
+        "whocancomment":
+            MessageLookupByLibrary.simpleMessage("التحكم في التعليقات"),
+        "postAccepted": MessageLookupByLibrary.simpleMessage("تم النشر بنجاح"),
+        "postRejected": MessageLookupByLibrary.simpleMessage(" رفض المنشور"),
+        "postSended":
+            MessageLookupByLibrary.simpleMessage("لقد اكتمل تنزيل المنشور"),
+        "postUnsended":
+            MessageLookupByLibrary.simpleMessage("لقد تم رفض المنشور الخاص بك"),
+        "retry": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
+        "backToHome":
+            MessageLookupByLibrary.simpleMessage("عودة للصفحة الرئيسية"),
+        "exit": MessageLookupByLibrary.simpleMessage("خروج"),
       };
 }

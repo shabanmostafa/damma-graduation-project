@@ -1,5 +1,5 @@
 import 'package:damma_project/features/home/presentation/widgets/custom_circleAvatar.dart';
-import 'package:damma_project/features/welcome/presentation/views/widgets/buttons_section.dart';
+import 'package:damma_project/features/welcome/presentation/widgets/buttons_section.dart';
 import 'package:flutter/material.dart';
 
 class FriendRequestsListView extends StatelessWidget {
