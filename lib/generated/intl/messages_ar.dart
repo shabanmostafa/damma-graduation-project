@@ -91,5 +91,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "backToHome":
             MessageLookupByLibrary.simpleMessage("عودة للصفحة الرئيسية"),
         "exit": MessageLookupByLibrary.simpleMessage("خروج"),
+        "Search": MessageLookupByLibrary.simpleMessage("بحث"),
       };
 }
