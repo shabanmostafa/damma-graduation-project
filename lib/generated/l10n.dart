@@ -497,6 +497,51 @@ class S {
       args: [],
     );
   }
+
+  String get Search {
+    return Intl.message(
+      'Search',
+      name: 'Search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get AddFriend {
+    return Intl.message(
+      'Add Friend',
+      name: 'AddFriend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get Accept {
+    return Intl.message(
+      'Accept',
+      name: 'Accept',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get Reject {
+    return Intl.message(
+      'Reject',
+      name: 'Reject',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get NoResultFounded {
+    return Intl.message(
+      'No Result Founded',
+      name: 'NoResultFounded',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

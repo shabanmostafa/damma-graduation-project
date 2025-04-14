@@ -1,7 +1,8 @@
 import 'package:damma_project/core/utils/assets.dart';
+import 'package:damma_project/features/home/presentation/widgets/home_view_body.dart';
+import 'package:damma_project/features/search/presentation/widgets/search_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:damma_project/features/home/presentation/widgets/home_view_body.dart';
 
 import '../../../../core/utils/app_colors.dart';
 
@@ -13,11 +14,11 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  int _currentIndex = 0;
+  int _currentIndex = 1;
 
   final List<Widget> _screens = [
     const HomeViewBody(),
-    const Center(child: Text("صفحة البحث")),
+    const SearchViewBody(),
     const Center(child: Text("صفحة الأصدقاء")),
     const Center(child: Text("صفحتي")),
   ];
@@ -60,13 +61,13 @@ class _HomeViewState extends State<HomeView> {
                   ? Assets.svgFriendFilledBottomNavigationBar
                   : Assets.svgFriendNavigationBar,
             ),
-            label: "الصداقة",
+            label: " طلبات الصداقة",
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               _currentIndex == 3
                   ? Assets.svgProfileFilledBottomNavigationBar
-                  :Assets.svgProfileBottomNavigationBar,
+                  : Assets.svgProfileBottomNavigationBar,
             ),
             label: "بروفايلي",
           ),

@@ -45,6 +45,14 @@
     "backToHome":"back To Home",
     "retry":"retry",
     "exit":"exit",
+    "Search":"Search",
+    "AddFriend":"Add Friend",
+    "Accept":"Accept",
+    "Reject":"Reject",
+    "NoResultFounded":"No Result Founded",
+  
+
+
 
 
 }
