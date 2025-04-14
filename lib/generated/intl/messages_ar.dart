@@ -97,5 +97,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Reject": MessageLookupByLibrary.simpleMessage("رفض"),
         "NoResultFounded":
             MessageLookupByLibrary.simpleMessage("لا توجد نتائج"),
+        "FriendRequests": MessageLookupByLibrary.simpleMessage("طلبات الصداقة"),
+        "FriendSuggetions":
+            MessageLookupByLibrary.simpleMessage("اشخاص قد تعرفهم"),
       };
 }

@@ -96,5 +96,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "Reject": MessageLookupByLibrary.simpleMessage("Reject"),
         "NoResultFounded":
             MessageLookupByLibrary.simpleMessage("NoResultFounded"),
+        "FriendRequests":
+            MessageLookupByLibrary.simpleMessage("Friend Requests"),
+        "FriendSuggetions":
+            MessageLookupByLibrary.simpleMessage("Friend Suggetions"),
       };
 }
