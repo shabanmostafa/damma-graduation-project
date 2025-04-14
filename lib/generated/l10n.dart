@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+import 'package:damma_project/features/friend_requests/manager/cubit/friend_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'intl/messages_all.dart';
@@ -538,6 +539,24 @@ class S {
     return Intl.message(
       'No Result Founded',
       name: 'NoResultFounded',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get FriendRequests {
+    return Intl.message(
+      'Friend Requests',
+      name: 'FriendRequests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get FriendSuggetions {
+    return Intl.message(
+      'Friend Suggetions',
+      name: 'FriendSuggetions',
       desc: '',
       args: [],
     );

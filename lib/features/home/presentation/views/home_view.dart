@@ -1,4 +1,5 @@
 import 'package:damma_project/core/utils/assets.dart';
+import 'package:damma_project/features/friend_requests/presentation/widgets/friend_view_body.dart';
 import 'package:damma_project/features/home/presentation/widgets/home_view_body.dart';
 import 'package:damma_project/features/search/presentation/widgets/search_view_body.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class _HomeViewState extends State<HomeView> {
   final List<Widget> _screens = [
     const HomeViewBody(),
     const SearchViewBody(),
-    const Center(child: Text("صفحة الأصدقاء")),
+    const FriendViewBody(),
     const Center(child: Text("صفحتي")),
   ];
 

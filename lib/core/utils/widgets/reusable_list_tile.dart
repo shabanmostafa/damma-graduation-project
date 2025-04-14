@@ -2,7 +2,7 @@ import 'package:damma_project/core/utils/app_colors.dart';
 import 'package:damma_project/core/utils/app_styles.dart';
 import 'package:damma_project/core/utils/functions/list_tile_type.dart';
 import 'package:damma_project/core/utils/widgets/app_text_button.dart';
-import 'package:damma_project/features/search/models/user_model.dart';
+import 'package:damma_project/features/search/data/models/user_model.dart';
 import 'package:damma_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

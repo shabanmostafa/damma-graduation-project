@@ -1,4 +1,4 @@
-import 'package:damma_project/features/search/cubit/search_cubit.dart';
+import 'package:damma_project/features/search/manager/cubit/search_cubit.dart';
 import 'package:damma_project/features/search/presentation/views/search_view.dart';
 import 'package:damma_project/features/search/presentation/widgets/search_view_body.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
