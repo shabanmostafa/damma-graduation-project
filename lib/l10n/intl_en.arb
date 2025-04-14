@@ -46,6 +46,9 @@
     "retry":"retry",
     "exit":"exit",
     "Search":"Search",
+    "AddFriend":"AddFriend",
+    "Accept":"Accept",
+    "Reject":"Reject",
 
 
 }

@@ -61,7 +61,7 @@ class _HomeViewState extends State<HomeView> {
                   ? Assets.svgFriendFilledBottomNavigationBar
                   : Assets.svgFriendNavigationBar,
             ),
-            label: "الصداقة",
+            label: " طلبات الصداقة",
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(

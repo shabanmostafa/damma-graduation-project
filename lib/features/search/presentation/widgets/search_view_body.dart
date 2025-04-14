@@ -1,3 +1,4 @@
+import 'package:damma_project/core/utils/functions/list_tile_type.dart';
 import 'package:damma_project/core/utils/widgets/reusable_list_tile.dart';
 import 'package:damma_project/features/search/cubit/search_cubit.dart';
 import 'package:damma_project/features/search/cubit/search_state.dart';
@@ -15,7 +16,7 @@ class SearchViewBody extends StatelessWidget {
     final controller = TextEditingController();
 
     return Padding(
-      padding: EdgeInsets.all(16.0.w),
+      padding: EdgeInsets.symmetric(horizontal: 8.0.w),
       child: Column(
         children: [
           SizedBox(height: 20.h),
@@ -24,18 +25,23 @@ class SearchViewBody extends StatelessWidget {
           Expanded(
             child: BlocBuilder<SearchCubit, SearchState>(
               builder: (context, state) {
-                if (state is SearchLoaded) {
+                if (state is SearchInitial) {
+                  return Center(
+                      child: Text("لا توجد نتائج", style: AppStyles.styleMedium16));
+                } else if (state is SearchError) {
+                  return Center(child: Text(state.message));
+                } else if (state is SearchLoaded) {
                   if (state.results.isEmpty) {
                     return Center(
-                        child: Text("لا توجد نتائج",
-                            style: AppStyles.styleMedium16));
+                        child: Text("لا توجد نتائج", style: AppStyles.styleMedium16));
                   }
                   return ListView.separated(
                     itemCount: state.results.length,
                     separatorBuilder: (_, __) =>
                         Divider(color: Colors.grey.shade300),
                     itemBuilder: (context, index) {
-                      return ReusableListTile(user: state.results[index]);
+                      return ReusableListTile(
+                          user: state.results[index], type: UserItemType.search);
                     },
                   );
                 }
@@ -44,6 +50,7 @@ class SearchViewBody extends StatelessWidget {
                         style: AppStyles.styleMedium16));
               },
             ),
+
           ),
         ],
       ),

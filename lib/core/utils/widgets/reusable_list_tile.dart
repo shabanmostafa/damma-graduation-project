@@ -1,7 +1,11 @@
+import 'package:damma_project/core/utils/app_colors.dart';
 import 'package:damma_project/core/utils/app_styles.dart';
 import 'package:damma_project/core/utils/functions/list_tile_type.dart';
+import 'package:damma_project/core/utils/widgets/app_text_button.dart';
 import 'package:damma_project/features/search/models/user_model.dart';
+import 'package:damma_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ReusableListTile extends StatelessWidget {
   final UserModel user;
@@ -10,36 +14,56 @@ class ReusableListTile extends StatelessWidget {
   const ReusableListTile({
     super.key,
     required this.user,
-    this.type = UserItemType.search,
+    required this.type,
   });
 
   @override
   Widget build(BuildContext context) {
-    Widget trailingButton;
+    Widget? trailingButton;
 
     switch (type) {
       case UserItemType.friendRequest:
         trailingButton = Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            IconButton(
-                onPressed: () {}, icon: Icon(Icons.close, color: Colors.red)),
-            IconButton(
-                onPressed: () {}, icon: Icon(Icons.check, color: Colors.green)),
+            AppTextButton(
+              backgroundColor: AppColors.primaryColor,
+              borderRadius: 10.r,
+              buttonWidth: 66.w,
+              buttonHeight: 40.h,
+              buttonText: S.of(context).Accept,
+              textStyle:
+                  AppStyles.styleMedium14.copyWith(color: AppColors.whiteColor),
+              onPressed: () {},
+            ),
+            SizedBox(width: 8.w),
+            AppTextButton(
+              backgroundColor: AppColors.inactiveButtonColor,
+              borderRadius: 10.r,
+              buttonWidth: 66.w,
+              buttonHeight: 40.h,
+              buttonText: S.of(context).Reject,
+              textStyle: AppStyles.styleMedium14
+                  .copyWith(color: AppColors.hintTextColor),
+              onPressed: () {},
+            ),
           ],
         );
         break;
       case UserItemType.suggestion:
-        trailingButton = ElevatedButton(
+        trailingButton = AppTextButton(
+          backgroundColor: AppColors.primaryColor,
+          borderRadius: 10.r,
+          buttonWidth: 110.w,
+          buttonHeight: 40.h,
+          buttonText: S.of(context).AddFriend,
+          textStyle:
+              AppStyles.styleMedium14.copyWith(color: AppColors.whiteColor),
           onPressed: () {},
-          child: Text("إضافة"),
         );
         break;
       case UserItemType.search:
-        trailingButton = ElevatedButton(
-          onPressed: () {},
-          child: Text("عرض"),
-        );
+        trailingButton = null;
         break;
     }
 
@@ -48,9 +72,9 @@ class ReusableListTile extends StatelessWidget {
         radius: 24,
         backgroundImage: AssetImage(user.imageUrl),
       ),
-      title: Text(user.name, style: AppStyles.styleLight24),
+      title: Text(user.name, style: AppStyles.styleMedium16.copyWith(color: AppColors.blackTextColor)),
       subtitle: Text(user.jobTitle,
-          style: AppStyles.styleMedium14.copyWith(color: Colors.grey)),
+          style: AppStyles.styleMedium12.copyWith(color:AppColors.blackTextColor)),
       trailing: trailingButton,
     );
   }

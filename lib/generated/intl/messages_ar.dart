@@ -92,5 +92,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("عودة للصفحة الرئيسية"),
         "exit": MessageLookupByLibrary.simpleMessage("خروج"),
         "Search": MessageLookupByLibrary.simpleMessage("بحث"),
+        "AddFriend": MessageLookupByLibrary.simpleMessage("اضافة صديق"),
+        "Accept": MessageLookupByLibrary.simpleMessage("قبول"),
+        "Reject": MessageLookupByLibrary.simpleMessage("رفض"),
+
+
+
       };
 }

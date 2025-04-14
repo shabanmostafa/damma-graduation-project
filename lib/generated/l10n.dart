@@ -506,6 +506,37 @@ class S {
       args: [],
     );
   }
+
+  String get AddFriend {
+    return Intl.message(
+      'Add Friend',
+      name: 'AddFriend',
+      desc: '',
+      args: [],
+    );
+  }
+
+
+
+  String get Accept {
+    return Intl.message(
+      'Accept',
+      name: 'Accept',
+      desc: '',
+      args: [],
+    );
+  }
+
+
+  String get Reject {
+    return Intl.message(
+      'Reject',
+      name: 'Reject',
+      desc: '',
+      args: [],
+    );
+  }
+
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
