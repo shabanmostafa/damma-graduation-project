@@ -516,8 +516,6 @@ class S {
     );
   }
 
-
-
   String get Accept {
     return Intl.message(
       'Accept',
@@ -526,7 +524,6 @@ class S {
       args: [],
     );
   }
-
 
   String get Reject {
     return Intl.message(
@@ -537,6 +534,14 @@ class S {
     );
   }
 
+  String get NoResultFounded {
+    return Intl.message(
+      'No Result Founded',
+      name: 'NoResultFounded',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

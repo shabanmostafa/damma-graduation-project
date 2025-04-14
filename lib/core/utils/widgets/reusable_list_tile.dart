@@ -72,9 +72,12 @@ class ReusableListTile extends StatelessWidget {
         radius: 24,
         backgroundImage: AssetImage(user.imageUrl),
       ),
-      title: Text(user.name, style: AppStyles.styleMedium16.copyWith(color: AppColors.blackTextColor)),
+      title: Text(user.name,
+          style: AppStyles.styleMedium16
+              .copyWith(color: AppColors.blackTextColor)),
       subtitle: Text(user.jobTitle,
-          style: AppStyles.styleMedium12.copyWith(color:AppColors.blackTextColor)),
+          style: AppStyles.styleMedium12
+              .copyWith(color: AppColors.blackTextColor)),
       trailing: trailingButton,
     );
   }

@@ -4,14 +4,14 @@ abstract class SearchState {}
 
 class SearchInitial extends SearchState {}
 
-class SearchLoaded extends SearchState {
+class SearchSeccuss extends SearchState {
   final List<UserModel> results;
 
-  SearchLoaded(this.results);
+  SearchSeccuss(this.results);
 }
 
-class SearchError extends SearchState {
+class SearchFaild extends SearchState {
   final String message;
 
-  SearchError(this.message);
+  SearchFaild(this.message);
 }

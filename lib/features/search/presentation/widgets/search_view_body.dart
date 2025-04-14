@@ -1,8 +1,10 @@
+import 'package:damma_project/core/utils/app_colors.dart';
 import 'package:damma_project/core/utils/functions/list_tile_type.dart';
 import 'package:damma_project/core/utils/widgets/reusable_list_tile.dart';
 import 'package:damma_project/features/search/cubit/search_cubit.dart';
 import 'package:damma_project/features/search/cubit/search_state.dart';
 import 'package:damma_project/features/search/presentation/widgets/search_text_field.dart';
+import 'package:damma_project/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,13 +29,19 @@ class SearchViewBody extends StatelessWidget {
               builder: (context, state) {
                 if (state is SearchInitial) {
                   return Center(
-                      child: Text("لا توجد نتائج", style: AppStyles.styleMedium16));
-                } else if (state is SearchError) {
+                      child: Text(S.of(context).letsStart,
+                          style: AppStyles.styleMedium16));
+                } else if (state is SearchFaild) {
                   return Center(child: Text(state.message));
-                } else if (state is SearchLoaded) {
+                } else if (state is SearchSeccuss) {
                   if (state.results.isEmpty) {
                     return Center(
-                        child: Text("لا توجد نتائج", style: AppStyles.styleMedium16));
+                        child: Text(
+                            S
+                                .of(context)
+                                .NoResultFounded
+                                .replaceAll("{{query}}", controller.text),
+                            style: AppStyles.styleMedium16));
                   }
                   return ListView.separated(
                     itemCount: state.results.length,
@@ -41,16 +49,18 @@ class SearchViewBody extends StatelessWidget {
                         Divider(color: Colors.grey.shade300),
                     itemBuilder: (context, index) {
                       return ReusableListTile(
-                          user: state.results[index], type: UserItemType.search);
+                          user: state.results[index],
+                          type: UserItemType.search);
                     },
                   );
                 }
-                return Center(
-                    child: Text("ابدأ بالبحث لعرض النتائج",
-                        style: AppStyles.styleMedium16));
+                return const Center(
+                  child: CircularProgressIndicator(
+                    color: AppColors.primaryColor,
+                  ),
+                );
               },
             ),
-
           ),
         ],
       ),

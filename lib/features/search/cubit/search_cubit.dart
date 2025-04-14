@@ -18,6 +18,30 @@ class SearchCubit extends Cubit<SearchState> {
         name: "محمود خالد",
         jobTitle: "UI/UX Designer",
         imageUrl: "assets/images/shaban.jpg"),
+    UserModel(
+        name: "محمد أحمد",
+        jobTitle: "Software Engineer",
+        imageUrl: "assets/images/shaban.jpg"),
+    UserModel(
+        name: "سارة علي",
+        jobTitle: "Product Manager",
+        imageUrl: "assets/images/shaban.jpg"),
+    UserModel(
+        name: "محمود خالد",
+        jobTitle: "UI/UX Designer",
+        imageUrl: "assets/images/shaban.jpg"),
+    UserModel(
+        name: "محمد أحمد",
+        jobTitle: "Software Engineer",
+        imageUrl: "assets/images/shaban.jpg"),
+    UserModel(
+        name: "سارة علي",
+        jobTitle: "Product Manager",
+        imageUrl: "assets/images/shaban.jpg"),
+    UserModel(
+        name: "محمود خالد",
+        jobTitle: "UI/UX Designer",
+        imageUrl: "assets/images/shaban.jpg"),
   ];
 
   void search(String query) {
@@ -28,7 +52,7 @@ class SearchCubit extends Cubit<SearchState> {
           .where(
               (user) => user.name.toLowerCase().contains(query.toLowerCase()))
           .toList();
-      emit(SearchLoaded(results));
+      emit(SearchSeccuss(results));
     }
   }
 }
