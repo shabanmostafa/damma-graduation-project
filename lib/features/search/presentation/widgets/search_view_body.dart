@@ -1,8 +1,8 @@
 import 'package:damma_project/core/utils/app_colors.dart';
 import 'package:damma_project/core/utils/functions/list_tile_type.dart';
 import 'package:damma_project/core/utils/widgets/reusable_list_tile.dart';
-import 'package:damma_project/features/search/cubit/search_cubit.dart';
-import 'package:damma_project/features/search/cubit/search_state.dart';
+import 'package:damma_project/features/search/manager/cubit/search_cubit.dart';
+import 'package:damma_project/features/search/manager/cubit/search_state.dart';
 import 'package:damma_project/features/search/presentation/widgets/search_text_field.dart';
 import 'package:damma_project/generated/l10n.dart';
 import 'package:flutter/material.dart';

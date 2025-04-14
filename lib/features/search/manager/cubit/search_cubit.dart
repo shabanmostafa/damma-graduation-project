@@ -1,4 +1,4 @@
-import 'package:damma_project/features/search/models/user_model.dart';
+import 'package:damma_project/features/search/data/models/user_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'search_state.dart';
 
