@@ -54,6 +54,12 @@ abstract class AppStyles {
     fontFamily: 'GE SS Two',
     fontWeight: FontWeight.bold,
   );
+  static TextStyle styleBold18 = TextStyle(
+    color: AppColors.blackTextColor,
+    fontSize: 18.sp,
+    fontFamily: 'GE SS Two',
+    fontWeight: FontWeight.bold,
+  );
   static TextStyle styleBold32 = TextStyle(
     color: AppColors.blackTextColor,
     fontSize: 32.sp,

@@ -1,6 +1,7 @@
 import 'package:damma_project/core/utils/assets.dart';
 import 'package:damma_project/features/friend_requests/presentation/widgets/friend_view_body.dart';
 import 'package:damma_project/features/home/presentation/widgets/home_view_body.dart';
+import 'package:damma_project/features/profile/presentation/widgets/profile_view_body.dart';
 import 'package:damma_project/features/search/presentation/widgets/search_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -21,7 +22,7 @@ class _HomeViewState extends State<HomeView> {
     const HomeViewBody(),
     const SearchViewBody(),
     const FriendViewBody(),
-    const Center(child: Text("صفحتي")),
+    ProfileViewBody(),
   ];
 
   @override
