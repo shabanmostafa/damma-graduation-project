@@ -38,6 +38,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "anyOne": MessageLookupByLibrary.simpleMessage("أي شخص"),
         "backToHome":
             MessageLookupByLibrary.simpleMessage("عودة للصفحة الرئيسية"),
+        "conntinueRegisterSteps":
+            MessageLookupByLibrary.simpleMessage("أكمل خطوات التسجيل"),
         "createAccount": MessageLookupByLibrary.simpleMessage("انشاء حساب"),
         "createAccountToKnowInfo": MessageLookupByLibrary.simpleMessage(
             "انشأ حسابا لتستطيع الاطلاع علي\nاهم اخبار العرب ومعرفه اشخاص\nجدد"),

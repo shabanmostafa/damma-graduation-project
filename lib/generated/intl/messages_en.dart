@@ -38,6 +38,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Search": MessageLookupByLibrary.simpleMessage("Search"),
         "anyOne": MessageLookupByLibrary.simpleMessage("any One"),
         "backToHome": MessageLookupByLibrary.simpleMessage("back To Home"),
+        "conntinueRegisterSteps":
+            MessageLookupByLibrary.simpleMessage("conntinue Register Steps"),
         "createAccount": MessageLookupByLibrary.simpleMessage("Create Account"),
         "createAccountToKnowInfo":
             MessageLookupByLibrary.simpleMessage("Create Account To Know Info"),

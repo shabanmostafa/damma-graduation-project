@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/utils/assets.dart';
+import '../../../../core/utils/routing/routes.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({
@@ -19,7 +20,12 @@ class HomeAppBar extends StatelessWidget {
           height: 55.h,
           width: 118.w,
         ),
-        SvgPicture.asset(Assets.svgsBell),
+        GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, Routes.welcomeView);
+          },
+          child: SvgPicture.asset(Assets.svgsBell),
+        )
       ],
     );
   }

@@ -213,7 +213,7 @@ class _SeconedSterpDateViewBodyState extends State<SeconedStepDateViewBody> {
                     children: [
                       AppTextFormField(
                         hintText: S.of(context).whatIsYourType,
-                        prefixIcon: Assets.svgsCalendarMonth,
+                        prefixIcon: Assets.svgsProfile,
                         controller: _dateController,
                         validator: (value) => value?.isEmpty ?? true
                             ? S.of(context).fieldIsRequired

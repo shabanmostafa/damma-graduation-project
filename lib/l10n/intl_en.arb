@@ -54,5 +54,6 @@
     "FriendSuggetions": "Friend Suggetion",
     "emailAlreadyRegistered": "Email Already Registered",
     "enterValidEmail": "Enter Valid Email",
-    "enterValidPhoneNumber": "Enter Valid Phone Number"
+    "enterValidPhoneNumber": "Enter Valid Phone Number",
+    "conntinueRegisterSteps": "conntinue Register Steps"
 }

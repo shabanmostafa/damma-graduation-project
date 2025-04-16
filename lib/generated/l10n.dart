@@ -609,6 +609,16 @@ class S {
       args: [],
     );
   }
+
+  /// `conntinue Register Steps`
+  String get conntinueRegisterSteps {
+    return Intl.message(
+      'conntinue Register Steps',
+      name: 'conntinueRegisterSteps',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
