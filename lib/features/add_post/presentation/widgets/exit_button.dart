@@ -9,7 +9,7 @@ class ExitButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () => Navigator.pop(context),
-      icon: SvgPicture.asset(Assets.svgEx),
+      icon: SvgPicture.asset(Assets.svgsEx),
     );
   }
 }

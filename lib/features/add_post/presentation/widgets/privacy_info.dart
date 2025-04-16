@@ -51,7 +51,7 @@ class _PrivacyInfoState extends State<PrivacyInfo> {
               },
             );
           },
-          icon: SvgPicture.asset(Assets.svgArrowDown),
+          icon: SvgPicture.asset(Assets.svgsArrowDown),
         ),
       ],
     );

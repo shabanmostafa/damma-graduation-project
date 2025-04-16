@@ -12,11 +12,11 @@ class GallaryIconsSection extends StatelessWidget {
       children: [
         IconButton(
           onPressed: () {},
-          icon: SvgPicture.asset(Assets.svgVedio),
+          icon: SvgPicture.asset(Assets.svgsVedio),
         ),
         IconButton(
           onPressed: () {},
-          icon: SvgPicture.asset(Assets.svgGallary),
+          icon: SvgPicture.asset(Assets.svgsGallary),
         ),
       ],
     );

@@ -6,9 +6,11 @@ class FriendCubit extends Cubit<FriendState> {
   FriendCubit() : super(FriendInitial());
 
   Future<void> fetchFriendRequests() async {
+    if (isClosed) return;
     emit(FriendLoading());
+
     try {
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
 
       final requests = <UserModel>[
         UserModel(
@@ -61,12 +63,18 @@ class FriendCubit extends Cubit<FriendState> {
           ),
         ];
 
-        emit(FriendSuccess(requests: requests, suggestions: suggestions));
+        if (!isClosed) {
+          emit(FriendSuccess(requests: requests, suggestions: suggestions));
+        }
       } else {
-        emit(FriendSuccess(requests: requests));
+        if (!isClosed) {
+          emit(FriendSuccess(requests: requests));
+        }
       }
     } catch (e) {
-      emit(FriendFailure("Something went wrong"));
+      if (!isClosed) {
+        emit(FriendFailure("Something went wrong"));
+      }
     }
   }
 }

@@ -1,5 +1,4 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-import 'package:damma_project/features/friend_requests/manager/cubit/friend_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'intl/messages_all.dart';
@@ -381,52 +380,17 @@ class S {
     );
   }
 
-  /// `what Will You Talk About`
+  /// `What Will You Talk About ?`
   String get whatWillYouTalkAbout {
     return Intl.message(
-      'What Will You Talk About',
+      'What Will You Talk About ?',
       name: 'whatWillYouTalkAbout',
       desc: '',
       args: [],
     );
   }
 
-  String get whoCanSeeThisPost {
-    return Intl.message(
-      'who Can See This Post',
-      name: 'whoCanSeeThisPost',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get whocancomment {
-    return Intl.message(
-      'who can comment',
-      name: 'whocancomment',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get onlyfriends {
-    return Intl.message(
-      'Only Friends',
-      name: 'onlyfriends',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get noOne {
-    return Intl.message(
-      'no One',
-      name: 'noOne',
-      desc: '',
-      args: [],
-    );
-  }
-
+  /// `any One`
   String get anyOne {
     return Intl.message(
       'any One',
@@ -436,6 +400,47 @@ class S {
     );
   }
 
+  /// `no One`
+  String get noOne {
+    return Intl.message(
+      'no One',
+      name: 'noOne',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `only Friends`
+  String get onlyFriends {
+    return Intl.message(
+      'only Friends',
+      name: 'onlyFriends',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `who can comment ?`
+  String get whocancomment {
+    return Intl.message(
+      'who can comment ?',
+      name: 'whocancomment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `who Can See This Post ?`
+  String get whoCanSeeThisPost {
+    return Intl.message(
+      'who Can See This Post ?',
+      name: 'whoCanSeeThisPost',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `post Accepted`
   String get postAccepted {
     return Intl.message(
       'post Accepted',
@@ -445,6 +450,7 @@ class S {
     );
   }
 
+  /// `post Rejected`
   String get postRejected {
     return Intl.message(
       'post Rejected',
@@ -454,6 +460,7 @@ class S {
     );
   }
 
+  /// `post Sended`
   String get postSended {
     return Intl.message(
       'post Sended',
@@ -463,6 +470,7 @@ class S {
     );
   }
 
+  /// `post Unsended`
   String get postUnsended {
     return Intl.message(
       'post Unsended',
@@ -472,24 +480,7 @@ class S {
     );
   }
 
-  String get exit {
-    return Intl.message(
-      'exit',
-      name: 'exit',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get retry {
-    return Intl.message(
-      'retry',
-      name: 'retry',
-      desc: '',
-      args: [],
-    );
-  }
-
+  /// `back To Home`
   String get backToHome {
     return Intl.message(
       'back To Home',
@@ -499,6 +490,27 @@ class S {
     );
   }
 
+  /// `retry`
+  String get retry {
+    return Intl.message(
+      'retry',
+      name: 'retry',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `exit`
+  String get exit {
+    return Intl.message(
+      'exit',
+      name: 'exit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
   String get Search {
     return Intl.message(
       'Search',
@@ -508,6 +520,7 @@ class S {
     );
   }
 
+  /// `Add Friend`
   String get AddFriend {
     return Intl.message(
       'Add Friend',
@@ -517,6 +530,7 @@ class S {
     );
   }
 
+  /// `Accept`
   String get Accept {
     return Intl.message(
       'Accept',
@@ -526,6 +540,7 @@ class S {
     );
   }
 
+  /// `Reject`
   String get Reject {
     return Intl.message(
       'Reject',
@@ -535,6 +550,7 @@ class S {
     );
   }
 
+  /// `No Result Founded`
   String get NoResultFounded {
     return Intl.message(
       'No Result Founded',
@@ -544,19 +560,51 @@ class S {
     );
   }
 
+  /// `Friend Request`
   String get FriendRequests {
     return Intl.message(
-      'Friend Requests',
+      'Friend Request',
       name: 'FriendRequests',
       desc: '',
       args: [],
     );
   }
 
+  /// `Friend Suggetion`
   String get FriendSuggetions {
     return Intl.message(
-      'Friend Suggetions',
+      'Friend Suggetion',
       name: 'FriendSuggetions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email Already Registered`
+  String get emailAlreadyRegistered {
+    return Intl.message(
+      'Email Already Registered',
+      name: 'emailAlreadyRegistered',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Valid Email`
+  String get enterValidEmail {
+    return Intl.message(
+      'Enter Valid Email',
+      name: 'enterValidEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Valid Phone Number`
+  String get enterValidPhoneNumber {
+    return Intl.message(
+      'Enter Valid Phone Number',
+      name: 'enterValidPhoneNumber',
       desc: '',
       args: [],
     );
