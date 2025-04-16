@@ -162,14 +162,14 @@ class Assets {
   /// assets/svgs/zena.svg
   static const String svgZena = "assets/svgs/zena.svg";
 
-
   /// Assets for svgHomeBottomNavigationBar
   /// assets/svgs/Home.svg
   static const String svgHomeBottomNavigationBar = "assets/svgs/Home.svg";
 
   /// Assets for svgHomeFilledBottomNavigationBar
   /// assets/svgs/Home_filled.svg
-  static const String svgHomeFilledBottomNavigationBar = "assets/svgs/Home_filled.svg";
+  static const String svgHomeFilledBottomNavigationBar =
+      "assets/svgs/Home_filled.svg";
 
   /// Assets for svgProfileBottomNavigationBar
   /// assets/svgs/profile.svg
@@ -177,28 +177,29 @@ class Assets {
 
   /// Assets for svgProfileFilledBottomNavigationBar
   /// assets/svgs/profile_filled.svg
-  static const String svgProfileFilledBottomNavigationBar = "assets/svgs/profile_filled.svg";
-
+  static const String svgProfileFilledBottomNavigationBar =
+      "assets/svgs/profile_filled.svg";
 
   /// Assets for svgSearchFilledBottomNavigationBar
   /// assets/svgs/search_filled.svg
-  static const String svgSearchFilledBottomNavigationBar = "assets/svgs/search_filled.svg";
-
+  static const String svgSearchFilledBottomNavigationBar =
+      "assets/svgs/search_filled.svg";
 
   /// Assets for svgSearchBottomNavigationBar
   /// assets/svgs/search.svg
   static const String svgSearchBottomNavigationBar = "assets/svgs/search.svg";
 
-
   /// Assets for svgFriendNavigationBar
   /// assets/svgs/friends_outlined.svg
-  static const String svgFriendNavigationBar = "assets/svgs/friends_outlined.svg";
-
+  static const String svgFriendNavigationBar =
+      "assets/svgs/friends_outlined.svg";
 
   /// Assets for svgFriendFilledBottomNavigationBar
   /// assets/svgs/friends_filled.svg
-  static const String svgFriendFilledBottomNavigationBar = "assets/svgs/friends_filled.svg";
+  static const String svgFriendFilledBottomNavigationBar =
+      "assets/svgs/friends_filled.svg";
 
-
-
+  /// Assets for svgCamera
+  /// assets/svgs/camera.svg
+  static const String svgCamera = "assets/svgs/camera.svg";
 }
