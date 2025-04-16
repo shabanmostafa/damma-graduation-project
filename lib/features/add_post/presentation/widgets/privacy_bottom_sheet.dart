@@ -33,13 +33,13 @@ class PrivacyBottomSheet {
                   title: S.of(context).whoCanSeeThisPost,
                   options: [
                     S.of(context).anyOne,
-                    S.of(context).onlyfriends,
+                    S.of(context).onlyFriends,
                     S.of(context).noOne
                   ],
                   icons: const [
-                    Assets.svgworld,
-                    Assets.svgfriends,
-                    Assets.svgNoOne
+                    Assets.svgsWorld,
+                    Assets.svgsFriends,
+                    Assets.svgsNoOne
                   ],
                   selectedOption: selectedVisibilityOption,
                   onOptionSelected: (value) {
@@ -53,13 +53,13 @@ class PrivacyBottomSheet {
                   title: S.of(context).whocancomment,
                   options: [
                     S.of(context).anyOne,
-                    S.of(context).onlyfriends,
+                    S.of(context).onlyFriends,
                     S.of(context).noOne
                   ],
                   icons: const [
-                    Assets.svgworld,
-                    Assets.svgfriends,
-                    Assets.svgNoComment
+                    Assets.svgsWorld,
+                    Assets.svgsFriends,
+                    Assets.svgsNoComments
                   ],
                   selectedOption: selectedCommentsOption,
                   onOptionSelected: (value) {

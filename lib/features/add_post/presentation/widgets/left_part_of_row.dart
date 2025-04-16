@@ -10,7 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class LeftPartOfRow extends StatelessWidget {
-  LeftPartOfRow(
+  const LeftPartOfRow(
       {super.key, required this.isButtonActive, required this.postContent});
 
   final bool isButtonActive;
@@ -23,7 +23,7 @@ class LeftPartOfRow extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 11.0.w),
           child: SvgPicture.asset(
-            Assets.svgClock,
+            Assets.svgsClock,
             width: 25.w,
             height: 25.h,
           ),

@@ -4,7 +4,6 @@ import 'package:damma_project/features/home/presentation/widgets/home_view_body.
 import 'package:damma_project/features/search/presentation/widgets/search_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../../../core/utils/app_colors.dart';
 
 class HomeView extends StatefulWidget {
@@ -15,13 +14,13 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  int _currentIndex = 1;
+  int _currentIndex = 0; // Changed from 1 to 0 to select Home tab first
 
   final List<Widget> _screens = [
-    const HomeViewBody(),
-    const SearchViewBody(),
-    const FriendViewBody(),
-    const Center(child: Text("صفحتي")),
+    const HomeViewBody(), // Index 0 - Home
+    const SearchViewBody(), // Index 1 - Search
+    const FriendViewBody(), // Index 2 - Friends
+    const Center(child: Text("صفحتي")), // Index 3 - Profile
   ];
 
   @override
@@ -43,34 +42,34 @@ class _HomeViewState extends State<HomeView> {
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               _currentIndex == 0
-                  ? Assets.svgHomeFilledBottomNavigationBar
-                  : Assets.svgHomeBottomNavigationBar,
+                  ? Assets.svgsNavigationHomeSelected
+                  : Assets.svgsNavigationHomeUnselected,
             ),
-            label: "الرئيسية",
+            label: "",
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               _currentIndex == 1
-                  ? Assets.svgSearchFilledBottomNavigationBar
-                  : Assets.svgSearchBottomNavigationBar,
+                  ? Assets.svgsNavigationSearchSelected
+                  : Assets.svgsNavigationSerachUnselected,
             ),
-            label: "البحث",
+            label: "",
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               _currentIndex == 2
-                  ? Assets.svgFriendFilledBottomNavigationBar
-                  : Assets.svgFriendNavigationBar,
+                  ? Assets.svgsNavigationAddFriendSelected
+                  : Assets.svgsNavigationAddFriendUnselected,
             ),
-            label: " طلبات الصداقة",
+            label: "",
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               _currentIndex == 3
-                  ? Assets.svgProfileFilledBottomNavigationBar
-                  : Assets.svgProfileBottomNavigationBar,
+                  ? Assets.svgsNavigationProfileSelected
+                  : Assets.svgsNavigationProfileUnselected,
             ),
-            label: "بروفايلي",
+            label: "",
           ),
         ],
       ),

@@ -32,33 +32,27 @@
     "createAccountToKnowInfo": "انشأ حسابا لتستطيع الاطلاع علي\nاهم اخبار العرب ومعرفه اشخاص\nجدد",
     "whatDoYouThink": "ماذا تفكر؟",
     "post": "نشرِ",
-    "whatWillYouTalkAbout":"عن ماذا تريد أن تتحدث ؟",
-    "anyOne":"أي شخص",
-    "noOne":"لا احد",
-    "onlyFriends":"الأصدقاء فقط",
-    "whocancomment":"التحكم في التعليقات",
-    "whoCanSeeThisPost":"من يستطيع رؤية المنشور؟",
-    "postAccepted":"تم النشر بنجاح",
-    "postRejected":"رفض المنشور",
-    "postSended":"لقد اكتمل تنزيل المنشور",
-    "postUnsended":"لقد تم رفض المنشور الخاص بك",
-    "backToHome":"عودة للصفحة الرئيسية",
-    "retry":"إعادة المحاولة",
-    "exit":"خروج",
-    "Search":"بحث",
-    "AddFriend":"اضافة صديق",
-    "Accept":"قبول",
-    "Reject":"رفض",
-    "NoResultFounded":"لا توجد نتائج",
-    "FriendRequests":"طلبات الصداقة",
-    "FriendSuggetions":"اشخاص قد تعرفهم",
-
-
-
-
-
-
-
-
-
+    "whatWillYouTalkAbout": "عن ماذا تريد أن تتحدث ؟",
+    "anyOne": "أي شخص",
+    "noOne": "لا احد",
+    "onlyFriends": "الأصدقاء فقط",
+    "whocancomment": "التحكم في التعليقات",
+    "whoCanSeeThisPost": "من يستطيع رؤية المنشور؟",
+    "postAccepted": "تم النشر بنجاح",
+    "postRejected": "رفض المنشور",
+    "postSended": "لقد اكتمل تنزيل المنشور",
+    "postUnsended": "لقد تم رفض المنشور الخاص بك",
+    "backToHome": "عودة للصفحة الرئيسية",
+    "retry": "إعادة المحاولة",
+    "exit": "خروج",
+    "Search": "بحث",
+    "AddFriend": "اضافة صديق",
+    "Accept": "قبول",
+    "Reject": "رفض",
+    "NoResultFounded": "لا توجد نتائج",
+    "FriendRequests": "طلبات الصداقة",
+    "FriendSuggetions": "اشخاص قد تعرفهم",
+    "emailAlreadyRegistered": "البريد الالكتروني مسجل بالفعل",
+    "enterValidEmail": "ادخل بريد اكتروني صحيح",
+    "enterValidPhoneNumber": "ادخل رقم هاتف صحيح"
 }

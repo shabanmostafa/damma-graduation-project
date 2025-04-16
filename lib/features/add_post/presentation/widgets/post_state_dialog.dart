@@ -21,7 +21,7 @@ class PostStateDialog {
             mainAxisSize: MainAxisSize.min,
             children: [
               SvgPicture.asset(
-                isSuccess ? Assets.svgAccept : Assets.svgReject,
+                isSuccess ? Assets.svgsAccept : Assets.svgsReject,
                 width: 106.w,
                 height: 106.h,
               ),
@@ -61,7 +61,7 @@ class PostStateDialog {
                       ? SizedBox(
                           width: 17.w,
                         )
-                      : SizedBox(),
+                      : const SizedBox(),
                   if (isSuccess)
                     Expanded(
                       child: AppTextButton(
