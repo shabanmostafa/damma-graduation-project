@@ -1,29 +1,31 @@
+import 'package:damma_project/features/home/models/post_model.dart';
+import 'package:damma_project/features/profile/presentation/widgets/profile_posts.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/widgets/custom_app_bar.dart';
 import 'profile_header.dart';
 import 'profile_info.dart';
 import 'profile_activity.dart';
-import 'profile_posts.dart';
 
 class ProfileViewBody extends StatelessWidget {
-  const ProfileViewBody({super.key});
+  ProfileViewBody({super.key});
+  final List<PostModel> posts = [];
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Column(
         children: [
-          Padding(
+          const Padding(
             padding: EdgeInsets.all(8.0),
             child: CustomAppBar(
               needArrow: true,
               text: 'شعبان مصطفي',
             ),
           ),
-          ProfileHeader(),
-          ProfileInfo(),
-          ProfileActivity(),
-          ProfilePosts(),
+          const ProfileHeader(),
+          const ProfileInfo(),
+          const ProfileActivity(),
+          ProfilePosts(posts: posts),
         ],
       ),
     );

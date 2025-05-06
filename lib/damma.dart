@@ -1,3 +1,5 @@
+import 'package:damma_project/features/home/presentation/views/home_view.dart';
+import 'package:damma_project/features/login/presentation/views/login_view.dart';
 import 'package:damma_project/features/profile/manager/cubit/profile_cubit.dart';
 import 'package:damma_project/features/search/manager/cubit/search_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'features/home/presentation/views/home_view.dart';
 import 'generated/l10n.dart';
 
 class Damma extends StatelessWidget {
@@ -41,7 +42,7 @@ class Damma extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
-        home: const HomeView(),
+        home: const LoginView(),
         //OnBoardingView(),
         theme: ThemeData(
             //textTheme: GoogleFonts.gess

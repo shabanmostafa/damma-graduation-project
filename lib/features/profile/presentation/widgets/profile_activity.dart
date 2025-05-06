@@ -15,6 +15,7 @@ class ProfileActivity extends StatelessWidget {
         horizontal: 16.0,
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SizedBox(height: 24.h),
           Row(

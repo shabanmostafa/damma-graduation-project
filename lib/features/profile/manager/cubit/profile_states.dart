@@ -2,9 +2,6 @@ abstract class ProfileState {}
 
 class ProfileInitial extends ProfileState {}
 
-/// الحالة لما المستخدم يضغط على "عرض كل المنشورات"
-class ProfileShowAllPosts extends ProfileState {}
-
 /// حالة تحميل بيانات البروفايل (مثلاً لو هنجلب من API)
 class ProfileLoading extends ProfileState {}
 
@@ -12,8 +9,8 @@ class ProfileLoading extends ProfileState {}
 class ProfileLoaded extends ProfileState {}
 
 /// حالة فشل تحميل البيانات
-class ProfileError extends ProfileState {
+class Profilefailure extends ProfileState {
   final String message;
 
-  ProfileError(this.message);
+  Profilefailure(this.message);
 }

@@ -10,30 +10,7 @@ class FriendCubit extends Cubit<FriendState> {
     try {
       await Future.delayed(Duration(seconds: 1));
 
-      final requests = <UserModel>[
-        UserModel(
-          name: "Mona ahmed mohamed",
-          jobTitle: "Writer",
-          imageUrl: "assets/images/shaban.jpg",
-        ),
-        UserModel(
-          name:
-              "Youssef aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-          jobTitle: "UI Designer",
-          imageUrl: "assets/images/shaban.jpg",
-        ),
-        UserModel(
-          name: "Mona ahmed mohamed",
-          jobTitle: "Writer",
-          imageUrl: "assets/images/shaban.jpg",
-        ),
-        UserModel(
-          name:
-              "Youssef aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-          jobTitle: "UI Designer",
-          imageUrl: "assets/images/shaban.jpg",
-        ),
-      ];
+      final requests = <UserModel>[];
 
       if (requests.isEmpty) {
         final suggestions = [
