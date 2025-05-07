@@ -1,7 +1,8 @@
 import 'package:damma_project/core/utils/assets.dart';
-import 'package:damma_project/features/friend_requests/presentation/widgets/friend_view_body.dart';
-import 'package:damma_project/features/home/presentation/widgets/home_view_body.dart';
-import 'package:damma_project/features/search/presentation/widgets/search_view_body.dart';
+import 'package:damma_project/features/friend_requests/presentation/views/widgets/friend_view_body.dart';
+import 'package:damma_project/features/home/presentation/views/widgets/home_view_body.dart';
+import 'package:damma_project/features/profile/presentation/views/widgets/profile_view_body.dart';
+import 'package:damma_project/features/search/presentation/views/widgets/search_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../core/utils/app_colors.dart';
@@ -20,7 +21,7 @@ class _HomeViewState extends State<HomeView> {
     const HomeViewBody(), // Index 0 - Home
     const SearchViewBody(), // Index 1 - Search
     const FriendViewBody(), // Index 2 - Friends
-    const Center(child: Text("صفحتي")), // Index 3 - Profile
+    const ProfileViewBody(), // Index 3 - Profile
   ];
 
   @override

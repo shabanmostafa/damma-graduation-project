@@ -1,4 +1,4 @@
-import 'package:damma_project/features/welcome/presentation/widgets/welcome_view_body.dart';
+import 'package:damma_project/features/welcome/presentation/views/widgets/welcome_view_body.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeView extends StatelessWidget {

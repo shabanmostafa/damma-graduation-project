@@ -205,4 +205,8 @@ class Assets {
   /// Assets for svgsZena
   /// assets/svgs/zena.svg
   static const String svgsZena = "assets/svgs/zena.svg";
+
+  /// Assets for svgsCamera
+  /// assets/svgs/camera.svg
+  static const String svgsCamera = "assets/svgs/camera.svg";
 }

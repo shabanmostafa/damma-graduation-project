@@ -1,3 +1,4 @@
+import 'package:damma_project/features/friends_page/presentation/views/friends_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/utils/app_styles.dart';
@@ -27,11 +28,20 @@ class ProfileInfo extends StatelessWidget {
                 Text('الجيزة - مصر',
                     style: AppStyles.styleMedium14
                         .copyWith(color: AppColors.hintTextColor)),
-                Text(
-                  '٥٠٠+ صديق',
-                  style: AppStyles.styleLight12.copyWith(
-                    decoration: TextDecoration.underline,
-                    color: AppColors.blackTextColor,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const FriendsPageView(),
+                        ));
+                  },
+                  child: Text(
+                    '٥٠٠+ صديق',
+                    style: AppStyles.styleLight12.copyWith(
+                      decoration: TextDecoration.underline,
+                      color: AppColors.blackTextColor,
+                    ),
                   ),
                 ),
               ],
