@@ -34,7 +34,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
             icon: widget.icon ??
                 const Icon(
                   Icons.arrow_back_ios,
-                  color: AppColors.primaryColor,
+                  color: AppColors.blackTextColor,
                 ),
           )
         else

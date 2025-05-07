@@ -22,16 +22,37 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Accept": MessageLookupByLibrary.simpleMessage("Accept"),
+        "AddFriend": MessageLookupByLibrary.simpleMessage("Add Friend"),
         "BirthOfDate": MessageLookupByLibrary.simpleMessage("Birth Of Date"),
+        "FriendRequests":
+            MessageLookupByLibrary.simpleMessage("Friend Request"),
+        "FriendSuggetions":
+            MessageLookupByLibrary.simpleMessage("Friend Suggetion"),
+        "NoResultFounded":
+            MessageLookupByLibrary.simpleMessage("No Result Founded"),
         "PasswordConfirmatiomFieldRequired":
             MessageLookupByLibrary.simpleMessage(
                 "PasswordConfirmatiomFieldRequired"),
+        "Reject": MessageLookupByLibrary.simpleMessage("Reject"),
+        "Search": MessageLookupByLibrary.simpleMessage("Search"),
+        "anyOne": MessageLookupByLibrary.simpleMessage("any One"),
+        "backToHome": MessageLookupByLibrary.simpleMessage("back To Home"),
+        "conntinueRegisterSteps":
+            MessageLookupByLibrary.simpleMessage("conntinue Register Steps"),
         "createAccount": MessageLookupByLibrary.simpleMessage("Create Account"),
         "createAccountToKnowInfo":
             MessageLookupByLibrary.simpleMessage("Create Account To Know Info"),
         "createPassword":
             MessageLookupByLibrary.simpleMessage("createPassword"),
         "email": MessageLookupByLibrary.simpleMessage("email"),
+        "emailAlreadyRegistered":
+            MessageLookupByLibrary.simpleMessage("Email Already Registered"),
+        "enterValidEmail":
+            MessageLookupByLibrary.simpleMessage("Enter Valid Email"),
+        "enterValidPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Enter Valid Phone Number"),
+        "exit": MessageLookupByLibrary.simpleMessage("exit"),
         "female": MessageLookupByLibrary.simpleMessage("female"),
         "fieldIsRequired":
             MessageLookupByLibrary.simpleMessage("This field is required"),
@@ -44,6 +65,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginLoading": MessageLookupByLibrary.simpleMessage("Login Loading"),
         "male": MessageLookupByLibrary.simpleMessage("male"),
         "next": MessageLookupByLibrary.simpleMessage("next"),
+        "noOne": MessageLookupByLibrary.simpleMessage("no One"),
+        "onlyFriends": MessageLookupByLibrary.simpleMessage("only Friends"),
         "password": MessageLookupByLibrary.simpleMessage("password"),
         "passwordConfirmation":
             MessageLookupByLibrary.simpleMessage("passwordConfirmation"),
@@ -56,6 +79,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please enter correct email"),
         "pleaseEnterCorrectPhone":
             MessageLookupByLibrary.simpleMessage("Please enter correct phone"),
+        "post": MessageLookupByLibrary.simpleMessage("post"),
+        "postAccepted": MessageLookupByLibrary.simpleMessage("post Accepted"),
+        "postRejected": MessageLookupByLibrary.simpleMessage("post Rejected"),
+        "postSended": MessageLookupByLibrary.simpleMessage("post Sended"),
+        "postUnsended": MessageLookupByLibrary.simpleMessage("post Unsended"),
+        "retry": MessageLookupByLibrary.simpleMessage("retry"),
         "seconedName": MessageLookupByLibrary.simpleMessage("seconed name"),
         "socialMediaApp":
             MessageLookupByLibrary.simpleMessage("Social Media App"),
@@ -73,22 +102,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("What is your Phone?"),
         "whatIsYourType":
             MessageLookupByLibrary.simpleMessage("what Is Your Type"),
-        "post": MessageLookupByLibrary.simpleMessage("post"),
         "whatWillYouTalkAbout":
             MessageLookupByLibrary.simpleMessage("What Will You Talk About ?"),
         "whoCanSeeThisPost":
-            MessageLookupByLibrary.simpleMessage("Who can see this post?"),
-        "anyOne": MessageLookupByLibrary.simpleMessage("any one"),
-        "noOne": MessageLookupByLibrary.simpleMessage("no one"),
-        "onlyfriends": MessageLookupByLibrary.simpleMessage("only friends"),
+            MessageLookupByLibrary.simpleMessage("who Can See This Post ?"),
         "whocancomment":
-            MessageLookupByLibrary.simpleMessage("Who can comment"),
-        "postAccepted": MessageLookupByLibrary.simpleMessage("post Accepted"),
-        "postRejected": MessageLookupByLibrary.simpleMessage("post Rejected"),
-        "postSended": MessageLookupByLibrary.simpleMessage("post Sended"),
-        "postUnsended": MessageLookupByLibrary.simpleMessage("post Unsended"),
-        "retry": MessageLookupByLibrary.simpleMessage("retry"),
-        "backToHome": MessageLookupByLibrary.simpleMessage("back To Home"),
-        "exit": MessageLookupByLibrary.simpleMessage("exit"),
+            MessageLookupByLibrary.simpleMessage("who can comment ?")
       };
 }

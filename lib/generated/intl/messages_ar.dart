@@ -22,16 +22,37 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Accept": MessageLookupByLibrary.simpleMessage("قبول"),
+        "AddFriend": MessageLookupByLibrary.simpleMessage("اضافة صديق"),
         "BirthOfDate":
             MessageLookupByLibrary.simpleMessage("ادخل تاريخ ميلادك"),
+        "FriendRequests": MessageLookupByLibrary.simpleMessage("طلبات الصداقة"),
+        "FriendSuggetions":
+            MessageLookupByLibrary.simpleMessage("اشخاص قد تعرفهم"),
+        "NoResultFounded":
+            MessageLookupByLibrary.simpleMessage("لا توجد نتائج"),
         "PasswordConfirmatiomFieldRequired":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور مطلوب"),
+        "Reject": MessageLookupByLibrary.simpleMessage("رفض"),
+        "Search": MessageLookupByLibrary.simpleMessage("بحث"),
+        "anyOne": MessageLookupByLibrary.simpleMessage("أي شخص"),
+        "backToHome":
+            MessageLookupByLibrary.simpleMessage("عودة للصفحة الرئيسية"),
+        "conntinueRegisterSteps":
+            MessageLookupByLibrary.simpleMessage("أكمل خطوات التسجيل"),
         "createAccount": MessageLookupByLibrary.simpleMessage("انشاء حساب"),
         "createAccountToKnowInfo": MessageLookupByLibrary.simpleMessage(
             "انشأ حسابا لتستطيع الاطلاع علي\nاهم اخبار العرب ومعرفه اشخاص\nجدد"),
         "createPassword":
             MessageLookupByLibrary.simpleMessage("ادخل كلمة المرور"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+        "emailAlreadyRegistered": MessageLookupByLibrary.simpleMessage(
+            "البريد الالكتروني مسجل بالفعل"),
+        "enterValidEmail":
+            MessageLookupByLibrary.simpleMessage("ادخل بريد اكتروني صحيح"),
+        "enterValidPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("ادخل رقم هاتف صحيح"),
+        "exit": MessageLookupByLibrary.simpleMessage("خروج"),
         "female": MessageLookupByLibrary.simpleMessage("أنثي"),
         "fieldIsRequired":
             MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
@@ -45,6 +66,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("جاري تسجيل الدخول"),
         "male": MessageLookupByLibrary.simpleMessage("ذكر"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
+        "noOne": MessageLookupByLibrary.simpleMessage("لا احد"),
+        "onlyFriends": MessageLookupByLibrary.simpleMessage("الأصدقاء فقط"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "passwordConfirmation":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
@@ -57,6 +80,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "يرجى إدخال بريد إلكتروني صالح"),
         "pleaseEnterCorrectPhone":
             MessageLookupByLibrary.simpleMessage("يرجى إدخال رقم هاتف صالح"),
+        "post": MessageLookupByLibrary.simpleMessage("نشرِ"),
+        "postAccepted": MessageLookupByLibrary.simpleMessage("تم النشر بنجاح"),
+        "postRejected": MessageLookupByLibrary.simpleMessage("رفض المنشور"),
+        "postSended":
+            MessageLookupByLibrary.simpleMessage("لقد اكتمل تنزيل المنشور"),
+        "postUnsended":
+            MessageLookupByLibrary.simpleMessage("لقد تم رفض المنشور الخاص بك"),
+        "retry": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
         "seconedName": MessageLookupByLibrary.simpleMessage("الاسم الاخير"),
         "socialMediaApp":
             MessageLookupByLibrary.simpleMessage("تطبيق تواصل اجتماعي عربي"),
@@ -71,25 +102,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "whatIsYourPhone":
             MessageLookupByLibrary.simpleMessage("ادخل رقم الهاتف"),
         "whatIsYourType": MessageLookupByLibrary.simpleMessage("ماهو جنسك؟"),
-        "post": MessageLookupByLibrary.simpleMessage("نشر"),
         "whatWillYouTalkAbout":
             MessageLookupByLibrary.simpleMessage("عن ماذا تريد أن تتحدث ؟"),
         "whoCanSeeThisPost":
             MessageLookupByLibrary.simpleMessage("من يستطيع رؤية المنشور؟"),
-        "anyOne": MessageLookupByLibrary.simpleMessage("أي شخص"),
-        "noOne": MessageLookupByLibrary.simpleMessage("لا أحد"),
-        "onlyfriends": MessageLookupByLibrary.simpleMessage("الأصدقاء فقط"),
         "whocancomment":
-            MessageLookupByLibrary.simpleMessage("التحكم في التعليقات"),
-        "postAccepted": MessageLookupByLibrary.simpleMessage("تم النشر بنجاح"),
-        "postRejected": MessageLookupByLibrary.simpleMessage(" رفض المنشور"),
-        "postSended":
-            MessageLookupByLibrary.simpleMessage("لقد اكتمل تنزيل المنشور"),
-        "postUnsended":
-            MessageLookupByLibrary.simpleMessage("لقد تم رفض المنشور الخاص بك"),
-        "retry": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
-        "backToHome":
-            MessageLookupByLibrary.simpleMessage("عودة للصفحة الرئيسية"),
-        "exit": MessageLookupByLibrary.simpleMessage("خروج"),
+            MessageLookupByLibrary.simpleMessage("التحكم في التعليقات")
       };
 }
