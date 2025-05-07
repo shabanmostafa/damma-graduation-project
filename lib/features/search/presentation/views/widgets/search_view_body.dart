@@ -45,8 +45,10 @@ class SearchViewBody extends StatelessWidget {
                   }
                   return ListView.separated(
                     itemCount: state.results.length,
-                    separatorBuilder: (_, __) =>
-                        Divider(color: Colors.grey.shade300),
+                    separatorBuilder: (_, __) => Padding(
+                      padding: EdgeInsets.only(right: 55.0.w, left: 15.0.w),
+                      child: const Divider(),
+                    ),
                     itemBuilder: (context, index) {
                       return ReusableListTile(
                           user: state.results[index],

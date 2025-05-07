@@ -1,7 +1,6 @@
+import 'package:damma_project/features/register/presentation/views/widgets/fourth_step_phone_view_body.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/app_colors.dart';
-
-import '../widgets/fourth_step_phone_view_body.dart';
 
 class FourthStepPhoneView extends StatelessWidget {
   const FourthStepPhoneView({super.key});

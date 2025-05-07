@@ -1,7 +1,7 @@
+import 'package:damma_project/features/register/presentation/views/widgets/sixth_step_password_view_body.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_colors.dart';
-import '../widgets/sixth_step_password_view_body.dart';
 
 class SixStepPasswordView extends StatelessWidget {
   const SixStepPasswordView({super.key});

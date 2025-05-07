@@ -45,6 +45,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
             widget.text ?? '',
             style: AppStyles.styleMedium16.copyWith(
               color: AppColors.blackTextColor,
+              fontWeight: FontWeight.bold,
             ),
             textAlign: TextAlign.center,
           ),

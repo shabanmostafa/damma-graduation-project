@@ -50,6 +50,25 @@ class ReusableListTile extends StatelessWidget {
           ],
         );
         break;
+      case UserItemType.friend:
+        trailingButton = Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.message_outlined,
+              ),
+            ),
+            SizedBox(width: 8.w),
+            IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.more_vert_outlined,
+                )),
+          ],
+        );
+        break;
       case UserItemType.suggestion:
         trailingButton = AppTextButton(
           backgroundColor: AppColors.primaryColor,
@@ -72,12 +91,16 @@ class ReusableListTile extends StatelessWidget {
         radius: 24,
         backgroundImage: AssetImage(user.imageUrl),
       ),
-      title: Text(user.name,
-          style: AppStyles.styleMedium16
-              .copyWith(color: AppColors.blackTextColor)),
-      subtitle: Text(user.jobTitle,
-          style: AppStyles.styleMedium12
-              .copyWith(color: AppColors.blackTextColor)),
+      title: Text(
+        user.name,
+        style:
+            AppStyles.styleMedium16.copyWith(color: AppColors.blackTextColor),
+      ),
+      subtitle: Text(
+        user.jobTitle,
+        style:
+            AppStyles.styleMedium12.copyWith(color: AppColors.blackTextColor),
+      ),
       trailing: trailingButton,
     );
   }

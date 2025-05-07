@@ -28,7 +28,7 @@ class ProfileHeader extends StatelessWidget {
               child: CircleAvatar(
                 backgroundColor: AppColors.hintTextColor,
                 radius: 16.r,
-                child: SvgPicture.asset(Assets.svgsClock),
+                child: SvgPicture.asset(Assets.svgsCamera),
               ),
             ),
           ],
@@ -57,7 +57,7 @@ class ProfileHeader extends StatelessWidget {
                 child: CircleAvatar(
                   backgroundColor: AppColors.hintTextColor,
                   radius: 16.r,
-                  child: SvgPicture.asset(Assets.svgsClock),
+                  child: SvgPicture.asset(Assets.svgsCamera),
                 ),
               ),
             ],

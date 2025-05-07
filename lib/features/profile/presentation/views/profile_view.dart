@@ -1,5 +1,5 @@
 import 'package:damma_project/features/profile/manager/cubit/profile_cubit.dart';
-import 'package:damma_project/features/profile/presentation/widgets/profile_view_body.dart';
+import 'package:damma_project/features/profile/presentation/views/widgets/profile_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
