@@ -1,4 +1,5 @@
 import 'package:damma_project/features/add_post/presentation/views/add_post_view.dart';
+import 'package:damma_project/features/home/presentation/views/home_view.dart';
 import 'package:damma_project/features/profile/manager/cubit/profile_cubit.dart';
 import 'package:damma_project/features/search/manager/cubit/search_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,7 +43,7 @@ class Damma extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
-        home: const AddPostView(),
+        home: const HomeView(),
         //OnBoardingView(),
         theme: ThemeData(
             //textTheme: GoogleFonts.gess

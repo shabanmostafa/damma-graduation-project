@@ -1,7 +1,6 @@
 import 'package:damma_project/core/utils/routing/routes.dart';
+import 'package:damma_project/features/onBoarding/presentation/views/widgets/on_boarding_view_body.dart';
 import 'package:flutter/material.dart';
-
-import '../widgets/on_boarding_view_body.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});

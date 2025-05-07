@@ -1,7 +1,7 @@
+import 'package:damma_project/features/register/presentation/views/widgets/first_sterp_your_name_view_body.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_colors.dart';
-import '../widgets/first_sterp_your_name_view_body.dart';
 
 class FirstStepYourNameView extends StatelessWidget {
   const FirstStepYourNameView({super.key});
