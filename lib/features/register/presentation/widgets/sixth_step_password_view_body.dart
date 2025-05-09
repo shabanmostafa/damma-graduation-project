@@ -232,7 +232,7 @@ class _SixthStepPasswordViewState extends State<SixthStepPasswordViewBody> {
                             ? () {
                                 if (_formKey.currentState?.validate() ??
                                     false) {
-                                  _authCubit.register();
+                                  //_authCubit.register();
                                 }
                               }
                             : () {},

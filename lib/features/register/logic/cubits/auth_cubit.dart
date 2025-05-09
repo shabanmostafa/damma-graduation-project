@@ -139,22 +139,22 @@ class AuthCubit extends Cubit<AuthState> {
     emit(RegisterDataUpdated());
   }
 
-  register() async {
-    emit(SignUpLoading());
-    final response = await authRepo.register(
-      name: signUpName.text,
-      email: signUpEmail.text,
-      phone: signUpPhoneNumber.text,
-      gender: signUpGender.text,
-      password: signUpPassword.text,
-      confirmPassword: confirmPassword.text,
-    );
-    response.fold(
-      (errMessage) => emit(SignUpFailure(errorMessage: errMessage)),
-      (signUpModel) =>
-          emit(SignUpSuccess(message: 'Created account succesfully')),
-    );
-  }
+  // register() async {
+  //   emit(SignUpLoading());
+  //   final response = await authRepo.register(
+  //     name: signUpName.text,
+  //     email: signUpEmail.text,
+  //     phone: signUpPhoneNumber.text,
+  //     gender: signUpGender.text,
+  //     password: signUpPassword.text,
+  //     confirmPassword: confirmPassword.text,
+  //   );
+  //   response.fold(
+  //     (errMessage) => emit(SignUpFailure(errorMessage: errMessage)),
+  //     (signUpModel) =>
+  //         emit(SignUpSuccess(message: 'Created account succesfully')),
+  //   );
+  // }
 
   signIn() async {
     emit(SignInLoading());

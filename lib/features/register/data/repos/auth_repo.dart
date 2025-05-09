@@ -8,12 +8,12 @@ abstract class AuthRepo {
     required String password,
   });
 
-  Future<Either<String, UserModel>> register({
-    required String name,
-    required String email,
-    required String phone,
-    required String gender,
-    required String password,
-    required String confirmPassword,
-  });
+  // Future<Either<String, UserModel>> register({
+  //   required String name,
+  //   required String email,
+  //   required String phone,
+  //   required String gender,
+  //   required String password,
+  //   required String confirmPassword,
+  // });
 }

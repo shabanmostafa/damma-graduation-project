@@ -1,8 +1,9 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
+import '../secure/secure_storage_service.dart';
 import 'api_consumer.dart';
 import 'endpoints.dart';
-import '../errors/failure.dart';
-import '../secure/secure_storage_service.dart'; // Assuming secure storage is part of your core services
 
 class DioConsumer extends ApiConsumer {
   final Dio dio;
@@ -21,24 +22,30 @@ class DioConsumer extends ApiConsumer {
   }
 
   Future<Map<String, String>> _getHeaders() async {
-    final token = await secureStorageService.getValue(ApiKey.token);
+    final token = await secureStorageService.getValue(ApiKey.accessToken);
     return {
       'Authorization': 'Bearer $token',
       'Content-Type': 'application/json',
     };
   }
 
+  Future<Map<String, String>> _getPublicHeaders() async {
+    return {
+      'Content-Type': 'application/json',
+    };
+  }
+
   void handleDioExceptions(DioException e) {
-    throw ServerFailure.fromDioExceptio(e);
+    // If you don’t have a ServerFailure, just print the error
+    print('Dio error: ${e.message}');
+    throw e;
   }
 
   @override
-  Future delete(
-    String path, {
-    dynamic data,
-    Map<String, dynamic>? queryParameters,
-    bool isFromData = false,
-  }) async {
+  Future delete(String path,
+      {dynamic data,
+      Map<String, dynamic>? queryParameters,
+      bool isFromData = false}) async {
     try {
       final headers = await _getHeaders();
       final response = await dio.delete(
@@ -71,12 +78,10 @@ class DioConsumer extends ApiConsumer {
   }
 
   @override
-  Future patch(
-    String path, {
-    dynamic data,
-    Map<String, dynamic>? queryParameters,
-    bool isFromData = false,
-  }) async {
+  Future patch(String path,
+      {dynamic data,
+      Map<String, dynamic>? queryParameters,
+      bool isFromData = false}) async {
     try {
       final headers = await _getHeaders();
       final response = await dio.patch(
@@ -92,17 +97,26 @@ class DioConsumer extends ApiConsumer {
   }
 
   @override
-  Future post(
-    String path, {
-    dynamic data,
-    Map<String, dynamic>? queryParameters,
-    bool isFromData = false,
-  }) async {
+  Future<dynamic> post(String path,
+      {dynamic data,
+      Map<String, dynamic>? queryParameters,
+      bool isFromData = false}) async {
     try {
-      final headers = await _getHeaders();
+      final headers = path.contains(Endpoints.login)
+          ? await _getPublicHeaders()
+          : await _getHeaders();
+
+      // Prepare data based on isFromData flag
+      dynamic requestData;
+      if (isFromData) {
+        requestData = FormData.fromMap(data); // Use FormData
+      } else {
+        requestData = jsonEncode(data); // Convert to JSON
+      }
+
       final response = await dio.post(
         path,
-        data: isFromData ? FormData.fromMap(data) : data,
+        data: requestData,
         queryParameters: queryParameters,
         options: Options(headers: headers),
       );

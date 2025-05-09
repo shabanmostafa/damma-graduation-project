@@ -42,8 +42,7 @@ class Damma extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
-        home: const AddPostView(),
-        //OnBoardingView(),
+        home: const OnBoardingView(),
         theme: ThemeData(
             //textTheme: GoogleFonts.gess
             ),

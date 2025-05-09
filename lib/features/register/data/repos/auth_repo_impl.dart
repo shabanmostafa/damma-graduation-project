@@ -31,7 +31,7 @@ class AuthRepoImpl implements AuthRepo {
       );
 
       final user = UserModel.fromJson(response);
-      await secureStorageService.setValue(ApiKey.token, user.data!.token ?? "");
+      await secureStorageService.setValue(ApiKey.accessToken, user.data!.token ?? "");
 
       final username = response['data']['username'] ?? '';
       await secureStorageService.setValue('username', username);
@@ -42,37 +42,37 @@ class AuthRepoImpl implements AuthRepo {
     }
   }
 
-  @override
-  Future<Either<String, UserModel>> register({
-    required String name,
-    required String email,
-    required String phone,
-    required String gender,
-    required String password,
-    required String confirmPassword,
-  }) async {
-    try {
-      final response = await apiService.post(
-        Endpoints.register,
-        data: {
-          ApiKey.name: name,
-          ApiKey.email: email,
-          ApiKey.phone: phone,
-          ApiKey.gender: gender,
-          ApiKey.password: password,
-          ApiKey.passwordConfirmation: confirmPassword,
-        },
-      );
-      final userModel = UserModel.fromJson(response);
+  // @override
+  // Future<Either<String, UserModel>> register({
+  //   required String name,
+  //   required String email,
+  //   required String phone,
+  //   required String gender,
+  //   required String password,
+  //   required String confirmPassword,
+  // }) async {
+  //   try {
+  //     final response = await apiService.post(
+  //       Endpoints.register,
+  //       data: {
+  //         ApiKey.name: name,
+  //         ApiKey.email: email,
+  //         ApiKey.phone: phone,
+  //         ApiKey.gender: gender,
+  //         ApiKey.password: password,
+  //         ApiKey.passwordConfirmation: confirmPassword,
+  //       },
+  //     );
+  //     final userModel = UserModel.fromJson(response);
 
-      if (userModel.data!.token != null) {
-        await secureStorageService.setValue(
-            ApiKey.token, userModel.data!.token!);
-      }
+  //     if (userModel.data!.token != null) {
+  //       await secureStorageService.setValue(
+  //           ApiKey.token, userModel.data!.token!);
+  //     }
 
-      return Right(userModel);
-    } on ServerFailure catch (e) {
-      return Left(e.errorMessage);
-    }
-  }
+  //     return Right(userModel);
+  //   } on ServerFailure catch (e) {
+  //     return Left(e.errorMessage);
+  //   }
+  // }
 }
