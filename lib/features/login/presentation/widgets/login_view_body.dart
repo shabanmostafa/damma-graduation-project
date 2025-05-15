@@ -51,6 +51,7 @@ class LoginViewBody extends StatelessWidget {
           Navigator.pushNamedAndRemoveUntil(
             context,
             Routes.homeView,
+            arguments: state.response.id,
             (route) => false,
           );
         } else if (state is LoginFailure) {
@@ -65,7 +66,7 @@ class LoginViewBody extends StatelessWidget {
                 topSvgColor: const Color(0xff801336),
                 bottomSvgColor: const Color(0xff801336),
                 containerColor: const Color(0xffc72c41),
-                title: 'خطأ',
+                title: '',
                 errorText: state.message,
               ),
               behavior: SnackBarBehavior.floating,

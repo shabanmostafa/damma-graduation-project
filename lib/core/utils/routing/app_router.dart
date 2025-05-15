@@ -55,9 +55,14 @@ class AppRouter {
           ),
         );
       case Routes.homeView:
-        return MaterialPageRoute(
-          builder: (context) => const HomeView(),
-        );
+  final userId = settings.arguments as int;
+  return MaterialPageRoute(
+    builder: (_) => BlocProvider(
+      create: (_) => LoginCubit(getIt<LoginRepoImpl>()), // ممكن تحذفه لو مش هتستخدم cubit هنا
+      child: HomeView(userId: userId),
+    ),
+  );
+
       case Routes.addPostView:
         return MaterialPageRoute(
           builder: (context) => const AddPostView(),
