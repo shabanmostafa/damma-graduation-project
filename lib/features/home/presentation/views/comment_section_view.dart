@@ -1,5 +1,5 @@
 import 'package:damma_project/core/utils/app_colors.dart';
-import 'package:damma_project/features/home/presentation/widgets/comment_section.dart';
+import 'package:damma_project/features/home/presentation/views/widgets/comment_section.dart';
 import 'package:flutter/material.dart';
 
 class CommentSectionView extends StatelessWidget {

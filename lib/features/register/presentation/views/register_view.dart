@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widgets/register_view_body.dart';
+
+import 'widgets/register_view_body.dart';
 
 class RegisterView extends StatelessWidget {
   final String? phoneNumber;

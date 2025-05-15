@@ -1,10 +1,11 @@
 import 'package:damma_project/core/utils/assets.dart';
-import 'package:damma_project/features/friend_requests/presentation/widgets/friend_view_body.dart';
-import 'package:damma_project/features/home/presentation/widgets/home_view_body.dart';
-import 'package:damma_project/features/search/presentation/widgets/search_view_body.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../core/utils/app_colors.dart';
+import '../../../friend_requests/presentation/views/widgets/friend_view_body.dart';
+import '../../../search/presentation/views/widgets/search_view_body.dart';
+import 'widgets/home_view_body.dart';
 
 class HomeView extends StatefulWidget {
   final int userId;

@@ -1,4 +1,4 @@
-import 'package:damma_project/features/friend_requests/presentation/widgets/friend_view_body.dart';
+import 'package:damma_project/features/friend_requests/presentation/views/widgets/friend_view_body.dart';
 import 'package:flutter/material.dart';
 
 class FriendView extends StatelessWidget {

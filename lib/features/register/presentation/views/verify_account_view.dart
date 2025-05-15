@@ -1,6 +1,6 @@
+import 'package:damma_project/features/register/presentation/views/widgets/verify_account_view_body.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/verify_account_view_body.dart';
 
 
 class VerifyAccountView extends StatelessWidget {
