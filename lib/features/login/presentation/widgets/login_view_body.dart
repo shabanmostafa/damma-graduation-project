@@ -28,6 +28,7 @@ class LoginViewBody extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginSuccess) {
+          final id = state.response.id;
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
               content: CustomSnackBar(
@@ -39,8 +40,8 @@ class LoginViewBody extends StatelessWidget {
                 topSvgColor: Color.fromARGB(255, 19, 128, 64),
                 bottomSvgColor: Color.fromARGB(255, 19, 128, 64),
                 containerColor: AppColors.primaryColor,
-                title: 'Great!',
-                errorText: 'Login Successfully',
+                title: 'رائع',
+                errorText: 'تم تسجيل الدخول بنجاح',
               ),
               behavior: SnackBarBehavior.floating,
               backgroundColor: Colors.transparent,
@@ -64,7 +65,7 @@ class LoginViewBody extends StatelessWidget {
                 topSvgColor: const Color(0xff801336),
                 bottomSvgColor: const Color(0xff801336),
                 containerColor: const Color(0xffc72c41),
-                title: 'Error!',
+                title: 'خطأ',
                 errorText: state.message,
               ),
               behavior: SnackBarBehavior.floating,
@@ -144,7 +145,7 @@ class LoginViewBody extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(
                           context,
-                          Routes.firstStepYourNameView,
+                          Routes.registerView,
                         );
                       },
                     ),

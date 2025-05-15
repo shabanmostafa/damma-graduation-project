@@ -1,0 +1,2 @@
+D:/clone_repos/damma-graduation-project/android/app/.cxx/Debug/a2a5b646/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/clone_repos/damma-graduation-project/android/app/.cxx/Debug/a2a5b646/armeabi-v7a/CMakeFiles/rebuild_cache.dir

@@ -55,5 +55,7 @@
     "emailAlreadyRegistered": "البريد الالكتروني مسجل بالفعل",
     "enterValidEmail": "ادخل بريد اكتروني صحيح",
     "enterValidPhoneNumber": "ادخل رقم هاتف صحيح",
-    "conntinueRegisterSteps": "أكمل خطوات التسجيل"
+    "conntinueRegisterSteps": "أكمل خطوات التسجيل",
+    "verifyAccount": "التحقق من الحساب",
+    "verify code": " الكود"
 }

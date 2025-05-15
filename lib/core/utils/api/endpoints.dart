@@ -28,6 +28,8 @@ class Endpoints {
   static String baseUrl = 'http://dama.runasp.net/api/';
   static String login = 'Auth/login';
   static String register = 'Auth/register';
+  static String verify = 'Auth/verify';
+  static String resendVerification = 'Auth/resend-verification';
 
   // static String getUserDataEndPoint(id) {
   //   return 'user/get-user/$id';
