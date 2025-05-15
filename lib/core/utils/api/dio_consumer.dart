@@ -1,14 +1,17 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
+import '../secure/secure_storage_service.dart';
 import 'api_consumer.dart';
 import 'endpoints.dart';
-import '../errors/failure.dart';
-import '../secure/secure_storage_service.dart'; // Assuming secure storage is part of your core services
 
 class DioConsumer extends ApiConsumer {
   final Dio dio;
   final SecureStorageService secureStorageService;
 
   DioConsumer({required this.dio, required this.secureStorageService}) {
+    print('DioConsumer initialized with interceptors');
     dio.options.baseUrl = Endpoints.baseUrl;
     dio.interceptors.add(LogInterceptor(
       request: true,
@@ -17,35 +20,83 @@ class DioConsumer extends ApiConsumer {
       responseHeader: true,
       responseBody: true,
       error: true,
+      logPrint: (object) {
+        if (object is FormData) {
+          // Custom FormData logging
+          debugPrint('FormData:');
+          debugPrint('  Fields:');
+          for (final field in object.fields) {
+            debugPrint('    ${field.key}: ${field.value}');
+          }
+          debugPrint('  Files:');
+          for (final file in object.files) {
+            debugPrint(
+                '    ${file.key}: ${file.value.filename} (${file.value.length} bytes)');
+          }
+        } else {
+          debugPrint(object.toString());
+        }
+      },
+    ));
+    // Add to your Dio initialization
+    dio.interceptors.add(InterceptorsWrapper(
+      onRequest: (options, handler) {
+        debugPrint('Sending request to ${options.uri}');
+        debugPrint('Headers: ${options.headers}');
+
+        if (options.data is FormData) {
+          final formData = options.data as FormData;
+          debugPrint('FormData fields: ${formData.fields}');
+
+          // Enhanced file logging
+          debugPrint('FormData files:');
+          for (final file in formData.files) {
+            debugPrint('  ${file.key}:');
+            debugPrint('    filename: ${file.value.filename}');
+            debugPrint('    length: ${file.value.length} bytes');
+            debugPrint('    contentType: ${file.value.contentType}');
+          }
+        }
+        return handler.next(options);
+      },
     ));
   }
 
-  Future<Map<String, String>> _getHeaders() async {
-    final token = await secureStorageService.getValue(ApiKey.token);
+  Future<Map<String, String>> _getHeaders({bool isFromData = false}) async {
+    final token = await secureStorageService.getValue(ApiKey.accessToken);
     return {
-      'Authorization': 'Bearer $token',
-      'Content-Type': 'application/json',
+      if (token != null) 'Authorization': 'Bearer $token',
+      if (!isFromData) 'Content-Type': 'application/json',
+    };
+  }
+
+  Future<Map<String, String>> _getPublicHeaders(
+      {bool isFromData = false}) async {
+    return {
+      if (!isFromData) 'Content-Type': 'application/json',
     };
   }
 
   void handleDioExceptions(DioException e) {
-    throw ServerFailure.fromDioExceptio(e);
+    print('Dio error: ${e.message}');
+    throw e;
   }
 
   @override
-  Future delete(
-    String path, {
-    dynamic data,
-    Map<String, dynamic>? queryParameters,
-    bool isFromData = false,
-  }) async {
+  Future delete(String path,
+      {dynamic data,
+      Map<String, dynamic>? queryParameters,
+      bool isFromData = false}) async {
     try {
-      final headers = await _getHeaders();
+      final headers = await _getHeaders(isFromData: isFromData);
       final response = await dio.delete(
         path,
         data: isFromData ? FormData.fromMap(data) : data,
         queryParameters: queryParameters,
-        options: Options(headers: headers),
+        options: Options(
+          headers: headers,
+          contentType: isFromData ? 'multipart/form-data' : 'application/json',
+        ),
       );
       return response.data;
     } on DioException catch (e) {
@@ -71,19 +122,20 @@ class DioConsumer extends ApiConsumer {
   }
 
   @override
-  Future patch(
-    String path, {
-    dynamic data,
-    Map<String, dynamic>? queryParameters,
-    bool isFromData = false,
-  }) async {
+  Future patch(String path,
+      {dynamic data,
+      Map<String, dynamic>? queryParameters,
+      bool isFromData = false}) async {
     try {
-      final headers = await _getHeaders();
+      final headers = await _getHeaders(isFromData: isFromData);
       final response = await dio.patch(
         path,
         data: isFromData ? FormData.fromMap(data) : data,
         queryParameters: queryParameters,
-        options: Options(headers: headers),
+        options: Options(
+          headers: headers,
+          contentType: isFromData ? 'multipart/form-data' : 'application/json',
+        ),
       );
       return response.data;
     } on DioException catch (e) {
@@ -92,19 +144,30 @@ class DioConsumer extends ApiConsumer {
   }
 
   @override
-  Future post(
-    String path, {
-    dynamic data,
-    Map<String, dynamic>? queryParameters,
-    bool isFromData = false,
-  }) async {
+  Future<dynamic> post(String path,
+      {dynamic data,
+      Map<String, dynamic>? queryParameters,
+      bool isFromData = false}) async {
     try {
-      final headers = await _getHeaders();
+      final headers = path.contains(Endpoints.login)
+          ? await _getPublicHeaders(isFromData: isFromData)
+          : await _getHeaders(isFromData: isFromData);
+
+      dynamic requestData;
+      if (isFromData) {
+        requestData = data is FormData ? data : FormData.fromMap(data);
+      } else {
+        requestData = jsonEncode(data);
+      }
+
       final response = await dio.post(
         path,
-        data: isFromData ? FormData.fromMap(data) : data,
+        data: requestData,
         queryParameters: queryParameters,
-        options: Options(headers: headers),
+        options: Options(
+          headers: headers,
+          contentType: isFromData ? 'multipart/form-data' : 'application/json',
+        ),
       );
       return response.data;
     } on DioException catch (e) {

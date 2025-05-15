@@ -55,5 +55,7 @@
     "emailAlreadyRegistered": "Email Already Registered",
     "enterValidEmail": "Enter Valid Email",
     "enterValidPhoneNumber": "Enter Valid Phone Number",
-    "conntinueRegisterSteps": "conntinue Register Steps"
+    "conntinueRegisterSteps": "conntinue Register Steps",
+    "verifyAccount": "verify Account",
+    "verify code": "verify code"
 }

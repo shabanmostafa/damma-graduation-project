@@ -116,23 +116,25 @@ class DynamicTextFieldState extends State<AppTextFormField> {
               ),
           fillColor: widget.fillColor ?? AppColors.textFieldfillColor,
           filled: true,
-          border: const OutlineInputBorder(),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(12.0.r)),
+          ),
           focusedBorder: widget.focusedBorder ??
               OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(8.0.r)),
+                borderRadius: BorderRadius.all(Radius.circular(12.0.r)),
                 borderSide: BorderSide(
                   color:
                       widget.focusdBorderColor ?? AppColors.textFieldfillColor,
                 ),
               ),
           errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8.0.r)),
+            borderRadius: BorderRadius.all(Radius.circular(12.0.r)),
             borderSide: BorderSide(
               color: widget.focusdBorderColor ?? Colors.red,
             ),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8.0.r)),
+            borderRadius: BorderRadius.all(Radius.circular(12.0.r)),
             borderSide: BorderSide(
               color:
                   widget.enabledBorderSideColor ?? AppColors.textFieldfillColor,
