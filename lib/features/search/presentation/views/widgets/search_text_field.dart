@@ -16,7 +16,10 @@ class SearchTextField extends StatelessWidget {
     return TextField(
       cursorColor: AppColors.primaryColor,
       controller: controller,
-      onChanged: (query) => context.read<SearchCubit>().search(query),
+      onChanged: (query) {
+  context.read<SearchCubit>().searchFriends(query);
+},
+
       style: AppStyles.styleMedium16.copyWith(color: AppColors.blackTextColor),
       decoration: InputDecoration(
         hintText: S.of(context).Search,

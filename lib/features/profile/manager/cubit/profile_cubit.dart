@@ -1,39 +1,111 @@
-import 'package:damma_project/features/home/models/post_model.dart';
+import 'package:damma_project/features/profile/data/repo/profile_repo.dart';
 import 'package:damma_project/features/profile/manager/cubit/profile_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
-  ProfileCubit() : super(ProfileInitial());
+  final ProfileRepo _repo;
 
-  bool showAllPosts = false;
+  ProfileCubit(this._repo) : super(ProfileInitial());
 
-  List<PostModel> posts = [
-    PostModel(
-      postOwnerPic: 'assets/images/shaban.jpg',
-      postOwnerName: 'Shabaan Mostafa',
-      postOwnerfriends: '5,432 متابع',
-      postImage: 'assets/images/shaban.jpg',
-      postContent: 'شكرا لكل من ساهم في نجاح هذا العمل...',
-      numberOfLikes: '0',
-      numberOfComments: '0',
-      numberOfShares: '120',
-      userProfilePic: 'assets/images/shaban.jpg',
-    ),
-    PostModel(
-      postOwnerPic: 'assets/images/shaban.jpg',
-      postOwnerName: 'شعبان مصطفي',
-      postOwnerfriends: '5,432 متابع',
-      postImage: 'assets/images/shaban.jpg',
-      postContent: 'من يسكن البحر ويحبه الناس لونه اصفر...',
-      numberOfLikes: '12',
-      numberOfComments: '0',
-      numberOfShares: '120',
-      userProfilePic: 'assets/images/shaban.jpg',
-    ),
-  ];
-
-  void toggleShowAllPosts() {
-    showAllPosts = true;
-    emit(ProfileShowAllPosts());
+  Future<void> getProfile() async {
+    emit(ProfileLoading());
+    final result = await _repo.getProfileData();
+    result.fold(
+      (failure) => emit(ProfileFailure(failure)),
+      (profile) => emit(ProfileSuccess(profile)),
+    );
   }
+
+  Future<void> updateCoverImage(String filePath) async {
+    emit(ProfileLoading());
+    final result = await _repo.updateCoverImage(filePath);
+    result.fold(
+      (failure) => emit(ProfileFailure(failure)),
+      (profile) => emit(ProfileSuccess(profile)),
+    );
+  }
+
+  Future<void> updateProfileImage(String filePath) async {
+    emit(ProfileLoading());
+    final result = await _repo.updateProfileImage(filePath);
+    result.fold(
+      (failure) => emit(ProfileFailure(failure)),
+      (profile) => emit(ProfileSuccess(profile)),
+    );
+  }
+  Future<void> updateFirstName(String firstName) async {
+  emit(ProfileLoading());
+  final result = await _repo.updateFirstName(firstName);
+  result.fold(
+    (failure) => emit(ProfileFailure(failure)),
+    (profile) => emit(ProfileSuccess(profile)),
+  );
 }
+
+Future<void> updateLastName(String lastName) async {
+  emit(ProfileLoading());
+  final result = await _repo.updateLastName(lastName);
+  result.fold(
+    (failure) => emit(ProfileFailure(failure)),
+    (profile) => emit(ProfileSuccess(profile)),
+  );
+}
+Future<void> logout() async {
+    emit(ProfileLoading());
+    final result = await _repo.logout();
+    result.fold(
+      (failure) => emit(ProfileFailure(failure)),
+      (_) {
+        
+        emit(ProfileInitial());
+      },
+    );
+  }
+  Future<void> deleteAccount() async {
+    emit(ProfileLoading());
+    final result = await _repo.delete();
+    result.fold(
+      (failure) => emit(ProfileFailure(failure)),
+      (_) {
+        
+        emit(ProfileInitial());
+      },
+    );
+  }
+  Future<bool> getVerificationCode() async {
+  emit(ProfileLoading());
+  final result = await _repo.getVerificationCode();
+  bool success = false;
+  result.fold(
+    (failure) {
+      emit(ProfileFailure(failure));
+      success = false;
+    },
+    (_) {
+      emit(ProfileInitial());
+      success = true;
+    },
+  );
+  return success;
+}
+
+Future<bool> resetPassword(String newPassword, String verificationCode) async {
+  emit(ProfileLoading());
+  final result = await _repo.resetPassword(newPassword, verificationCode);
+  bool success = false;
+  result.fold(
+    (failure) {
+      emit(ProfileFailure(failure));
+      success = false;
+    },
+    (_) {
+      emit(ProfileInitial());
+      success = true;
+    },
+  );
+  return success;
+}
+
+
+}
+

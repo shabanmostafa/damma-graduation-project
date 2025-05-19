@@ -4,11 +4,26 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/assets.dart';
 
+const String baseUrl = 'http://dama.runasp.net/';
+
 class ProfileHeader extends StatelessWidget {
-  const ProfileHeader({super.key});
+  final String? profileImageUrl; // relative path from user model
+  final String? coverImageUrl; // relative path from user model
+
+  const ProfileHeader({super.key, this.profileImageUrl, this.coverImageUrl});
 
   @override
   Widget build(BuildContext context) {
+    final fullProfileImageUrl =
+        (profileImageUrl != null && profileImageUrl!.isNotEmpty)
+            ? '$baseUrl$profileImageUrl'
+            : null;
+
+    final fullCoverImageUrl =
+        (coverImageUrl != null && coverImageUrl!.isNotEmpty)
+            ? '$baseUrl$coverImageUrl'
+            : null;
+
     return Stack(
       clipBehavior: Clip.none,
       children: [
@@ -17,9 +32,27 @@ class ProfileHeader extends StatelessWidget {
             SizedBox(
               width: 375.w,
               height: 150.h,
-              child: Image.asset(
-                'assets/images/onBoarding3.png',
-                fit: BoxFit.fill,
+              child: GestureDetector(
+                onTap: () {
+                  if (fullCoverImageUrl != null) {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (_) =>
+                          FullScreenImageView(imageUrl: fullCoverImageUrl),
+                    ));
+                  } else {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (_) => const FullScreenImageView(
+                          imageProvider:
+                              AssetImage('assets/images/onBoarding3.png')),
+                    ));
+                  }
+                },
+                child: fullCoverImageUrl != null
+                    ? Image.network(fullCoverImageUrl, fit: BoxFit.cover)
+                    : Image.asset(
+                        'assets/images/onBoarding3.png',
+                        fit: BoxFit.fill,
+                      ),
               ),
             ),
             Positioned(
@@ -47,9 +80,28 @@ class ProfileHeader extends StatelessWidget {
                   backgroundColor: AppColors.whiteColor,
                 ),
               ),
-              CircleAvatar(
-                radius: 60.r,
-                backgroundImage: const AssetImage('assets/images/shaban.jpg'),
+              GestureDetector(
+                onTap: () {
+                  if (fullProfileImageUrl != null) {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (_) =>
+                          FullScreenImageView(imageUrl: fullProfileImageUrl),
+                    ));
+                  } else {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (_) => const FullScreenImageView(
+                          imageProvider:
+                              AssetImage('assets/images/shaban.jpg')),
+                    ));
+                  }
+                },
+                child: CircleAvatar(
+                  radius: 60.r,
+                  backgroundImage: fullProfileImageUrl != null
+                      ? NetworkImage(fullProfileImageUrl)
+                      : const AssetImage('assets/images/shaban.jpg')
+                          as ImageProvider,
+                ),
               ),
               Positioned(
                 bottom: 8,
@@ -64,6 +116,38 @@ class ProfileHeader extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class FullScreenImageView extends StatelessWidget {
+  final String? imageUrl;
+  final ImageProvider? imageProvider;
+
+  const FullScreenImageView({super.key, this.imageUrl, this.imageProvider});
+
+  @override
+  Widget build(BuildContext context) {
+    final ImageProvider image = imageProvider ?? NetworkImage(imageUrl!);
+
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppColors.whiteColor,
+        appBar: AppBar(
+          backgroundColor: AppColors.primaryColor,
+          elevation: 0,
+          iconTheme: const IconThemeData(color: Colors.white),
+        ),
+        body: Center(
+          child: InteractiveViewer(
+            maxScale: 5,
+            child: Image(
+              image: image,
+              fit: BoxFit.contain,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

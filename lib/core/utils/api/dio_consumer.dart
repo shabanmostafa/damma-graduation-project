@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,6 @@ class DioConsumer extends ApiConsumer {
   final SecureStorageService secureStorageService;
 
   DioConsumer({required this.dio, required this.secureStorageService}) {
-    print('DioConsumer initialized with interceptors');
     dio.options.baseUrl = Endpoints.baseUrl;
     dio.interceptors.add(LogInterceptor(
       request: true,
@@ -78,7 +78,7 @@ class DioConsumer extends ApiConsumer {
   }
 
   void handleDioExceptions(DioException e) {
-    print('Dio error: ${e.message}');
+    log('Dio error: ${e.message}');
     throw e;
   }
 
@@ -106,14 +106,17 @@ class DioConsumer extends ApiConsumer {
 
   @override
   Future get(String path,
-      {Object? data, Map<String, dynamic>? queryParameters}) async {
+      {Object? data,
+      Map<String, dynamic>? queryParameters,
+      Options? options}) async {
     try {
       final headers = await _getHeaders();
       final response = await dio.get(
         path,
         data: data,
         queryParameters: queryParameters,
-        options: Options(headers: headers),
+        options:
+            options ?? Options(headers: headers), // Fallback to default headers
       );
       return response.data;
     } on DioException catch (e) {
@@ -167,6 +170,34 @@ class DioConsumer extends ApiConsumer {
         options: Options(
           headers: headers,
           contentType: isFromData ? 'multipart/form-data' : 'application/json',
+        ),
+      );
+      return response.data;
+    } on DioException catch (e) {
+      handleDioExceptions(e);
+    }
+  }
+
+  @override
+  Future<dynamic> put(
+    String path, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    bool isFormData = false,
+  }) async {
+    try {
+      final headers = await _getHeaders(isFromData: isFormData);
+      final requestData = isFormData
+          ? (data is FormData ? data : FormData.fromMap(data))
+          : jsonEncode(data);
+
+      final response = await dio.put(
+        path,
+        data: requestData,
+        queryParameters: queryParameters,
+        options: Options(
+          headers: headers,
+          contentType: isFormData ? 'multipart/form-data' : 'application/json',
         ),
       );
       return response.data;

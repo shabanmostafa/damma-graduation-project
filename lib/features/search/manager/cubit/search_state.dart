@@ -1,4 +1,4 @@
-import 'package:damma_project/features/search/data/models/user_model.dart';
+import 'package:damma_project/features/search/data/models/search_model/search_model.dart';
 
 abstract class SearchState {}
 
@@ -6,12 +6,14 @@ class SearchInitial extends SearchState {}
 
 class SearchLoading extends SearchState {}
 
-class SearchSeccuss extends SearchState {
-  final List<UserModel> results;
-  SearchSeccuss(this.results);
+class SearchSuccess extends SearchState {
+  final List<SearchModel> results;
+
+  SearchSuccess(this.results);
 }
 
-class SearchFaild extends SearchState {
-  final String message;
-  SearchFaild(this.message);
+class SearchFailure extends SearchState {
+  final String error;
+
+  SearchFailure(this.error);
 }

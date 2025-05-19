@@ -110,6 +110,7 @@ class RegisterViewBody extends StatelessWidget {
               SliverToBoxAdapter(
                 child: CustomAppBar(
                   text: S.of(context).createAccount,
+                  needArrow: true,
                 ),
               ),
               SliverToBoxAdapter(child: verticalSpace(20)),

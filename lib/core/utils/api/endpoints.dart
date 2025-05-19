@@ -30,6 +30,18 @@ class Endpoints {
   static String register = 'Auth/register';
   static String verify = 'Auth/verify';
   static String resendVerification = 'Auth/resend-verification';
+  static String basicInfo = 'Profile/basicInfo';
+  static String getFriends = 'Friends';
+  static String search = 'Search';
+  static String coverImage = 'Setting/cover-image';
+  static String profileImage = 'Setting/profile-image';
+  static String updateFirstName = 'Setting/first-name';
+  static String updateLastName = 'Setting/last-name';
+  static String logout = 'Setting/logout';
+  static String delete = 'Setting/account';
+  static String getVerificationCodeToResetPassword =
+      'Setting/get-verification-code';
+  static String resetPasswordInProfile = 'Setting/reset-password';
 
   // static String getUserDataEndPoint(id) {
   //   return 'user/get-user/$id';

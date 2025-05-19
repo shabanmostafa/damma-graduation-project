@@ -57,5 +57,6 @@
     "enterValidPhoneNumber": "ادخل رقم هاتف صحيح",
     "conntinueRegisterSteps": "أكمل خطوات التسجيل",
     "verifyAccount": "التحقق من الحساب",
-    "verify code": " الكود"
+    "verify code": " الكود",
+    "profile": "الملف الشخصي"
 }
