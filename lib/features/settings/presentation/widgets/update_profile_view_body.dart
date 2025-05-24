@@ -2,6 +2,7 @@ import 'package:damma_project/core/utils/routing/routes.dart';
 import 'package:damma_project/core/utils/widgets/app_text_button.dart';
 import 'package:damma_project/core/utils/widgets/app_text_form_field.dart';
 import 'package:damma_project/core/utils/widgets/custom_app_bar.dart';
+import 'package:damma_project/core/utils/widgets/full_screen_image_view.dart';
 import 'package:damma_project/core/utils/widgets/green_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -206,7 +207,10 @@ class UpdateProfileViewBody extends StatelessWidget {
     return BlocBuilder<ProfileCubit, ProfileState>(
       builder: (context, state) {
         if (state is ProfileLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+              child: CircularProgressIndicator(
+            color: AppColors.primaryColor,
+          ));
         } else if (state is ProfileSuccess) {
           final user = state.profile;
 
@@ -321,28 +325,52 @@ class UpdateProfileViewBody extends StatelessWidget {
                         //   ],
                         // ),
 
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                        Stack(
+                          clipBehavior: Clip.none,
                           children: [
-                            // Cover Image with rounded corners
-                            Container(
-                              width: double.infinity,
-                              height: 220.h,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25),
-                                image: DecorationImage(
-                                  image: coverImageUrl != null
-                                      ? NetworkImage(coverImageUrl)
-                                      : const AssetImage(
-                                              'assets/images/cover_placeholder.jpg')
-                                          as ImageProvider,
-                                  fit: BoxFit.cover,
+                            // Cover Image
+                            Stack(
+                              children: [
+                                SizedBox(
+                                  width: double.infinity,
+                                  height: 220.h,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      if (coverImageUrl != null) {
+                                        Navigator.of(context)
+                                            .push(MaterialPageRoute(
+                                          builder: (_) => FullScreenImageView(
+                                              imageUrl: coverImageUrl),
+                                        ));
+                                      } else {
+                                        Navigator.of(context)
+                                            .push(MaterialPageRoute(
+                                          builder: (_) =>
+                                              const FullScreenImageView(
+                                            imageProvider: AssetImage(
+                                                'assets/images/cover_placeholder.jpg'),
+                                          ),
+                                        ));
+                                      }
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(25),
+                                        image: DecorationImage(
+                                          image: coverImageUrl != null
+                                              ? NetworkImage(coverImageUrl!)
+                                              : const AssetImage(
+                                                      'assets/images/cover_placeholder.jpg')
+                                                  as ImageProvider,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              child: Align(
-                                alignment: Alignment.topRight,
-                                child: Padding(
-                                  padding: EdgeInsets.all(12.h),
+                                Positioned(
+                                  top: 12,
+                                  right: 12,
                                   child: GestureDetector(
                                     onTap: () async {
                                       final picker = ImagePicker();
@@ -364,22 +392,46 @@ class UpdateProfileViewBody extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                              ),
+                              ],
                             ),
 
-                            // Negative space to pull profile image up and overlap cover image slightly
-                            Transform.translate(
-                              offset: Offset(0, -40.h), // Move up by 30.h
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  border:
-                                      Border.all(color: Colors.white, width: 4),
-                                ),
-                                child: Stack(
-                                  alignment: Alignment.bottomRight,
-                                  children: [
-                                    CircleAvatar(
+                            // Profile Image
+                            Positioned(
+                              bottom: -40.h,
+                              left: (MediaQuery.of(context).size.width / 2) -
+                                  60.r,
+                              child: Stack(
+                                alignment: Alignment.center,
+                                clipBehavior: Clip.none,
+                                children: [
+                                  Positioned(
+                                    top: -6,
+                                    child: CircleAvatar(
+                                      radius: 65.r,
+                                      backgroundColor: Colors.white,
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      if (profileImageUrl != null) {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (_) => FullScreenImageView(
+                                                imageUrl: profileImageUrl),
+                                          ),
+                                        );
+                                      } else {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (_) =>
+                                                const FullScreenImageView(
+                                                    imageProvider: AssetImage(
+                                                        'assets/images/profile_placeholder.png')),
+                                          ),
+                                        );
+                                      }
+                                    },
+                                    child: CircleAvatar(
                                       radius: 60.r,
                                       backgroundImage: profileImageUrl != null
                                           ? NetworkImage(profileImageUrl)
@@ -387,7 +439,11 @@ class UpdateProfileViewBody extends StatelessWidget {
                                                   'assets/images/profile_placeholder.png')
                                               as ImageProvider,
                                     ),
-                                    GestureDetector(
+                                  ),
+                                  Positioned(
+                                    bottom: 8,
+                                    right: 4,
+                                    child: GestureDetector(
                                       onTap: () async {
                                         final picker = ImagePicker();
                                         final pickedFile =
@@ -408,13 +464,13 @@ class UpdateProfileViewBody extends StatelessWidget {
                                             color: Colors.white, size: 16),
                                       ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
                         ),
-
+                        SizedBox(height: 70.h), // Space for profile image
                         GestureDetector(
                           onTap: () => _showUpdateFirstNameBottomSheet(
                               context, user.firstName ?? ''),

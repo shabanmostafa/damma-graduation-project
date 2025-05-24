@@ -1,5 +1,6 @@
 import 'package:damma_project/core/utils/models/user_model.dart' show UserModel;
 import 'package:damma_project/core/utils/routing/routes.dart';
+import 'package:damma_project/core/utils/widgets/app_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/utils/app_styles.dart';
@@ -42,6 +43,20 @@ class ProfileInfo extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          SizedBox(height: 20.h),
+          AppTextButton(
+            backgroundColor: AppColors.inactiveButtonColor,
+            borderRadius: 10.r,
+            buttonWidth: 343.w,
+            buttonHeight: 40.h,
+            buttonText: "تعديل",
+            textStyle: AppStyles.styleMedium14
+                .copyWith(color: AppColors.blackTextColor),
+            onPressed: () {
+              Navigator.pushNamed(context, Routes.upateProfileView,
+                  arguments: profile.id);
+            },
           ),
           SizedBox(height: 20.h),
           Divider(

@@ -1,8 +1,10 @@
+import 'package:damma_project/core/utils/widgets/full_screen_image_view.dart';
+import 'package:damma_project/features/profile/manager/cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:image_picker/image_picker.dart';
 import '../../../../../core/utils/app_colors.dart';
-import '../../../../../core/utils/assets.dart';
 
 const String baseUrl = 'http://dama.runasp.net/';
 
@@ -31,7 +33,7 @@ class ProfileHeader extends StatelessWidget {
           children: [
             SizedBox(
               width: 375.w,
-              height: 150.h,
+              height: 175.h,
               child: GestureDetector(
                 onTap: () {
                   if (fullCoverImageUrl != null) {
@@ -58,10 +60,22 @@ class ProfileHeader extends StatelessWidget {
             Positioned(
               top: 8,
               right: 8,
-              child: CircleAvatar(
-                backgroundColor: AppColors.hintTextColor,
-                radius: 16.r,
-                child: SvgPicture.asset(Assets.svgsCamera),
+              child: GestureDetector(
+                onTap: () async {
+                  final picker = ImagePicker();
+                  final pickedFile =
+                      await picker.pickImage(source: ImageSource.gallery);
+                  if (pickedFile != null) {
+                    final cubit = context.read<ProfileCubit>();
+                    await cubit.updateCoverImage(pickedFile.path);
+                  }
+                },
+                child: CircleAvatar(
+                  radius: 20.r,
+                  backgroundColor: Colors.black.withOpacity(0.4),
+                  child: const Icon(Icons.camera_alt,
+                      color: Colors.white, size: 20),
+                ),
               ),
             ),
           ],
@@ -106,48 +120,28 @@ class ProfileHeader extends StatelessWidget {
               Positioned(
                 bottom: 8,
                 right: 4,
-                child: CircleAvatar(
-                  backgroundColor: AppColors.hintTextColor,
-                  radius: 16.r,
-                  child: SvgPicture.asset(Assets.svgsCamera),
+                child: GestureDetector(
+                  onTap: () async {
+                    final picker = ImagePicker();
+                    final pickedFile =
+                        await picker.pickImage(source: ImageSource.gallery);
+                    if (pickedFile != null) {
+                      final cubit = context.read<ProfileCubit>();
+                      await cubit.updateProfileImage(pickedFile.path);
+                    }
+                  },
+                  child: CircleAvatar(
+                    radius: 16.r,
+                    backgroundColor: Colors.black.withOpacity(0.4),
+                    child: const Icon(Icons.camera_alt,
+                        color: Colors.white, size: 16),
+                  ),
                 ),
               ),
             ],
           ),
         ),
       ],
-    );
-  }
-}
-
-class FullScreenImageView extends StatelessWidget {
-  final String? imageUrl;
-  final ImageProvider? imageProvider;
-
-  const FullScreenImageView({super.key, this.imageUrl, this.imageProvider});
-
-  @override
-  Widget build(BuildContext context) {
-    final ImageProvider image = imageProvider ?? NetworkImage(imageUrl!);
-
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: AppColors.whiteColor,
-        appBar: AppBar(
-          backgroundColor: AppColors.primaryColor,
-          elevation: 0,
-          iconTheme: const IconThemeData(color: Colors.white),
-        ),
-        body: Center(
-          child: InteractiveViewer(
-            maxScale: 5,
-            child: Image(
-              image: image,
-              fit: BoxFit.contain,
-            ),
-          ),
-        ),
-      ),
     );
   }
 }

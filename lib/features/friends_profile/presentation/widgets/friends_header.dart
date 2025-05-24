@@ -1,3 +1,4 @@
+import 'package:damma_project/core/utils/widgets/full_screen_image_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -116,38 +117,6 @@ class FriendsHeader extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class FullScreenImageView extends StatelessWidget {
-  final String? imageUrl;
-  final ImageProvider? imageProvider;
-
-  const FullScreenImageView({super.key, this.imageUrl, this.imageProvider});
-
-  @override
-  Widget build(BuildContext context) {
-    final ImageProvider image = imageProvider ?? NetworkImage(imageUrl!);
-
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: AppColors.whiteColor,
-        appBar: AppBar(
-          backgroundColor: AppColors.primaryColor,
-          elevation: 0,
-          iconTheme: const IconThemeData(color: Colors.white),
-        ),
-        body: Center(
-          child: InteractiveViewer(
-            maxScale: 5,
-            child: Image(
-              image: image,
-              fit: BoxFit.contain,
-            ),
-          ),
-        ),
-      ),
     );
   }
 }
