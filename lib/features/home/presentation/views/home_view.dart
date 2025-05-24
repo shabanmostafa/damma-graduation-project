@@ -1,6 +1,5 @@
 import 'package:damma_project/core/utils/assets.dart';
 import 'package:damma_project/features/profile/presentation/views/profile_view.dart';
-import 'package:damma_project/features/settings/presentation/views/settings_view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -29,8 +28,10 @@ class _HomeViewState extends State<HomeView> {
       HomeViewBody(userId: widget.userId),
       const SearchViewBody(),
       const FriendViewBody(),
-      //const ProfileView(),
-      SettingsView(userId: widget.userId)
+      ProfileView(
+        userId: widget.userId,
+      ),
+      //SettingsView(userId: widget.userId)
     ];
   }
 
@@ -52,13 +53,13 @@ class _HomeViewState extends State<HomeView> {
         items: [
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              _currentIndex == 0 ? Assets.svgsHomeFilled : Assets.svgsHome,
+              _currentIndex == 0 ? Assets.svgsHome : Assets.svgsHomeFilled,
             ),
             label: "الرئيسية",
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              _currentIndex == 1 ? Assets.svgsSearchFilled : Assets.svgsSearch,
+              _currentIndex == 1 ? Assets.svgsSearch : Assets.svgsSearchFilled,
             ),
             label: "البحث",
           ),
@@ -73,10 +74,10 @@ class _HomeViewState extends State<HomeView> {
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               _currentIndex == 3
-                  ? Assets.svgsProfileFilled
-                  : Assets.svgsProfile,
+                  ? Assets.svgsProfile
+                  : Assets.svgsProfileFilled,
             ),
-            label: "بروفايل",
+            label: "البروفايل",
           ),
         ],
       ),

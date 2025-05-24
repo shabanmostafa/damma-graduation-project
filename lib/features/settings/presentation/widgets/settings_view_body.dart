@@ -36,6 +36,7 @@
 //   }
 // }
 
+import 'package:damma_project/core/utils/app_colors.dart';
 import 'package:damma_project/core/utils/app_styles.dart';
 import 'package:damma_project/core/utils/assets.dart';
 import 'package:damma_project/core/utils/routing/routes.dart';
@@ -56,7 +57,10 @@ class SettingsViewBody extends StatelessWidget {
     return BlocBuilder<ProfileCubit, ProfileState>(
       builder: (context, state) {
         if (state is ProfileLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+              child: CircularProgressIndicator(
+            color: AppColors.primaryColor,
+          ));
         } else if (state is ProfileSuccess) {
           final userId = state.profile.id; // ✅ This is correct now
 
