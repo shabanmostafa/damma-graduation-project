@@ -52,35 +52,31 @@ class _HomeViewState extends State<HomeView> {
         items: [
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              _currentIndex == 0
-                  ? Assets.svgsNavigationHomeSelected
-                  : Assets.svgsNavigationHomeUnselected,
+              _currentIndex == 0 ? Assets.svgsHomeFilled : Assets.svgsHome,
             ),
-            label: "",
+            label: "الرئيسية",
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              _currentIndex == 1
-                  ? Assets.svgsNavigationSearchSelected
-                  : Assets.svgsNavigationSerachUnselected,
+              _currentIndex == 1 ? Assets.svgsSearchFilled : Assets.svgsSearch,
             ),
-            label: "",
+            label: "البحث",
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               _currentIndex == 2
-                  ? Assets.svgsNavigationAddFriendSelected
-                  : Assets.svgsNavigationAddFriendUnselected,
+                  ? Assets.svgsFriendsFilled
+                  : Assets.svgsFriendsOutlined,
             ),
-            label: "",
+            label: "الاصدقاء",
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               _currentIndex == 3
-                  ? Assets.svgsNavigationProfileSelected
-                  : Assets.svgsNavigationProfileUnselected,
+                  ? Assets.svgsProfileFilled
+                  : Assets.svgsProfile,
             ),
-            label: "",
+            label: "بروفايل",
           ),
         ],
       ),

@@ -80,11 +80,11 @@ class Assets {
 
   /// Assets for svgsHome
   /// assets/svgs/Home.svg
-  static const String svgsHome = "assets/svgs/Home.svg";
+  static const String svgsHomeFilled = "assets/svgs/Home.svg";
 
   /// Assets for svgsHomeFilled
   /// assets/svgs/Home_filled.svg
-  static const String svgsHomeFilled = "assets/svgs/Home_filled.svg";
+  static const String svgsHome = "assets/svgs/Home_filled.svg";
 
   /// Assets for svgsInvisibleEye
   /// assets/svgs/invisibleEye.svg
@@ -164,11 +164,11 @@ class Assets {
 
   /// Assets for svgsProfile
   /// assets/svgs/profile.svg
-  static const String svgsProfile = "assets/svgs/profile.svg";
+  static const String svgsProfileFilled = "assets/svgs/profile.svg";
 
   /// Assets for svgsProfileFilled
   /// assets/svgs/profile_filled.svg
-  static const String svgsProfileFilled = "assets/svgs/profile_filled.svg";
+  static const String svgsProfile = "assets/svgs/profile_filled.svg";
 
   /// Assets for svgsReject
   /// assets/svgs/reject.svg
@@ -176,11 +176,11 @@ class Assets {
 
   /// Assets for svgsSearch
   /// assets/svgs/search.svg
-  static const String svgsSearch = "assets/svgs/search.svg";
+  static const String svgsSearchFilled = "assets/svgs/search.svg";
 
   /// Assets for svgsSearchFilled
   /// assets/svgs/search_filled.svg
-  static const String svgsSearchFilled = "assets/svgs/search_filled.svg";
+  static const String svgsSearch = "assets/svgs/search_filled.svg";
 
   /// Assets for svgsShare
   /// assets/svgs/share.svg
