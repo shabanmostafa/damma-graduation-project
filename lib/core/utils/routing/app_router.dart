@@ -62,8 +62,7 @@ class AppRouter {
         final userId = settings.arguments as int;
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (_) => LoginCubit(
-                getIt<LoginRepoImpl>()), // ممكن تحذفه لو مش هتستخدم cubit هنا
+            create: (_) => LoginCubit(getIt<LoginRepoImpl>()),
             child: HomeView(userId: userId),
           ),
         );
@@ -85,17 +84,21 @@ class AppRouter {
           ),
         );
       case Routes.profileView:
+        final userId = settings.arguments as int;
         return MaterialPageRoute(
-          builder: (_) => const ProfileView(),
+          builder: (_) => ProfileView(userId: userId),
         );
 
       case Routes.settingsView:
+        final userId = settings.arguments as int;
         return MaterialPageRoute(
-          builder: (_) => const SettingsView(),
+          builder: (_) => SettingsView(userId: userId),
         );
+
       case Routes.upateProfileView:
+        final userId = settings.arguments as int;
         return MaterialPageRoute(
-          builder: (_) => const UpdateProfileView(),
+          builder: (_) => UpdateProfileView(userId: userId),
         );
 
       default:
