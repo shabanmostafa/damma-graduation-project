@@ -30,7 +30,7 @@ class _HomeViewState extends State<HomeView> {
       const SearchViewBody(),
       const FriendViewBody(),
       //const ProfileView(),
-      const SettingsView()
+      SettingsView(userId: widget.userId)
     ];
   }
 

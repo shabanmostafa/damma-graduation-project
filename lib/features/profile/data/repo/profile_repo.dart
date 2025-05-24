@@ -2,7 +2,7 @@ import 'package:damma_project/core/utils/models/user_model.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class ProfileRepo {
-  Future<Either<String, UserModel>> getProfileData();
+  Future<Either<String, UserModel>> getProfileData(int id);
   Future<Either<String, UserModel>> updateCoverImage(String filePath);
   Future<Either<String, UserModel>> updateProfileImage(String filePath);
   Future<Either<String, UserModel>> updateFirstName(String firstName);
