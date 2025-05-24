@@ -38,6 +38,7 @@ class ServerFailure extends Failure {
           return ServerFailure('No Internet Connection');
         }
         return ServerFailure('Unexpected error, please try again!');
+      // ignore: unreachable_switch_default
       default:
         return ServerFailure('Opps There was an Error, Please try again');
     }

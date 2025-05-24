@@ -28,7 +28,7 @@ class ProfileActivity extends StatelessWidget {
                   onTap: () {
                     Navigator.pushNamed(
                       context,
-                      Routes.addPostView,
+                      Routes.addPostView
                     );
                   },
                   child: Container(
@@ -56,8 +56,8 @@ class ProfileActivity extends StatelessWidget {
             alignment: Alignment.topRight,
             child: AppTextButton(
               borderRadius: 16.r,
-              buttonHeight: 32.h,
-              buttonWidth: 80.w,
+              buttonHeight: 40.h,
+              buttonWidth: 85.w,
               buttonText: 'المنشورات',
               onPressed: () {},
               textStyle:

@@ -7,6 +7,7 @@ import 'package:damma_project/core/utils/app_colors.dart';
 import 'package:damma_project/core/utils/functions/list_tile_type.dart';
 import 'package:damma_project/core/utils/widgets/reusable_list_tile.dart';
 import 'package:damma_project/generated/l10n.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FriendList extends StatelessWidget {
   const FriendList({super.key});
@@ -34,7 +35,10 @@ class FriendList extends StatelessWidget {
                 Expanded(
                   child: ListView.separated(
                     itemCount: state.suggestions.length,
-                    separatorBuilder: (_, __) => const Divider(),
+                    separatorBuilder: (_, __) => Padding(
+                      padding: EdgeInsets.only(right: 55.0.w, left: 15.0.w),
+                      child: const Divider(),
+                    ),
                     itemBuilder: (context, index) {
                       return ReusableListTile(
                         user: state.suggestions[index],
@@ -48,7 +52,10 @@ class FriendList extends StatelessWidget {
           } else {
             return ListView.separated(
               itemCount: state.requests.length,
-              separatorBuilder: (_, __) => const Divider(),
+              separatorBuilder: (_, __) => Padding(
+                padding: EdgeInsets.only(right: 55.0.w, left: 15.0.w),
+                child: const Divider(),
+              ),
               itemBuilder: (context, index) {
                 return ReusableListTile(
                   user: state.requests[index],

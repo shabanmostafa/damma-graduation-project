@@ -1,58 +1,24 @@
-import 'package:damma_project/features/search/data/models/user_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:damma_project/features/search/data/repo/search_repo.dart';
 import 'search_state.dart';
 
 class SearchCubit extends Cubit<SearchState> {
-  SearchCubit() : super(SearchInitial());
+  final SearchRepo _repo;
 
-  final List<UserModel> _dummyUsers = [
-    UserModel(
-        name: "محمد أحمد",
-        jobTitle: "Software Engineer",
-        imageUrl: "assets/images/shaban.jpg"),
-    UserModel(
-        name: "سارة علي",
-        jobTitle: "Product Manager",
-        imageUrl: "assets/images/shaban.jpg"),
-    UserModel(
-        name: "محمود خالد",
-        jobTitle: "UI/UX Designer",
-        imageUrl: "assets/images/shaban.jpg"),
-    UserModel(
-        name: "محمد أحمد",
-        jobTitle: "Software Engineer",
-        imageUrl: "assets/images/shaban.jpg"),
-    UserModel(
-        name: "سارة علي",
-        jobTitle: "Product Manager",
-        imageUrl: "assets/images/shaban.jpg"),
-    UserModel(
-        name: "محمود خالد",
-        jobTitle: "UI/UX Designer",
-        imageUrl: "assets/images/shaban.jpg"),
-    UserModel(
-        name: "محمد أحمد",
-        jobTitle: "Software Engineer",
-        imageUrl: "assets/images/shaban.jpg"),
-    UserModel(
-        name: "سارة علي",
-        jobTitle: "Product Manager",
-        imageUrl: "assets/images/shaban.jpg"),
-    UserModel(
-        name: "محمود خالد",
-        jobTitle: "UI/UX Designer",
-        imageUrl: "assets/images/shaban.jpg"),
-  ];
+  SearchCubit(this._repo) : super(SearchInitial());
 
-  void search(String query) {
+  Future<void> searchFriends(String query) async {
     if (query.isEmpty) {
       emit(SearchInitial());
-    } else {
-      final results = _dummyUsers
-          .where(
-              (user) => user.name.toLowerCase().contains(query.toLowerCase()))
-          .toList();
-      emit(SearchSeccuss(results));
+      return;
     }
+
+    emit(SearchLoading());
+
+    final result = await _repo.searchFriends(query);
+    result.fold(
+      (failure) => emit(SearchFailure(failure)),
+      (data) => emit(SearchSuccess(data)),
+    );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:damma_project/features/login/manager/login_cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -13,18 +14,21 @@ import '../../../../../core/utils/widgets/app_text_form_field.dart';
 import '../../../../../core/utils/widgets/custom_app_bar.dart';
 import '../../../../../core/utils/widgets/custom_snack_bar.dart';
 import '../../../../../generated/l10n.dart';
-import '../../../../register/logic/cubits/auth_cubit.dart';
-import '../../../../register/logic/cubits/auth_state.dart';
 import 'custom_bottom_button.dart';
 
 class LoginViewBody extends StatelessWidget {
-  const LoginViewBody({super.key});
+  LoginViewBody({super.key});
+
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final GlobalKey<FormState> signInFormKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthCubit, AuthState>(
+    return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
-        if (state is SignInSuccess) {
+        if (state is LoginSuccess) {
+          final id = state.response.id;
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
               content: CustomSnackBar(
@@ -36,8 +40,8 @@ class LoginViewBody extends StatelessWidget {
                 topSvgColor: Color.fromARGB(255, 19, 128, 64),
                 bottomSvgColor: Color.fromARGB(255, 19, 128, 64),
                 containerColor: AppColors.primaryColor,
-                title: 'Great!',
-                errorText: 'Login Successfully',
+                title: 'رائع',
+                errorText: 'تم تسجيل الدخول بنجاح',
               ),
               behavior: SnackBarBehavior.floating,
               backgroundColor: Colors.transparent,
@@ -47,9 +51,10 @@ class LoginViewBody extends StatelessWidget {
           Navigator.pushNamedAndRemoveUntil(
             context,
             Routes.homeView,
+            arguments: state.response.id,
             (route) => false,
           );
-        } else if (state is SignInFailure) {
+        } else if (state is LoginFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: CustomSnackBar(
@@ -61,8 +66,8 @@ class LoginViewBody extends StatelessWidget {
                 topSvgColor: const Color(0xff801336),
                 bottomSvgColor: const Color(0xff801336),
                 containerColor: const Color(0xffc72c41),
-                title: 'Error!',
-                errorText: state.errorMessage,
+                title: '',
+                errorText: state.message,
               ),
               behavior: SnackBarBehavior.floating,
               backgroundColor: Colors.transparent,
@@ -72,8 +77,6 @@ class LoginViewBody extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        final authCubit = context.read<AuthCubit>();
-
         return Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.0.w),
           child: CustomScrollView(
@@ -90,24 +93,24 @@ class LoginViewBody extends StatelessWidget {
               SliverToBoxAdapter(child: verticalSpace(40)),
               SliverToBoxAdapter(
                 child: Form(
-                  key: authCubit.signInFormKey,
+                  key: signInFormKey,
                   child: Column(
                     children: [
                       AppTextFormField(
                         prefixIcon: Assets.svgsUser,
-                        controller: authCubit.signInEmail,
+                        controller: emailController,
                         hintText: S.of(context).email,
                         isPassword: false,
                       ),
                       verticalSpace(15),
                       AppTextFormField(
                         prefixIcon: Assets.svgsLock,
-                        controller: authCubit.signInPassword,
+                        controller: passwordController,
                         hintText: S.of(context).password,
                         isPassword: true,
                       ),
                       verticalSpace(32),
-                      state is SignInLoading
+                      state is LoginLoading
                           ? const CircularProgressIndicator(
                               valueColor: AlwaysStoppedAnimation(
                                 AppColors.primaryColor,
@@ -118,10 +121,12 @@ class LoginViewBody extends StatelessWidget {
                               textStyle: AppStyles.styleMedium18
                                   .copyWith(color: AppColors.whiteColor),
                               onPressed: () {
-                                if (authCubit.signInFormKey.currentState
-                                        ?.validate() ??
+                                if (signInFormKey.currentState?.validate() ??
                                     false) {
-                                  authCubit.signIn();
+                                  context.read<LoginCubit>().login(
+                                        emailController.text,
+                                        passwordController.text,
+                                      );
                                 }
                               },
                             ),
@@ -141,7 +146,7 @@ class LoginViewBody extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(
                           context,
-                          Routes.firstStepYourNameView,
+                          Routes.registerView,
                         );
                       },
                     ),

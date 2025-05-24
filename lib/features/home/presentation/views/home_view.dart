@@ -1,27 +1,38 @@
 import 'package:damma_project/core/utils/assets.dart';
-import 'package:damma_project/features/friend_requests/presentation/widgets/friend_view_body.dart';
-import 'package:damma_project/features/home/presentation/widgets/home_view_body.dart';
-import 'package:damma_project/features/search/presentation/widgets/search_view_body.dart';
+import 'package:damma_project/features/profile/presentation/views/profile_view.dart';
+import 'package:damma_project/features/settings/presentation/views/settings_view.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../core/utils/app_colors.dart';
+import '../../../friend_requests/presentation/views/widgets/friend_view_body.dart';
+import '../../../search/presentation/views/widgets/search_view_body.dart';
+import 'widgets/home_view_body.dart';
 
 class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+  final int userId;
+  const HomeView({super.key, required this.userId});
 
   @override
   State<HomeView> createState() => _HomeViewState();
 }
 
 class _HomeViewState extends State<HomeView> {
-  int _currentIndex = 0; // Changed from 1 to 0 to select Home tab first
+  int _currentIndex = 0;
 
-  final List<Widget> _screens = [
-    const HomeViewBody(), // Index 0 - Home
-    const SearchViewBody(), // Index 1 - Search
-    const FriendViewBody(), // Index 2 - Friends
-    const Center(child: Text("صفحتي")), // Index 3 - Profile
-  ];
+  late List<Widget> _screens;
+
+  @override
+  void initState() {
+    super.initState();
+    _screens = [
+      HomeViewBody(userId: widget.userId),
+      const SearchViewBody(),
+      const FriendViewBody(),
+      //const ProfileView(),
+      SettingsView(userId: widget.userId)
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -52,7 +52,7 @@ class WelcomeViewBody extends StatelessWidget {
                 textStyle: AppStyles.styleMedium16
                     .copyWith(color: AppColors.blackTextColor),
                 onPressed: () {
-                  Navigator.pushNamed(context, Routes.firstStepYourNameView);
+                  Navigator.pushNamed(context, Routes.registerView);
                 },
               ),
             ),

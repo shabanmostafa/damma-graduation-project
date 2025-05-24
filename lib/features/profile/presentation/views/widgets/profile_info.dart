@@ -1,10 +1,14 @@
+import 'package:damma_project/core/utils/models/user_model.dart' show UserModel;
+import 'package:damma_project/core/utils/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/utils/app_colors.dart';
 
 class ProfileInfo extends StatelessWidget {
-  const ProfileInfo({super.key});
+  final UserModel profile;
+
+  const ProfileInfo(this.profile, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,19 +23,21 @@ class ProfileInfo extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('شعبان مصطفي', style: AppStyles.styleBold18),
+                Text('${profile.firstName ?? ''} ${profile.lastName ?? ''}',
+                    style: AppStyles.styleBold18),
                 SizedBox(height: 4.h),
-                Text('Flutter Developer',
+                Text(profile.dateOfBirth ?? '',
                     style: AppStyles.styleMedium14
                         .copyWith(color: AppColors.blackTextColor)),
-                Text('الجيزة - مصر',
-                    style: AppStyles.styleMedium14
-                        .copyWith(color: AppColors.hintTextColor)),
-                Text(
-                  '٥٠٠+ صديق',
-                  style: AppStyles.styleLight12.copyWith(
-                    decoration: TextDecoration.underline,
-                    color: AppColors.blackTextColor,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, Routes.friendView);
+                  },
+                  child: Text(
+                    'الاصدقاء',
+                    style: AppStyles.styleMedium12.copyWith(
+                      color: AppColors.blackTextColor,
+                    ),
                   ),
                 ),
               ],

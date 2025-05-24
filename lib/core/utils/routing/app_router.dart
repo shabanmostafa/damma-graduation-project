@@ -1,20 +1,28 @@
+import 'package:damma_project/core/utils/di/service_locator.dart';
 import 'package:damma_project/features/add_post/presentation/views/add_post_view.dart';
-import 'package:damma_project/features/friend_requests/presentation/views/friend_view.dart';
+import 'package:damma_project/features/my_friends/data/repo/my_friends_repo_imp.dart';
+import 'package:damma_project/features/my_friends/manager/my_friends_cubit.dart';
+import 'package:damma_project/features/my_friends/presentation/views/my_friends_view.dart';
 import 'package:damma_project/features/home/presentation/views/home_view.dart';
+import 'package:damma_project/features/login/data/repo/login_repo_imp.dart';
 import 'package:damma_project/features/login/presentation/views/login_view.dart';
 import 'package:damma_project/features/profile/presentation/views/profile_view.dart';
-import 'package:damma_project/features/register/presentation/views/fifth_step_email_view.dart';
-import 'package:damma_project/features/register/presentation/views/first_step_your_name_view.dart';
-import 'package:damma_project/features/register/presentation/views/fourth_step_phone_view.dart';
-import 'package:damma_project/features/register/presentation/views/seconed_step_date_view.dart';
-import 'package:damma_project/features/register/presentation/views/six_step_password_view.dart';
-import 'package:damma_project/features/register/presentation/views/third_step_gender_view.dart';
+import 'package:damma_project/features/register/data/repos/register_repos/register_repo_imp.dart';
+import 'package:damma_project/features/register/data/repos/verify_repo/verify_repo_imp.dart';
+import 'package:damma_project/features/register/logic/cubit/verify_cubit.dart';
+import 'package:damma_project/features/register/presentation/views/register_view.dart';
 import 'package:damma_project/features/search/presentation/views/search_view.dart';
+import 'package:damma_project/features/settings/presentation/views/settings_view.dart';
+import 'package:damma_project/features/settings/presentation/views/update_profile_view.dart';
 import 'package:damma_project/features/welcome/presentation/views/welcome_view.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../features/login/manager/login_cubit/login_cubit.dart';
 import '../../../features/onBoarding/presentation/views/on_boarding_view.dart';
 import 'package:flutter/material.dart';
 
+import '../../../features/register/logic/cubit/register_cubit.dart';
+import '../../../features/register/presentation/views/verify_account_view.dart';
 import 'routes.dart';
 
 class AppRouter {
@@ -26,40 +34,39 @@ class AppRouter {
         );
       case Routes.loginView:
         return MaterialPageRoute(
-          builder: (context) => const LoginView(),
+          builder: (_) => BlocProvider(
+            create: (_) => LoginCubit(getIt<LoginRepoImpl>()),
+            child: const LoginView(),
+          ),
         );
       case Routes.welcomeView:
         return MaterialPageRoute(
           builder: (context) => const WelcomeView(),
         );
-      case Routes.firstStepYourNameView:
+
+      case Routes.registerView:
         return MaterialPageRoute(
-          builder: (context) => const FirstStepYourNameView(),
+          builder: (_) => BlocProvider(
+            create: (_) => RegisterCubit(getIt<RegisterRepoImpl>()),
+            child: const RegisterView(),
+          ),
         );
-      case Routes.seconedStepDateView:
+      case Routes.verifyAccountView:
         return MaterialPageRoute(
-          builder: (context) => const SeconedStepDateView(),
-        );
-      case Routes.thirdStepGenderView:
-        return MaterialPageRoute(
-          builder: (context) => const ThirdStepGenderView(),
-        );
-      case Routes.fourthStepPhoneView:
-        return MaterialPageRoute(
-          builder: (context) => const FourthStepPhoneView(),
-        );
-      case Routes.fifthStepEmailView:
-        return MaterialPageRoute(
-          builder: (context) => const FifthStepEmailView(),
-        );
-      case Routes.sixStepPasswordView:
-        return MaterialPageRoute(
-          builder: (context) => const SixStepPasswordView(),
+          builder: (_) => BlocProvider(
+            create: (_) => VerifyCubit(getIt<VerifyRepoImpl>()),
+            child: const VerifyAccountView(),
+          ),
         );
       case Routes.homeView:
+        final userId = settings.arguments as int;
         return MaterialPageRoute(
-          builder: (context) => const HomeView(),
+          builder: (_) => BlocProvider(
+            create: (_) => LoginCubit(getIt<LoginRepoImpl>()),
+            child: HomeView(userId: userId),
+          ),
         );
+
       case Routes.addPostView:
         return MaterialPageRoute(
           builder: (context) => const AddPostView(),
@@ -70,11 +77,28 @@ class AppRouter {
         );
       case Routes.friendView:
         return MaterialPageRoute(
-          builder: (context) => const FriendView(),
+          builder: (context) => BlocProvider(
+            create: (context) =>
+                MyFriendsCubit(getIt<MyFriendsRepoImpl>())..fetchFriends(),
+            child: const MyFriendsView(),
+          ),
         );
       case Routes.profileView:
+        final userId = settings.arguments as int;
         return MaterialPageRoute(
-          builder: (context) => const ProfileView(),
+          builder: (_) => ProfileView(userId: userId),
+        );
+
+      case Routes.settingsView:
+        final userId = settings.arguments as int;
+        return MaterialPageRoute(
+          builder: (_) => SettingsView(userId: userId),
+        );
+
+      case Routes.upateProfileView:
+        final userId = settings.arguments as int;
+        return MaterialPageRoute(
+          builder: (_) => UpdateProfileView(userId: userId),
         );
 
       default:
