@@ -18,6 +18,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     );
   }
 
+
   Future<void> updateCoverImage(String filePath) async {
     emit(ProfileLoading());
     final result = await _repo.updateCoverImage(filePath);

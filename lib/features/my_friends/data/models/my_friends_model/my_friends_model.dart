@@ -1,37 +1,27 @@
+import 'datum.dart';
+
 class MyFriendsModel {
-  int? id;
-  String? fristName;
-  String? lastName;
-  String? profileImageUrl;
-  DateTime? createdAt;
-  int? friendId;
+	String? message;
+	int? totalCount;
+	List<Datum>? data;
 
-  MyFriendsModel({
-    this.id,
-    this.fristName,
-    this.lastName,
-    this.profileImageUrl,
-    this.createdAt,
-    this.friendId,
-  });
+	MyFriendsModel({this.message, this.totalCount, this.data});
 
-  factory MyFriendsModel.fromJson(Map<String, dynamic> json) => MyFriendsModel(
-        id: json['id'] as int?,
-        fristName: json['fristName'] as String?,
-        lastName: json['lastName'] as String?,
-        profileImageUrl: json['profileImageUrl'] as String?,
-        createdAt: json['createdAt'] == null
-            ? null
-            : DateTime.parse(json['createdAt'] as String),
-        friendId: json['friendId'] as int?,
-      );
+	factory MyFriendsModel.fromJson(Map<String, dynamic> json) {
+		return MyFriendsModel(
+			message: json['message'] as String?,
+			totalCount: json['totalCount'] as int?,
+			data: (json['data'] as List<dynamic>?)
+						?.map((e) => Datum.fromJson(e as Map<String, dynamic>))
+						.toList(),
+		);
+	}
 
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        'fristName': fristName,
-        'lastName': lastName,
-        'profileImageUrl': profileImageUrl,
-        'createdAt': createdAt?.toIso8601String(),
-        'friendId': friendId,
-      };
+
+
+	Map<String, dynamic> toJson() => {
+				'message': message,
+				'totalCount': totalCount,
+				'data': data?.map((e) => e.toJson()).toList(),
+			};
 }

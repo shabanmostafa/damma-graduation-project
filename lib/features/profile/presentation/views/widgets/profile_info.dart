@@ -30,16 +30,33 @@ class ProfileInfo extends StatelessWidget {
                 Text(profile.dateOfBirth ?? '',
                     style: AppStyles.styleMedium14
                         .copyWith(color: AppColors.blackTextColor)),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, Routes.friendView);
-                  },
-                  child: Text(
-                    'الاصدقاء',
-                    style: AppStyles.styleMedium12.copyWith(
-                      color: AppColors.blackTextColor,
+                Wrap(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.friendView);
+                      },
+                      child: Text(
+                        'الاصدقاء',
+                        style: AppStyles.styleMedium12.copyWith(
+                          color: AppColors.blackTextColor,
+                        ),
+                      ),
                     ),
-                  ),
+                    SizedBox(width: 20.h),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, Routes.requestesSendedView);
+                      },
+                      child: Text(
+                        'طلبات الصداقة المرسلة',
+                        style: AppStyles.styleMedium12.copyWith(
+                          color: AppColors.blackTextColor,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

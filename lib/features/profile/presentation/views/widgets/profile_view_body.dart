@@ -1,5 +1,4 @@
 import 'package:damma_project/core/utils/app_colors.dart';
-import 'package:damma_project/features/home/presentation/views/home_view.dart';
 import 'package:damma_project/features/profile/manager/cubit/profile_cubit.dart';
 import 'package:damma_project/features/profile/manager/cubit/profile_states.dart';
 import 'package:flutter/material.dart';
@@ -33,26 +32,14 @@ class ProfileViewBody extends StatelessWidget {
           return SingleChildScrollView(
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: CustomAppBar(
-                    needArrow: true,
-                    text: "الصفحة الشخصية",
-                    onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomeView(userId: userId),
-                        ),
-                      );
-                    },
-                  ),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: CustomAppBar(needArrow: true, text: "الصفحة الشخصية"),
                 ),
                 ProfileHeader(
                   profileImageUrl: profile.profileImageUrl,
                   coverImageUrl: profile.coverImageUrl,
                 ),
-                const SizedBox(height: 10),
                 ProfileInfo(profile),
                 const ProfileActivity(),
               ],

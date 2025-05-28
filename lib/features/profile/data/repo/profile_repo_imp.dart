@@ -40,7 +40,7 @@ class ProfileRepoImpl implements ProfileRepo {
       );
 
       final userId = user?.id;
-      if (userId == null) return Left("User ID is missing");
+      if (userId == null) return const Left("User ID is missing");
 
       return await getProfileData(userId);
     } catch (error) {
@@ -62,7 +62,7 @@ class ProfileRepoImpl implements ProfileRepo {
       );
 
       final userId = user?.id;
-      if (userId == null) return Left("User ID is missing");
+      if (userId == null) return const Left("User ID is missing");
 
       return await getProfileData(userId);
     } catch (error) {
@@ -79,7 +79,7 @@ class ProfileRepoImpl implements ProfileRepo {
       );
 
       final userId = user?.id;
-      if (userId == null) return Left("User ID is missing");
+      if (userId == null) return const Left("User ID is missing");
 
       return await getProfileData(userId);
     } catch (error) {
@@ -96,7 +96,7 @@ class ProfileRepoImpl implements ProfileRepo {
       );
 
       final userId = user?.id;
-      if (userId == null) return Left("User ID is missing");
+      if (userId == null) return const Left("User ID is missing");
 
       return await getProfileData(userId);
     } catch (error) {

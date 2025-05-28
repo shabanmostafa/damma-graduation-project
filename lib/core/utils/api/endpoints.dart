@@ -31,7 +31,7 @@ class Endpoints {
   static String verify = 'Auth/verify';
   static String resendVerification = 'Auth/resend-verification';
   static String basicInfo = 'Profile/basicInfo';
-  static String getFriends = 'Friends';
+  static String getFriends = 'Profile/Friends';
   static String search = 'Search';
   static String coverImage = 'Setting/cover-image';
   static String profileImage = 'Setting/profile-image';
@@ -42,6 +42,9 @@ class Endpoints {
   static String getVerificationCodeToResetPassword =
       'Setting/get-verification-code';
   static String resetPasswordInProfile = 'Setting/reset-password';
+  static const String isFriend = 'Profile/isFriend';
+  static const String sendFriendRequest = 'Friends/sendFriendRequest';
+  static const String deleteFriend = 'Friends';
 
   // static String getUserDataEndPoint(id) {
   //   return 'user/get-user/$id';

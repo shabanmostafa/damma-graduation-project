@@ -24,9 +24,17 @@
 //   );
 // }
 
+import 'package:damma_project/features/isNotFriend/data/repo/friend_repo.dart';
+import 'package:damma_project/features/isNotFriend/data/repo/friend_repo_impl.dart';
 import 'package:damma_project/features/my_friends/data/repo/my_friends_repo_imp.dart';
 import 'package:damma_project/features/profile/data/repo/profile_repo_imp.dart';
+import 'package:damma_project/features/requestes%20Sended/data/repos/request_sent_repo.dart';
+import 'package:damma_project/features/requestes%20Sended/data/repos/request_sent_repo_impl.dart';
+import 'package:damma_project/features/requstes_recieved/data/repos/requests_received_repo.dart';
+import 'package:damma_project/features/requstes_recieved/data/repos/requests_received_repo_impl.dart';
 import 'package:damma_project/features/search/data/repo/search_repo_imp.dart';
+import 'package:damma_project/features/isFreind/data/repos/friendship_repo.dart';
+import 'package:damma_project/features/isFreind/data/repos/friendship_repo_impl.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -77,7 +85,19 @@ void setup() {
     MyFriendsRepoImpl(getIt<DioConsumer>()),
   );
   getIt.registerSingleton<SearchRepoImpl>(
-  SearchRepoImpl(getIt<DioConsumer>()),
-);
+    SearchRepoImpl(getIt<DioConsumer>()),
+  );
+  getIt.registerSingleton<FriendshipRepo>(
+    FriendshipRepoImpl(getIt<DioConsumer>()),
+  );
+  getIt.registerSingleton<FriendRepo>(
+    FriendRepoImpl(getIt<DioConsumer>()),
+  );
+  getIt.registerSingleton<RequestSentRepo>(
+    RequestSentRepoImpl(getIt<DioConsumer>()),
+  );
 
+  getIt.registerSingleton<RequestsReceivedRepo>(
+    RequestsReceivedRepoImpl(getIt<DioConsumer>()),
+  );
 }
