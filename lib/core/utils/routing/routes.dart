@@ -17,6 +17,9 @@ class Routes {
   static const String verifyAccountView = "/VerifyAccountView";
   static const String settingsView = "/SettingsView";
   static const String upateProfileView = "/UpateProfileView";
+  static const String isFriendView = "/isFriendView";
+  static const String isNotFriendView = "/isNotFriendView";
+  static const String requestesSendedView = "/requestesSendedView";
 }
 // The provided Dart code snippet defines a class named Routes that contains
 // static constant string variables such as: onBoardingScreen and loginScreen.

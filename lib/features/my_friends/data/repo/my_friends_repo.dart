@@ -3,4 +3,5 @@ import 'package:dartz/dartz.dart';
 
 abstract class MyFriendsRepo {
   Future<Either<String, List<MyFriendsModel>>> getFriendsList();
+  Future<Either<String, void>> deleteFriend(int friendId);
 }

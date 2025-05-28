@@ -9,19 +9,22 @@ import 'profile_info.dart';
 import 'profile_activity.dart';
 
 class ProfileViewBody extends StatelessWidget {
-  const ProfileViewBody({super.key});
+  final int userId;
+
+  const ProfileViewBody({super.key, required this.userId});
 
   @override
   Widget build(BuildContext context) {
-    context.read<ProfileCubit>().getProfile();
+    // Remove calling getProfile() here because it was called in ProfileView
 
     return BlocBuilder<ProfileCubit, ProfileState>(
       builder: (context, state) {
         if (state is ProfileLoading) {
           return const Center(
-              child: CircularProgressIndicator(
-            color: AppColors.primaryColor,
-          ));
+            child: CircularProgressIndicator(
+              color: AppColors.primaryColor,
+            ),
+          );
         } else if (state is ProfileFailure) {
           return Center(child: Text('فشل التحميل: ${state.error}'));
         } else if (state is ProfileSuccess) {
@@ -37,15 +40,13 @@ class ProfileViewBody extends StatelessWidget {
                   profileImageUrl: profile.profileImageUrl,
                   coverImageUrl: profile.coverImageUrl,
                 ),
-
                 ProfileInfo(profile),
                 const ProfileActivity(),
-                //const ProfilePosts(),
               ],
             ),
           );
         }
-        return const SizedBox.shrink(); // Initial state
+        return const SizedBox.shrink();
       },
     );
   }

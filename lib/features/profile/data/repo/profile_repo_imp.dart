@@ -7,14 +7,19 @@ import 'package:dio/dio.dart';
 
 class ProfileRepoImpl implements ProfileRepo {
   final ApiConsumer api;
+  UserModel? user;
 
   ProfileRepoImpl(this.api);
 
   @override
-  Future<Either<String, UserModel>> getProfileData() async {
+  Future<Either<String, UserModel>> getProfileData(int id) async {
     try {
-      final response = await api.get(Endpoints.basicInfo);
+      final response = await api.get(
+        Endpoints.basicInfo,
+        queryParameters: {'id': id},
+      );
       final profile = UserModel.fromJson(response);
+      user = profile; // Save user globally
       return Right(profile);
     } catch (error) {
       return Left(error.toString());
@@ -26,9 +31,7 @@ class ProfileRepoImpl implements ProfileRepo {
     try {
       final file =
           await MultipartFile.fromFile(filePath, filename: 'cover.jpg');
-      final formData = FormData.fromMap({
-        'CoverImage': file,
-      });
+      final formData = FormData.fromMap({'CoverImage': file});
 
       await api.put(
         Endpoints.coverImage,
@@ -36,8 +39,10 @@ class ProfileRepoImpl implements ProfileRepo {
         isFormData: true,
       );
 
-      // Get updated user profile
-      return await getProfileData();
+      final userId = user?.id;
+      if (userId == null) return const Left("User ID is missing");
+
+      return await getProfileData(userId);
     } catch (error) {
       return Left(error.toString());
     }
@@ -48,9 +53,7 @@ class ProfileRepoImpl implements ProfileRepo {
     try {
       final file =
           await MultipartFile.fromFile(filePath, filename: 'profile.jpg');
-      final formData = FormData.fromMap({
-        'ProfileImage': file,
-      });
+      final formData = FormData.fromMap({'ProfileImage': file});
 
       await api.put(
         Endpoints.profileImage,
@@ -58,8 +61,10 @@ class ProfileRepoImpl implements ProfileRepo {
         isFormData: true,
       );
 
-      // Get updated user profile
-      return await getProfileData();
+      final userId = user?.id;
+      if (userId == null) return const Left("User ID is missing");
+
+      return await getProfileData(userId);
     } catch (error) {
       return Left(error.toString());
     }
@@ -72,7 +77,11 @@ class ProfileRepoImpl implements ProfileRepo {
         Endpoints.updateFirstName,
         queryParameters: {'firstName': firstName},
       );
-      return await getProfileData();
+
+      final userId = user?.id;
+      if (userId == null) return const Left("User ID is missing");
+
+      return await getProfileData(userId);
     } catch (error) {
       return Left(error.toString());
     }
@@ -85,7 +94,11 @@ class ProfileRepoImpl implements ProfileRepo {
         Endpoints.updateLastName,
         queryParameters: {'lastName': lastName},
       );
-      return await getProfileData();
+
+      final userId = user?.id;
+      if (userId == null) return const Left("User ID is missing");
+
+      return await getProfileData(userId);
     } catch (error) {
       return Left(error.toString());
     }

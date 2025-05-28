@@ -7,12 +7,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:damma_project/features/profile/manager/cubit/profile_cubit.dart';
 
 class UpdateProfileView extends StatelessWidget {
-  const UpdateProfileView({super.key});
+  final int userId;
+
+  const UpdateProfileView({super.key, required this.userId});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => ProfileCubit(getIt<ProfileRepoImpl>())..getProfile(),
+      create: (_) => ProfileCubit(getIt<ProfileRepoImpl>())..getProfile(userId),
       child: const SafeArea(
         child: Scaffold(
           backgroundColor: AppColors.whiteColor,
@@ -22,4 +24,3 @@ class UpdateProfileView extends StatelessWidget {
     );
   }
 }
-

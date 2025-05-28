@@ -7,16 +7,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfileView extends StatelessWidget {
-  const ProfileView({super.key});
+  final int userId;
 
+  const ProfileView({super.key, required this.userId});
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => ProfileCubit(getIt<ProfileRepoImpl>())..getProfile(),
-      child: const SafeArea(
+      create: (_) => ProfileCubit(getIt<ProfileRepoImpl>())..getProfile(userId),
+      child:  SafeArea(
         child: Scaffold(
           backgroundColor: AppColors.whiteColor,
-          body: ProfileViewBody(),
+          body: ProfileViewBody(userId: userId,),
         ),
       ),
     );
