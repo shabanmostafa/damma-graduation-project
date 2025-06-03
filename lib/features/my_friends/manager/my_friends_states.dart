@@ -17,3 +17,9 @@ class MyFriendsFailure extends MyFriendsState {
 
   MyFriendsFailure(this.error);
 }
+
+class FriendDeletedSuccessfully extends MyFriendsState {
+  final int friendId;
+
+  FriendDeletedSuccessfully(this.friendId);
+}

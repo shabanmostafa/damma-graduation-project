@@ -1,5 +1,7 @@
 import 'package:damma_project/core/utils/di/service_locator.dart';
 import 'package:damma_project/features/add_post/presentation/views/add_post_view.dart';
+import 'package:damma_project/features/isFreind/presentation/views/is_friend_view.dart';
+import 'package:damma_project/features/isNotFriend/presentation/views/is_not_friend_view.dart';
 import 'package:damma_project/features/my_friends/data/repo/my_friends_repo_imp.dart';
 import 'package:damma_project/features/my_friends/manager/my_friends_cubit.dart';
 import 'package:damma_project/features/my_friends/presentation/views/my_friends_view.dart';
@@ -11,6 +13,9 @@ import 'package:damma_project/features/register/data/repos/register_repos/regist
 import 'package:damma_project/features/register/data/repos/verify_repo/verify_repo_imp.dart';
 import 'package:damma_project/features/register/logic/cubit/verify_cubit.dart';
 import 'package:damma_project/features/register/presentation/views/register_view.dart';
+import 'package:damma_project/features/requestes%20Sended/data/repos/request_sent_repo.dart';
+import 'package:damma_project/features/requestes%20Sended/manager/request_sent_cubit.dart';
+import 'package:damma_project/features/search/data/models/search_model/search_model.dart';
 import 'package:damma_project/features/search/presentation/views/search_view.dart';
 import 'package:damma_project/features/settings/presentation/views/settings_view.dart';
 import 'package:damma_project/features/settings/presentation/views/update_profile_view.dart';
@@ -23,6 +28,7 @@ import 'package:flutter/material.dart';
 
 import '../../../features/register/logic/cubit/register_cubit.dart';
 import '../../../features/register/presentation/views/verify_account_view.dart';
+import '../../../features/requestes Sended/presentation/views/requestes_sended_view.dart';
 import 'routes.dart';
 
 class AppRouter {
@@ -99,6 +105,28 @@ class AppRouter {
         final userId = settings.arguments as int;
         return MaterialPageRoute(
           builder: (_) => UpdateProfileView(userId: userId),
+        );
+
+      case Routes.isFriendView:
+        final user = settings.arguments as SearchModel;
+        return MaterialPageRoute(
+          builder: (context) => IsFriendView(userId: user.id!),
+        );
+
+      case Routes.isNotFriendView:
+        final user = settings.arguments as SearchModel;
+
+        return MaterialPageRoute(
+          builder: (context) => IsNotFriendView(userId: user.id!),
+        );
+
+      case Routes.requestesSendedView:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) =>
+                RequestSentCubit(getIt<RequestSentRepo>())..fetchSentRequests(),
+            child: const RequestesSendedView(),
+          ),
         );
 
       default:
