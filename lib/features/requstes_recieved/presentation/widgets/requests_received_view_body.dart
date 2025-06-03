@@ -7,6 +7,8 @@ import 'package:damma_project/core/utils/app_colors.dart';
 import 'package:damma_project/core/utils/app_styles.dart';
 import 'package:damma_project/core/utils/widgets/custom_app_bar.dart';
 
+import '../../../home/presentation/views/home_view.dart';
+
 class RequestsReceivedViewBody extends StatelessWidget {
   const RequestsReceivedViewBody({super.key});
 
@@ -68,7 +70,7 @@ class RequestsReceivedViewBody extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: CustomAppBar(
-                      needArrow: true,
+                      needArrow: false,
                       text: 'طلبات الصداقة الواردة',
                     ),
                   ),

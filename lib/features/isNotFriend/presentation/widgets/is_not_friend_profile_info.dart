@@ -61,29 +61,27 @@ class IsNotFriendProfileInfo extends StatelessWidget {
                 ),
               ),
               verticalSpace(5),
+              SizedBox(height: 20.h),
+
               AppTextButton(
-                borderRadius: 16.r,
-                buttonHeight: 40.h,
-                buttonWidth: 150.w,
-                buttonText: isRequestSent ? 'طلب الصداقة مرسل' : 'اضافة صديق',
                 onPressed: () {
                   if (!isLoading && !isRequestSent && profile.id != null) {
                     context.read<FriendCubit>().sendFriendRequest(profile.id!);
                   }
                 },
-                isLoading: isLoading,
-                backgroundColor: isRequestSent
-                    ? AppColors.inActiveDotsColor // Red color for sent state
-                    : AppColors.primaryColor, // Default primary color
-                textStyle: AppStyles.styleMedium12.copyWith(
-                  color: AppColors.whiteColor, // Always white text
-                ),
+                  backgroundColor: AppColors.primaryColor,
+                  borderRadius: 10.r,
+                  buttonWidth: 343.w,
+                  buttonHeight: 40.h,
+                  buttonText: isRequestSent ? 'تم ارسال طلب الصداقة' : 'اضافة صديق',
+                  textStyle: AppStyles.styleMedium14
+                      .copyWith(color: AppColors.whiteColor),
+
+
               ),
-              verticalSpace(5),
+              SizedBox(height: 20.h),
               Divider(
-                  color: AppColors.inactiveButtonColor,
-                  thickness: 8,
-                  height: 20.h),
+                  color: AppColors.inactiveButtonColor, thickness: 8, height: 10.h),
             ],
           ),
         );
@@ -91,3 +89,4 @@ class IsNotFriendProfileInfo extends StatelessWidget {
     );
   }
 }
+

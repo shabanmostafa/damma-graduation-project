@@ -13,8 +13,8 @@ class ProfileCubit extends Cubit<ProfileState> {
     emit(ProfileLoading());
     final result = await _repo.getProfileData(id);
     result.fold(
-      (failure) => emit(ProfileFailure(failure)),
-      (profile) => emit(ProfileSuccess(profile)),
+          (failure) => emit(ProfileFailure(failure)),
+          (profile) => emit(ProfileSuccess(profile)),
     );
   }
 
@@ -23,8 +23,8 @@ class ProfileCubit extends Cubit<ProfileState> {
     emit(ProfileLoading());
     final result = await _repo.updateCoverImage(filePath);
     result.fold(
-      (failure) => emit(ProfileFailure(failure)),
-      (profile) => emit(ProfileSuccess(profile)),
+          (failure) => emit(ProfileFailure(failure)),
+          (profile) => emit(ProfileSuccess(profile)),
     );
   }
 
@@ -32,8 +32,8 @@ class ProfileCubit extends Cubit<ProfileState> {
     emit(ProfileLoading());
     final result = await _repo.updateProfileImage(filePath);
     result.fold(
-      (failure) => emit(ProfileFailure(failure)),
-      (profile) => emit(ProfileSuccess(profile)),
+          (failure) => emit(ProfileFailure(failure)),
+          (profile) => emit(ProfileSuccess(profile)),
     );
   }
 
@@ -41,8 +41,8 @@ class ProfileCubit extends Cubit<ProfileState> {
     emit(ProfileLoading());
     final result = await _repo.updateFirstName(firstName);
     result.fold(
-      (failure) => emit(ProfileFailure(failure)),
-      (profile) => emit(ProfileSuccess(profile)),
+          (failure) => emit(ProfileFailure(failure)),
+          (profile) => emit(ProfileSuccess(profile)),
     );
   }
 
@@ -50,8 +50,8 @@ class ProfileCubit extends Cubit<ProfileState> {
     emit(ProfileLoading());
     final result = await _repo.updateLastName(lastName);
     result.fold(
-      (failure) => emit(ProfileFailure(failure)),
-      (profile) => emit(ProfileSuccess(profile)),
+          (failure) => emit(ProfileFailure(failure)),
+          (profile) => emit(ProfileSuccess(profile)),
     );
   }
 
@@ -59,8 +59,8 @@ class ProfileCubit extends Cubit<ProfileState> {
     emit(ProfileLoading());
     final result = await _repo.logout();
     result.fold(
-      (failure) => emit(ProfileFailure(failure)),
-      (_) {
+          (failure) => emit(ProfileFailure(failure)),
+          (_) {
         emit(ProfileInitial());
       },
     );
@@ -70,8 +70,8 @@ class ProfileCubit extends Cubit<ProfileState> {
     emit(ProfileLoading());
     final result = await _repo.delete();
     result.fold(
-      (failure) => emit(ProfileFailure(failure)),
-      (_) {
+          (failure) => emit(ProfileFailure(failure)),
+          (_) {
         emit(ProfileInitial());
       },
     );
@@ -82,11 +82,11 @@ class ProfileCubit extends Cubit<ProfileState> {
     final result = await _repo.getVerificationCode();
     bool success = false;
     result.fold(
-      (failure) {
+          (failure) {
         emit(ProfileFailure(failure));
         success = false;
       },
-      (_) {
+          (_) {
         emit(ProfileInitial());
         success = true;
       },
@@ -100,11 +100,11 @@ class ProfileCubit extends Cubit<ProfileState> {
     final result = await _repo.resetPassword(newPassword, verificationCode);
     bool success = false;
     result.fold(
-      (failure) {
+          (failure) {
         emit(ProfileFailure(failure));
         success = false;
       },
-      (_) {
+          (_) {
         emit(ProfileInitial());
         success = true;
       },

@@ -1,10 +1,10 @@
 import 'package:damma_project/core/utils/assets.dart';
 import 'package:damma_project/features/requstes_recieved/presentation/views/requests_received_view.dart';
-import 'package:damma_project/features/settings/presentation/views/settings_view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../core/utils/app_colors.dart';
+import '../../../profile/presentation/views/profile_view.dart';
 import '../../../search/presentation/views/widgets/search_view_body.dart';
 import 'widgets/home_view_body.dart';
 
@@ -28,8 +28,8 @@ class _HomeViewState extends State<HomeView> {
       HomeViewBody(userId: widget.userId),
       const SearchViewBody(),
       const RequestsReceivedView(),
-      //const ProfileView(),
-      SettingsView(userId: widget.userId)
+      ProfileView(userId: widget.userId,),
+      //SettingsView(userId: widget.userId)
     ];
   }
 
@@ -52,34 +52,34 @@ class _HomeViewState extends State<HomeView> {
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               _currentIndex == 0
-                  ? Assets.svgsNavigationHomeSelected
-                  : Assets.svgsNavigationHomeUnselected,
+                  ? Assets.svgsHome
+                  : Assets.svgsHomeFilled,
             ),
-            label: "",
+            label: "الرئيسية",
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               _currentIndex == 1
-                  ? Assets.svgsNavigationSearchSelected
-                  : Assets.svgsNavigationSerachUnselected,
+                  ? Assets.svgsSearch
+                  : Assets.svgsSearchFilled,
             ),
-            label: "",
+            label: "البحث",
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               _currentIndex == 2
-                  ? Assets.svgsNavigationAddFriendSelected
-                  : Assets.svgsNavigationAddFriendUnselected,
+                  ? Assets.svgsFriendsFilled
+                  : Assets.svgsFriendsOutlined,
             ),
-            label: "",
+            label: "طلبات الصداقة",
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               _currentIndex == 3
-                  ? Assets.svgsNavigationProfileSelected
-                  : Assets.svgsNavigationProfileUnselected,
+                  ? Assets.svgsProfile
+                  : Assets.svgsProfileFilled,
             ),
-            label: "",
+            label: "البروفايل",
           ),
         ],
       ),

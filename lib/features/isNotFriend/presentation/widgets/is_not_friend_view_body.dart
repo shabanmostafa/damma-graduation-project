@@ -1,11 +1,9 @@
 import 'package:damma_project/core/utils/app_colors.dart';
-import 'package:damma_project/features/isFreind/presentation/widgets/is_friend_profile_activity.dart';
-import 'package:damma_project/features/isFreind/presentation/widgets/is_friend_profile_header.dart';
-import 'package:damma_project/features/isFreind/presentation/widgets/is_friend_profile_info.dart';
-import 'package:damma_project/features/isNotFriend/presentation/widgets/is_not_friend_profile_activity.dart';
 import 'package:damma_project/features/isNotFriend/presentation/widgets/is_not_friend_profile_info.dart';
 import 'package:damma_project/features/profile/manager/cubit/profile_cubit.dart';
 import 'package:damma_project/features/profile/manager/cubit/profile_states.dart';
+import 'package:damma_project/features/profile/presentation/views/widgets/profile_activity.dart';
+import 'package:damma_project/features/profile/presentation/views/widgets/profile_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/widgets/custom_app_bar.dart';
@@ -33,14 +31,19 @@ class IsNotFriendViewBody extends StatelessWidget {
                   child: CustomAppBar(
                       needArrow: true,
                       text:
-                          '${profile.firstName ?? ''} ${profile.lastName ?? ''}'),
+                      '${profile.firstName ?? ''} ${profile.lastName ?? ''}'),
                 ),
-                IsFriendProfileHeader(
+                ProfileHeader(
+                  myProfile: false,
                   profileImageUrl: profile.profileImageUrl,
                   coverImageUrl: profile.coverImageUrl,
                 ),
-                IsNotFriendProfileInfo(profile),
-                const IsNotFriendProfileActivity(),
+                IsNotFriendProfileInfo(
+                  profile,
+                ),
+                const ProfileActivity(
+                  myProfile: false,
+                ),
               ],
             ),
           );
