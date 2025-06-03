@@ -6,7 +6,9 @@ import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/utils/widgets/app_text_button.dart';
 
 class ProfileActivity extends StatelessWidget {
-  const ProfileActivity({super.key});
+ final bool myProfile;
+
+  const ProfileActivity({super.key, required this.myProfile});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,8 @@ class ProfileActivity extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height: 24.h),
-          Row(
+          if(myProfile)
+            Row(
             children: [
               Expanded(
                 flex: 3,
@@ -49,6 +52,7 @@ class ProfileActivity extends StatelessWidget {
                   ),
                 ),
               ),
+
             ],
           ),
           SizedBox(height: 16.h),

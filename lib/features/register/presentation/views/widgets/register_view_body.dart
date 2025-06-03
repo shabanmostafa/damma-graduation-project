@@ -9,6 +9,7 @@ import 'package:damma_project/features/register/presentation/functions/handle_re
 import 'package:damma_project/features/register/presentation/views/widgets/date_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
@@ -115,48 +116,62 @@ class RegisterViewBody extends StatelessWidget {
               ),
               SliverToBoxAdapter(child: verticalSpace(20)),
               SliverToBoxAdapter(
-                child: Column(
+                child: Stack(
+                  clipBehavior: Clip.none,
                   children: [
-                    GestureDetector(
-                      onTap: () => _pickImage(onProfileImagePicked),
-                      child: CircleAvatar(
-                        radius: 45,
-                        backgroundColor: Colors.grey.shade300,
-                        backgroundImage: profileImagePath != null
-                            ? FileImage(File(profileImagePath!))
-                            : null,
-                        child: profileImagePath == null
-                            ? const Icon(Icons.camera_alt,
-                                size: 30, color: Colors.grey)
-                            : null,
-                      ),
-                    ),
-                    verticalSpace(20),
                     GestureDetector(
                       onTap: () => _pickImage(onCoverImagePicked),
                       child: Container(
-                        height: 120,
+                        height: 150.h,
                         width: double.infinity,
                         decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
                           color: Colors.grey.shade300,
                           image: coverImagePath != null
                               ? DecorationImage(
-                                  image: FileImage(File(coverImagePath!)),
-                                  fit: BoxFit.cover,
-                                )
+                            image: FileImage(File(coverImagePath!)),
+                            fit: BoxFit.cover,
+                          )
                               : null,
                         ),
                         child: coverImagePath == null
                             ? const Center(
-                                child: Icon(Icons.image,
-                                    size: 40, color: Colors.grey),
-                              )
+                          child: Icon(Icons.image, size: 25, color: Colors.grey),
+                        )
                             : null,
+                      ),
+                    ),
+
+                    Positioned(
+                      bottom: -35,
+                      left: (375.w / 2) - 50,
+                      child: GestureDetector(
+                        onTap: () => _pickImage(onProfileImagePicked),
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                             CircleAvatar(
+                              radius: 50.r,
+                              backgroundColor: Colors.white,
+                            ),
+                            CircleAvatar(
+                              radius: 45.r,
+                              backgroundColor: Colors.grey.shade300,
+                              backgroundImage: profileImagePath != null
+                                  ? FileImage(File(profileImagePath!))
+                                  : null,
+                              child: profileImagePath == null
+                                  ? const Icon(Icons.camera_alt, size: 25, color: Colors.grey)
+                                  : null,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
+              const SliverToBoxAdapter(child: SizedBox(height: 25)),
               SliverToBoxAdapter(child: verticalSpace(30)),
               SliverToBoxAdapter(
                 child: Form(

@@ -21,7 +21,8 @@ class IsFriendView extends StatelessWidget {
           ProfileCubit(getIt<ProfileRepoImpl>())..getProfile(userId),
       child: const Scaffold(
         backgroundColor: AppColors.whiteColor,
-        body: SafeArea(child: IsFriendViewBody()),
+        body: SafeArea(child: IsFriendViewBody(
+        )),
       ),
     );
   }

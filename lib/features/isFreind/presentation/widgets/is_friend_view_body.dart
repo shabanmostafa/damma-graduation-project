@@ -10,8 +10,8 @@
 // }
 
 import 'package:damma_project/core/utils/app_colors.dart';
-import 'package:damma_project/features/isFreind/presentation/widgets/is_friend_profile_activity.dart';
-import 'package:damma_project/features/isFreind/presentation/widgets/is_friend_profile_header.dart';
+import 'package:damma_project/core/utils/routing/routes.dart';
+
 import 'package:damma_project/features/isFreind/presentation/widgets/is_friend_profile_info.dart';
 import 'package:damma_project/features/profile/manager/cubit/profile_cubit.dart';
 import 'package:damma_project/features/profile/manager/cubit/profile_states.dart';
@@ -20,11 +20,13 @@ import 'package:damma_project/features/profile/presentation/views/widgets/profil
 import 'package:damma_project/features/profile/presentation/views/widgets/profile_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/utils/widgets/custom_app_bar.dart';
 
+
 class IsFriendViewBody extends StatelessWidget {
-  const IsFriendViewBody({super.key});
+  const IsFriendViewBody({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -48,12 +50,23 @@ class IsFriendViewBody extends StatelessWidget {
                       text:
                           '${profile.firstName ?? ''} ${profile.lastName ?? ''}'),
                 ),
-                IsFriendProfileHeader(
+                ProfileHeader(
+                  myProfile: false,
                   profileImageUrl: profile.profileImageUrl,
                   coverImageUrl: profile.coverImageUrl,
                 ),
-                IsFriendProfileInfo(profile),
-                const IsFriendProfileActivity(),
+                ProfileInfo(
+                  isFriend: true,
+                  btnText:'الغاء الصداقة' ,
+                  profile,
+                  onPressed: () {
+                  Navigator.pushReplacementNamed(context, Routes.friendView);
+                  },
+
+                ),
+
+                const ProfileActivity(myProfile: false),
+                //Text('${user.mutualFriendsCount}')
               ],
             ),
           );
