@@ -266,12 +266,27 @@ class _AddPostViewBodyState extends State<AddPostViewBody> {
   }
 
   void _createPost() {
+    if (_isVideo &&
+        _selectedMedia != null &&
+        !_selectedMedia!.path.endsWith('.mp4')) {
+      _showErrorSnackBar("يجب اختيار ملف فيديو بصيغة MP4");
+      return;
+    }
+
+    if (!_isVideo &&
+        _selectedMedia != null &&
+        !['.jpg', '.jpeg', '.png']
+            .any((ext) => _selectedMedia!.path.endsWith(ext))) {
+      _showErrorSnackBar("يجب اختيار صورة بصيغة JPG أو JPEG أو PNG");
+      return;
+    }
+
     context.read<PostCubit>().addPost(
           AddPostModel(
             title: _titleController.text,
             content: _contentController.text,
-            image: _selectedMedia?.path,
-            video: _isVideo ? _selectedMedia?.path : null,
+            image: !_isVideo ? _selectedMedia : null,
+            video: _isVideo ? _selectedMedia : null,
           ),
         );
   }
@@ -284,9 +299,19 @@ class _AddPostViewBodyState extends State<AddPostViewBody> {
   }
 
   Future<void> _pickImage() async {
-    final pickedFile =
-        await ImagePicker().pickImage(source: ImageSource.gallery);
+    final pickedFile = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 85,
+    );
+
     if (pickedFile != null) {
+      final fileExtension = pickedFile.path.split('.').last.toLowerCase();
+      if (!['jpg', 'jpeg', 'png'].contains(fileExtension)) {
+        _showErrorSnackBar(
+            "نوع الملف غير مدعوم. يرجى اختيار صورة (JPG/JPEG/PNG)");
+        return;
+      }
+
       setState(() {
         _selectedMedia = pickedFile;
         _isVideo = false;
@@ -295,9 +320,17 @@ class _AddPostViewBodyState extends State<AddPostViewBody> {
   }
 
   Future<void> _pickVideo() async {
-    final pickedFile =
-        await ImagePicker().pickVideo(source: ImageSource.gallery);
+    final pickedFile = await ImagePicker().pickVideo(
+      source: ImageSource.gallery,
+    );
+
     if (pickedFile != null) {
+      final fileExtension = pickedFile.path.split('.').last.toLowerCase();
+      if (fileExtension != 'mp4') {
+        _showErrorSnackBar("نوع الملف غير مدعوم. يرجى اختيار فيديو (MP4)");
+        return;
+      }
+
       setState(() {
         _selectedMedia = pickedFile;
         _isVideo = true;
@@ -435,7 +468,7 @@ class _AddPostViewBodyState extends State<AddPostViewBody> {
                                 height: 40.h,
                                 child: const Center(
                                   child: CircularProgressIndicator(
-                                      color: Colors.white),
+                                      color: AppColors.primaryColor),
                                 ),
                               )
                             : AppTextButton(

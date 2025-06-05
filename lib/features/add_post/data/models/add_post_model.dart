@@ -1,10 +1,10 @@
-// features/post/data/models/add_post_model.dart
+import 'package:image_picker/image_picker.dart';
 
 class AddPostModel {
   final String title;
   final String content;
-  final String? image;
-  final String? video;
+  final XFile? image;
+  final XFile? video;
 
   AddPostModel({
     required this.title,
@@ -12,13 +12,4 @@ class AddPostModel {
     this.image,
     this.video,
   });
-
-  Map<String, dynamic> toJson() {
-    return {
-      'Title': title,
-      'Content': content,
-      'Image': image,
-      'Video': video,
-    };
-  }
 }

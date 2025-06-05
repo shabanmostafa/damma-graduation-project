@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import 'package:damma_project/core/utils/app_colors.dart';
 import 'package:damma_project/core/utils/app_styles.dart';
@@ -213,7 +212,10 @@ class _PostCardState extends State<PostCard> {
             loadingBuilder: (_, child, loadingProgress) =>
                 loadingProgress == null
                     ? child
-                    : const Center(child: CircularProgressIndicator()),
+                    : const Center(
+                        child: CircularProgressIndicator(
+                        color: AppColors.primaryColor,
+                      )),
           ),
         ),
       ),
