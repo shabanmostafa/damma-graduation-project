@@ -1,4 +1,5 @@
 import 'package:damma_project/core/utils/models/user_model.dart';
+import 'package:damma_project/features/profile/data/models/profile_post_model.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class ProfileRepo {
@@ -14,4 +15,6 @@ abstract class ProfileRepo {
   Future<Either<String, void>> getVerificationCode();
   Future<Either<String, void>> resetPassword(
       String newPassword, String verificationCode);
+
+  Future<Either<String, ProfilePostModel>> getProfilePosts(int userId);
 }

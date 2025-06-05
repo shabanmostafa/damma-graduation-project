@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
   final ProfileRepo _repo;
-  int? userId; // store userId internally
+  int? userId;
 
   ProfileCubit(this._repo) : super(ProfileInitial());
 

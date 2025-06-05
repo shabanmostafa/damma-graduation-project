@@ -41,7 +41,7 @@ class _PostSectionState extends State<PostSection> {
     if (comment.trim().isNotEmpty) {
       setState(() {
         comments.add(comment);
-        commentCount++; // Ensure this is updated
+        commentCount++;
       });
     }
   }

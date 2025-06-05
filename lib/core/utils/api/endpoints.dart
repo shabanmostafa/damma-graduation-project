@@ -20,6 +20,7 @@ class Endpoints {
   static const String sendFriendRequest = 'Friends/sendFriendRequest';
   static const String deleteFriend = 'Friends';
   static const String addPost = 'Post/createPost';
+  static String profilePosts = 'Profile/userPosts';
 
   // static String getUserDataEndPoint(id) {
   //   return 'user/get-user/$id';

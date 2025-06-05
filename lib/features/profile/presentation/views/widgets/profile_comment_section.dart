@@ -1,32 +1,32 @@
+import 'package:damma_project/features/profile/data/models/profile_post_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/utils/spacing.dart';
 
-class CommentSection extends StatefulWidget {
-  final List<String> comments;
+class ProfileCommentSection extends StatefulWidget {
+  final List<Comments> comments;
   final Function(String) onCommentAdded;
 
-  const CommentSection({
+  const ProfileCommentSection({
     super.key,
     required this.comments,
     required this.onCommentAdded,
   });
 
   @override
-  State<CommentSection> createState() => _CommentSectionState();
+  State<ProfileCommentSection> createState() => _ProfileCommentSectionState();
 }
 
-class _CommentSectionState extends State<CommentSection> {
+class _ProfileCommentSectionState extends State<ProfileCommentSection> {
   final TextEditingController _commentController = TextEditingController();
 
   void submitComment() {
     String commentText = _commentController.text.trim();
     if (commentText.isNotEmpty) {
-      setState(() {
-        widget.onCommentAdded(commentText);
-        _commentController.clear();
-      });
+      widget.onCommentAdded(commentText);
+      _commentController.clear();
+      setState(() {});
     }
   }
 
@@ -54,14 +54,26 @@ class _CommentSectionState extends State<CommentSection> {
           Expanded(
             child: ListView.builder(
               itemCount: widget.comments.length,
-              itemBuilder: (context, index) => ListTile(
-                leading: const CircleAvatar(
-                  backgroundImage: AssetImage('assets/images/shaban.jpg'),
-                ),
-                title: Text('مستخدم $index', style: AppStyles.styleMedium12),
-                subtitle: Text(widget.comments[index],
-                    style: AppStyles.styleMedium12),
-              ),
+              itemBuilder: (context, index) {
+                final comment = widget.comments[index];
+                return ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: comment.profileImageUrl != null
+                        ? NetworkImage(
+                            getFullProfileImageUrl(comment.profileImageUrl!)!)
+                        : const AssetImage('assets/images/default_avatar.png')
+                            as ImageProvider,
+                  ),
+                  title: Text(
+                    '${comment.firstName ?? ''} ${comment.lastName ?? ''}',
+                    style: AppStyles.styleMedium12,
+                  ),
+                  subtitle: Text(
+                    comment.content ?? '',
+                    style: AppStyles.styleMedium12,
+                  ),
+                );
+              },
             ),
           ),
           TextField(
@@ -80,5 +92,12 @@ class _CommentSectionState extends State<CommentSection> {
         ],
       ),
     );
+  }
+
+  String? getFullProfileImageUrl(String? path) {
+    if (path == null || path.isEmpty || path.endsWith('/')) return null;
+    if (path.startsWith('http')) return path;
+    final normalizedPath = path.startsWith('/') ? path : '/$path';
+    return 'http://dama.runasp.net$normalizedPath';
   }
 }

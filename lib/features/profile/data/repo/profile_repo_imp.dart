@@ -1,5 +1,6 @@
 import 'package:damma_project/core/utils/api/api_consumer.dart';
 import 'package:damma_project/core/utils/api/endpoints.dart';
+import 'package:damma_project/features/profile/data/models/profile_post_model.dart';
 import 'package:damma_project/features/profile/data/repo/profile_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:damma_project/core/utils/models/user_model.dart';
@@ -144,6 +145,20 @@ class ProfileRepoImpl implements ProfileRepo {
       };
       await api.post(Endpoints.resetPasswordInProfile, data: data);
       return const Right(null);
+    } catch (error) {
+      return Left(error.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, ProfilePostModel>> getProfilePosts(int userId) async {
+    try {
+      final response = await api.get(
+        Endpoints.profilePosts,
+        queryParameters: {'userId': userId},
+      );
+      final posts = ProfilePostModel.fromJson(response);
+      return Right(posts);
     } catch (error) {
       return Left(error.toString());
     }
