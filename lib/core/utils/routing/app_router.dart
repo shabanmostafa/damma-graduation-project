@@ -1,5 +1,9 @@
 import 'package:damma_project/core/utils/di/service_locator.dart';
+import 'package:damma_project/core/utils/models/user_model.dart';
+import 'package:damma_project/features/add_post/manager/post_cubit.dart';
 import 'package:damma_project/features/add_post/presentation/views/add_post_view.dart';
+import 'package:damma_project/features/home/data/repos/home_user_repo_impl.dart';
+import 'package:damma_project/features/home/manager/home_cubit.dart';
 import 'package:damma_project/features/isFreind/presentation/views/is_friend_view.dart';
 import 'package:damma_project/features/isNotFriend/presentation/views/is_not_friend_view.dart';
 import 'package:damma_project/features/my_friends/data/repo/my_friends_repo_imp.dart';
@@ -68,15 +72,18 @@ class AppRouter {
         final userId = settings.arguments as int;
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (_) => LoginCubit(getIt<LoginRepoImpl>()),
+            create: (_) =>
+                HomeCubit(getIt<HomeUserRepoImpl>())..fetchUser(userId),
             child: HomeView(userId: userId),
           ),
         );
 
       case Routes.addPostView:
+        final user = settings.arguments as UserModel;
         return MaterialPageRoute(
-          builder: (context) => const AddPostView(),
+          builder: (context) => AddPostView(user: user),
         );
+
       case Routes.searchView:
         return MaterialPageRoute(
           builder: (context) => const SearchView(),

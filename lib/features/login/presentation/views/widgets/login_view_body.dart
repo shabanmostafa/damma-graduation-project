@@ -28,7 +28,6 @@ class LoginViewBody extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginSuccess) {
-          final id = state.response.id;
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
               content: CustomSnackBar(
@@ -48,11 +47,10 @@ class LoginViewBody extends StatelessWidget {
               elevation: 0,
             ),
           );
-          Navigator.pushNamedAndRemoveUntil(
+          Navigator.pushNamed(
             context,
             Routes.homeView,
-            arguments: state.response.id,
-            (route) => false,
+            arguments: state.response.id, // <-- دا اللي بيحصل Crash لما ميتبعتش
           );
         } else if (state is LoginFailure) {
           ScaffoldMessenger.of(context).showSnackBar(

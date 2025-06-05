@@ -1,5 +1,4 @@
 import 'package:damma_project/core/utils/app_colors.dart';
-import 'package:damma_project/core/utils/routing/app_router.dart';
 import 'package:damma_project/features/profile/manager/cubit/profile_cubit.dart';
 import 'package:damma_project/features/profile/manager/cubit/profile_states.dart';
 import 'package:flutter/material.dart';
@@ -37,25 +36,36 @@ class ProfileViewBody extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: CustomAppBar(needArrow: true, text: "الصفحة الشخصية",onPressed: (){
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomeView(userId:userId),
-                      ),
-                    );
-                  },),
+                  child: CustomAppBar(
+                    needArrow: true,
+                    text: "الصفحة الشخصية",
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomeView(userId: userId),
+                        ),
+                      );
+                    },
+                  ),
                 ),
                 ProfileHeader(
                   myProfile: true,
                   profileImageUrl: profile.profileImageUrl,
                   coverImageUrl: profile.coverImageUrl,
                 ),
-                ProfileInfo(profile,onPressed:  () {
-                  Navigator.pushNamed(context, Routes.upateProfileView,
-                      arguments: userId);
-                }, btnText: 'تعديل', isFriend: false,),
-                const ProfileActivity(myProfile: true,),
+                ProfileInfo(
+                  profile,
+                  onPressed: () {
+                    Navigator.pushNamed(context, Routes.upateProfileView,
+                        arguments: userId);
+                  },
+                  btnText: 'تعديل',
+                  isFriend: false,
+                ),
+                const ProfileActivity(
+                  myProfile: true,
+                ),
               ],
             ),
           );
@@ -65,4 +75,3 @@ class ProfileViewBody extends StatelessWidget {
     );
   }
 }
-

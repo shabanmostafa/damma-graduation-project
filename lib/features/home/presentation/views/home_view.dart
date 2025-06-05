@@ -25,10 +25,12 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     super.initState();
     _screens = [
-      HomeViewBody(userId: widget.userId),
+      const HomeViewBody(),
       const SearchViewBody(),
       const RequestsReceivedView(),
-      ProfileView(userId: widget.userId,),
+      ProfileView(
+        userId: widget.userId,
+      ),
       //SettingsView(userId: widget.userId)
     ];
   }
@@ -51,17 +53,13 @@ class _HomeViewState extends State<HomeView> {
         items: [
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              _currentIndex == 0
-                  ? Assets.svgsHome
-                  : Assets.svgsHomeFilled,
+              _currentIndex == 0 ? Assets.svgsHome : Assets.svgsHomeFilled,
             ),
             label: "الرئيسية",
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              _currentIndex == 1
-                  ? Assets.svgsSearch
-                  : Assets.svgsSearchFilled,
+              _currentIndex == 1 ? Assets.svgsSearch : Assets.svgsSearchFilled,
             ),
             label: "البحث",
           ),

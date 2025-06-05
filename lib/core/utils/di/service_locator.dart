@@ -1,29 +1,9 @@
-// import 'package:dio/dio.dart';
+// core/utils/di/service_locator.dart
 
-// import 'package:get_it/get_it.dart';
-
-// import '../../../features/register/data/repos/auth_repo_impl.dart';
-// import '../api/dio_consumer.dart';
-// import '../secure/secure_storage_service.dart';
-
-// final getIt = GetIt.instance;
-
-// void setup() {
-//   getIt.registerSingleton<DioConsumer>(
-//     DioConsumer(
-//       dio: Dio(),
-//       secureStorageService: SecureStorageService(),
-//     ),
-//   );
-
-//   getIt.registerSingleton<AuthRepoImpl>(
-//     AuthRepoImpl(
-//       getIt.get<DioConsumer>(),
-//       SecureStorageService(),
-//     ),
-//   );
-// }
-
+import 'package:damma_project/features/add_post/data/repo/post_repo.dart';
+import 'package:damma_project/features/add_post/data/repo/post_repo_imp.dart';
+import 'package:damma_project/features/add_post/manager/post_cubit.dart';
+import 'package:damma_project/features/home/data/repos/home_user_repo_impl.dart';
 import 'package:damma_project/features/isNotFriend/data/repo/friend_repo.dart';
 import 'package:damma_project/features/isNotFriend/data/repo/friend_repo_impl.dart';
 import 'package:damma_project/features/my_friends/data/repo/my_friends_repo_imp.dart';
@@ -81,23 +61,41 @@ void setup() {
   getIt.registerSingleton<ProfileRepoImpl>(
     ProfileRepoImpl(getIt<DioConsumer>()),
   );
+
   getIt.registerSingleton<MyFriendsRepoImpl>(
     MyFriendsRepoImpl(getIt<DioConsumer>()),
   );
+
   getIt.registerSingleton<SearchRepoImpl>(
     SearchRepoImpl(getIt<DioConsumer>()),
   );
+
   getIt.registerSingleton<FriendshipRepo>(
     FriendshipRepoImpl(getIt<DioConsumer>()),
   );
+
   getIt.registerSingleton<FriendRepo>(
     FriendRepoImpl(getIt<DioConsumer>()),
   );
+
   getIt.registerSingleton<RequestSentRepo>(
     RequestSentRepoImpl(getIt<DioConsumer>()),
   );
 
   getIt.registerSingleton<RequestsReceivedRepo>(
     RequestsReceivedRepoImpl(getIt<DioConsumer>()),
+  );
+
+  getIt.registerSingleton<HomeUserRepoImpl>(
+    HomeUserRepoImpl(getIt<DioConsumer>()),
+  );
+
+  // Register PostRepo and PostCubit
+  getIt.registerSingleton<PostRepoImpl>(
+    PostRepoImpl(getIt<DioConsumer>()),
+  );
+
+  getIt.registerFactory<PostCubit>(
+    () => PostCubit(getIt<PostRepoImpl>()),
   );
 }

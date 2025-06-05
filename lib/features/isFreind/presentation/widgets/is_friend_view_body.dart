@@ -1,18 +1,6 @@
-// import 'package:flutter/material.dart';
-
-// class IsFriendViewBody extends StatelessWidget {
-//   const IsFriendViewBody({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Center(child: Text('is friend view body'));
-//   }
-// }
-
 import 'package:damma_project/core/utils/app_colors.dart';
 import 'package:damma_project/core/utils/routing/routes.dart';
 
-import 'package:damma_project/features/isFreind/presentation/widgets/is_friend_profile_info.dart';
 import 'package:damma_project/features/profile/manager/cubit/profile_cubit.dart';
 import 'package:damma_project/features/profile/manager/cubit/profile_states.dart';
 import 'package:damma_project/features/profile/presentation/views/widgets/profile_activity.dart';
@@ -21,7 +9,6 @@ import 'package:damma_project/features/profile/presentation/views/widgets/profil
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/widgets/custom_app_bar.dart';
-
 
 class IsFriendViewBody extends StatelessWidget {
   const IsFriendViewBody({
@@ -57,12 +44,11 @@ class IsFriendViewBody extends StatelessWidget {
                 ),
                 ProfileInfo(
                   isFriend: true,
-                  btnText:'الغاء الصداقة' ,
+                  btnText: 'الغاء الصداقة',
                   profile,
                   onPressed: () {
-                  Navigator.pushReplacementNamed(context, Routes.friendView);
+                    Navigator.pushReplacementNamed(context, Routes.friendView);
                   },
-
                 ),
 
                 const ProfileActivity(myProfile: false),

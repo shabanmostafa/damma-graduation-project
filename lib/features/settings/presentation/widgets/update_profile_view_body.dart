@@ -230,101 +230,6 @@ class UpdateProfileViewBody extends StatelessWidget {
                           needArrow: true,
                         ),
                         verticalSpace(10),
-                        // Stack(
-                        //   clipBehavior: Clip.none,
-                        //   children: [
-                        //     Container(
-                        //       width: double.infinity,
-                        //       height: 220.h,
-                        //       decoration: BoxDecoration(
-                        //         borderRadius:
-                        //             const BorderRadius.all(Radius.circular(25)),
-                        //         image: DecorationImage(
-                        //           image: coverImageUrl != null
-                        //               ? NetworkImage(coverImageUrl)
-                        //               : const AssetImage(
-                        //                       'assets/images/cover_placeholder.jpg')
-                        //                   as ImageProvider,
-                        //           fit: BoxFit.cover,
-                        //         ),
-                        //       ),
-                        //     ),
-                        //     Positioned(
-                        //       top: 12.h,
-                        //       right: 12.w,
-                        //       child: GestureDetector(
-                        //         onTap: () async {
-                        //           final picker = ImagePicker();
-                        //           final pickedFile = await picker.pickImage(
-                        //               source: ImageSource.gallery);
-                        //           if (pickedFile != null) {
-                        //             final cubit = context.read<ProfileCubit>();
-                        //             await cubit
-                        //                 .updateCoverImage(pickedFile.path);
-                        //           }
-                        //         },
-                        //         child: CircleAvatar(
-                        //           radius: 20.r,
-                        //           backgroundColor:
-                        //               Colors.black.withOpacity(0.4),
-                        //           child: const Icon(
-                        //             Icons.camera_alt,
-                        //             color: Colors.white,
-                        //             size: 20,
-                        //           ),
-                        //         ),
-                        //       ),
-                        //     ),
-                        //     Center(
-                        //       child: Stack(
-                        //         clipBehavior: Clip.none,
-                        //         children: [
-                        //           CircleAvatar(
-                        //             radius: 60.r,
-                        //             backgroundColor: Colors.white,
-                        //             child: CircleAvatar(
-                        //               radius: 56.r,
-                        //               backgroundImage: profileImageUrl != null
-                        //                   ? NetworkImage(profileImageUrl)
-                        //                   : const AssetImage(
-                        //                           'assets/images/profile_placeholder.png')
-                        //                       as ImageProvider,
-                        //             ),
-                        //           ),
-                        //           Positioned(
-                        //             bottom: 0,
-                        //             right: 0,
-                        //             child: GestureDetector(
-                        //               onTap: () async {
-                        //                 final picker = ImagePicker();
-                        //                 final pickedFile =
-                        //                     await picker.pickImage(
-                        //                         source: ImageSource.gallery);
-                        //                 if (pickedFile != null) {
-                        //                   final cubit =
-                        //                       context.read<ProfileCubit>();
-                        //                   await cubit.updateProfileImage(
-                        //                       pickedFile.path);
-                        //                 }
-                        //               },
-                        //               child: CircleAvatar(
-                        //                 radius: 16.r,
-                        //                 backgroundColor:
-                        //                     Colors.black.withOpacity(0.4),
-                        //                 child: const Icon(
-                        //                   Icons.camera_alt,
-                        //                   color: Colors.white,
-                        //                   size: 16,
-                        //                 ),
-                        //               ),
-                        //             ),
-                        //           ),
-                        //         ],
-                        //       ),
-                        //     ),
-                        //   ],
-                        // ),
-
                         Stack(
                           clipBehavior: Clip.none,
                           children: [
@@ -358,7 +263,7 @@ class UpdateProfileViewBody extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(25),
                                         image: DecorationImage(
                                           image: coverImageUrl != null
-                                              ? NetworkImage(coverImageUrl!)
+                                              ? NetworkImage(coverImageUrl)
                                               : const AssetImage(
                                                       'assets/images/cover_placeholder.jpg')
                                                   as ImageProvider,
