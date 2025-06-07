@@ -163,4 +163,50 @@ class ProfileRepoImpl implements ProfileRepo {
       return Left(error.toString());
     }
   }
+
+  @override
+  Future<Either<String, void>> addComment(int postId, String content) async {
+    try {
+      await api.post(
+        Endpoints.addComment,
+        data: {
+          'id': postId,
+          'comment': content,
+        },
+      );
+      return const Right(null);
+    } catch (error) {
+      return Left(error.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, void>> addReaction(
+      int postId, String reactionType) async {
+    try {
+      await api.post(
+        Endpoints.addReaction,
+        data: {
+          'id': postId,
+          'type': reactionType,
+        },
+      );
+      return const Right(null);
+    } catch (error) {
+      return Left(error.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, void>> removeReaction(int postId) async {
+    try {
+      await api.delete(
+        Endpoints.removeReaction,
+        data: {'postId': postId},
+      );
+      return const Right(null);
+    } catch (error) {
+      return Left(error.toString());
+    }
+  }
 }

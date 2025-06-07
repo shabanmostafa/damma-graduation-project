@@ -50,9 +50,7 @@ class IsFriendViewBody extends StatelessWidget {
                     Navigator.pushReplacementNamed(context, Routes.friendView);
                   },
                 ),
-
                 const ProfileActivity(myProfile: false),
-                //Text('${user.mutualFriendsCount}')
               ],
             ),
           );

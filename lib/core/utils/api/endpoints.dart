@@ -21,6 +21,9 @@ class Endpoints {
   static const String deleteFriend = 'Friends';
   static const String addPost = 'Post/createPost';
   static String profilePosts = 'Profile/userPosts';
+  static const String addComment = 'Post/comment';
+  static const String addReaction = 'Post/reaction';
+  static const String removeReaction = 'Post/removeReaction';
 
   // static String getUserDataEndPoint(id) {
   //   return 'user/get-user/$id';

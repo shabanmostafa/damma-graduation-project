@@ -17,4 +17,7 @@ abstract class ProfileRepo {
       String newPassword, String verificationCode);
 
   Future<Either<String, ProfilePostModel>> getProfilePosts(int userId);
+  Future<Either<String, void>> addComment(int postId, String content);
+  Future<Either<String, void>> addReaction(int postId, String reactionType);
+  Future<Either<String, void>> removeReaction(int postId);
 }
