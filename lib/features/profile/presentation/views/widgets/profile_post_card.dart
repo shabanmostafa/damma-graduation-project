@@ -739,8 +739,7 @@ class _PostCardState extends State<PostCard> {
       padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 12.h),
       child: Row(
         children: [
-          Icon(Icons.short_text_rounded,
-              color: AppColors.primaryColor, size: 20.sp),
+         Image.asset("assets/images/icons8-pin-48.png",width: 20.w,height: 20.h,color: AppColors.primaryColor,),
           horizontalSpace(6),
           Expanded(
             child: Text(
