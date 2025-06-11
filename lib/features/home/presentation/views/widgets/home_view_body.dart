@@ -1,6 +1,6 @@
 import 'package:damma_project/core/utils/spacing.dart';
 import 'package:damma_project/features/home/presentation/views/widgets/home_appbar.dart';
-import 'package:damma_project/features/home/presentation/views/widgets/posts_list_view.dart';
+import 'package:damma_project/features/home/presentation/views/widgets/news_feed_listview.dart';
 import 'package:damma_project/features/home/presentation/views/widgets/what_thinking_section.dart';
 import 'package:damma_project/features/home/manager/home_cubit.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +32,9 @@ class HomeViewBody extends StatelessWidget {
                     child: WhatThinkingSection(),
                   ),
                   verticalSpace(40),
-                  const PostsListView(),
+                  NewsFeedListView(
+                    userModel: state.user, // <-- أضف هذا هنا
+                  ),
                 ],
               ),
             ),

@@ -67,7 +67,7 @@ class _AddPostViewBodyState extends State<AddPostViewBody> {
   final stt.SpeechToText _speech = stt.SpeechToText();
   final Dio _dio = Dio();
   final String _apiKey =
-      "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";
+      "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";
   bool isButtonActive = false;
   bool _isLoading = false;
   bool _isListening = false;

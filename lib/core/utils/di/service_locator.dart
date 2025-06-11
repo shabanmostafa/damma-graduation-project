@@ -1,9 +1,10 @@
 // core/utils/di/service_locator.dart
-
-import 'package:damma_project/features/add_post/data/repo/post_repo.dart';
 import 'package:damma_project/features/add_post/data/repo/post_repo_imp.dart';
 import 'package:damma_project/features/add_post/manager/post_cubit.dart';
 import 'package:damma_project/features/home/data/repos/home_user_repo_impl.dart';
+import 'package:damma_project/features/home/data/repos/news_feed_repo.dart';
+import 'package:damma_project/features/home/data/repos/news_feed_repo_impl.dart';
+import 'package:damma_project/features/home/manager/news_feed_cubit.dart';
 import 'package:damma_project/features/isNotFriend/data/repo/friend_repo.dart';
 import 'package:damma_project/features/isNotFriend/data/repo/friend_repo_impl.dart';
 import 'package:damma_project/features/my_friends/data/repo/my_friends_repo_imp.dart';
@@ -98,4 +99,26 @@ void setup() {
   getIt.registerFactory<PostCubit>(
     () => PostCubit(getIt<PostRepoImpl>()),
   );
+// Register NewsFeedRepo and NewsFeedCubit
+  getIt.registerSingleton<NewsFeedRepo>(
+    NewsFeedRepoImpl(getIt<DioConsumer>()),
+  );
+
+  getIt.registerFactory<NewsFeedCubit>(
+    () => NewsFeedCubit(getIt<NewsFeedRepo>()),
+  );
+
+// Register ApiConsumer interface
+
+  //getIt.registerLazySingleton<NewsFeedRepo>(() => NewsFeedRepoImpl(getIt()));
+
+  // getIt.registerSingleton<DioConsumer>(
+  // DioConsumer(
+  //   dio: getIt<Dio>(),
+  //   secureStorageService: getIt<SecureStorageService>(),
+  // ),
+//);
+
+// Register ApiConsumer interface
+// getIt.registerSingleton<ApiConsumer>(getIt<DioConsumer>());
 }

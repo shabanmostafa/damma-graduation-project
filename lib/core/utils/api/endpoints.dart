@@ -24,6 +24,7 @@ class Endpoints {
   static const String addComment = 'Post/comment';
   static const String addReaction = 'Post/reaction';
   static const String removeReaction = 'Post/removeReaction';
+  static const String newsFeed = 'Post/NewsFeed';
 
   // static String getUserDataEndPoint(id) {
   //   return 'user/get-user/$id';
