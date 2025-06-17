@@ -38,7 +38,7 @@ class ProfileInfo extends StatelessWidget {
                     Text(profile.dateOfBirth ?? '',
                         style: AppStyles.styleMedium14
                             .copyWith(color: AppColors.blackTextColor)),
-                   isFriend? Row(
+                  isFriend?  Row(
                       children: [
                         const TextButtonProfile(text: 'انتم اصدقاء'),
                         SizedBox(width: 4.w),
@@ -48,10 +48,10 @@ class ProfileInfo extends StatelessWidget {
                           color: AppColors.primaryColor,
                         ),
                       ],
-                    ):const SizedBox.shrink()
+                    ):SizedBox.shrink(),
                   ],
                 ),
-                Wrap(
+               !isFriend? Wrap(
                   children: [
                     GestureDetector(
                       onTap: () {
@@ -78,12 +78,11 @@ class ProfileInfo extends StatelessWidget {
                       ),
                     ),
                   ],
-                )
-
+                ):SizedBox.shrink()
               ],
             ),
           ),
-          SizedBox(height: 20.h),
+          SizedBox(height: 10.h),
           AppTextButton(
               backgroundColor: AppColors.primaryColor,
               borderRadius: 10.r,

@@ -104,6 +104,7 @@ void setup() {
     NewsFeedRepoImpl(getIt<DioConsumer>()),
   );
 
+
   getIt.registerFactory<NewsFeedCubit>(
     () => NewsFeedCubit(getIt<NewsFeedRepo>()),
   );

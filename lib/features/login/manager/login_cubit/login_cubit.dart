@@ -43,6 +43,7 @@ class LoginCubit extends Cubit<LoginState> {
       await storage.write(key: 'accessToken', value: response.accessToken);
       await storage.write(key: 'refreshToken', value: response.refreshToken);
       await storage.write(key: 'userId', value: response.id.toString());
+
     } catch (e) {
       emit(LoginFailure(e.toString().replaceAll('Exception:', '').trim()));
     }
