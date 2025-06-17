@@ -28,7 +28,7 @@ class IsNotFriendView extends StatelessWidget {
           create: (context) => ProfilePostsCubit(getIt<ProfileRepoImpl>())..getProfilePosts(userId),
         ),
         BlocProvider(
-          create: (context) => FriendCubit(getIt<FriendRepoImpl>()),
+          create: (context) => FriendCubit(getIt<FriendRepo>()),
         ),
       ],
       child: const Scaffold(

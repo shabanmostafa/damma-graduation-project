@@ -130,7 +130,7 @@ class ProfileViewBody extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: CustomAppBar(
-                        needArrow: true,
+                        needArrow: false,
                         text: "الصفحة الشخصية",
                         onPressed: () {
                           Navigator.pushReplacement(
