@@ -28,7 +28,9 @@ class HomeViewBody extends StatelessWidget {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         if (state is HomeLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator(
+            color: AppColors.primaryColor,
+          ));
         } else if (state is HomeSuccess) {
           _saveUserToPreferences(state.user);
 

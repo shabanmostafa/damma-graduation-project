@@ -502,7 +502,8 @@ class _PostCardState extends State<PostCard> {
     }
   }
 
-  void openCommentSection() {
+  void openCommentSection() async{
+    final currentUser = await getCurrentUser();
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -537,6 +538,7 @@ class _PostCardState extends State<PostCard> {
               ),
               Expanded(
                 child: ListView.builder(
+
                   controller: scrollController,
                   itemCount: comments.length,
                   itemBuilder: (context, index) {
@@ -563,42 +565,51 @@ class _PostCardState extends State<PostCard> {
                 ),
               ),
               Padding(
+
                 padding: EdgeInsets.all(16.w),
                 child: Row(
                   children: [
                     CircleAvatar(
                       radius: 20.r,
-                      backgroundImage: widget.profile.profileImageUrl != null
+                      backgroundImage: currentUser.profileImageUrl != null
                           ? NetworkImage(getFullProfileImageUrl(
-                              widget.profile.profileImageUrl!))
+                          currentUser.profileImageUrl!))
                           : const AssetImage('assets/images/default_avatar.png')
                               as ImageProvider,
                     ),
                     horizontalSpace(8),
                     Expanded(
                       child: TextField(
+                        cursorColor: AppColors.primaryColor,
                         controller: _commentController,
                         decoration: InputDecoration(
-                          focusColor:AppColors.primaryColor,
+                          focusColor: AppColors.primaryColor,
                           iconColor: AppColors.primaryColor,
                           hintText: 'اكتب تعليق...',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20.r),
-
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.r),
+                            borderSide: const BorderSide(
+                              color: AppColors.primaryColor,
+                              width: 2,
+                            ),
                           ),
                           contentPadding: EdgeInsets.symmetric(
                               horizontal: 12.w, vertical: 10.h),
                           suffixIcon: IconButton(
                             icon: _isSubmittingComment
-                                ? const CircularProgressIndicator()
-                                : const Icon(Icons.send,),
-                            onPressed: _isSubmittingComment
-                                ? null
-                                : () => submitComment(),
+                                ? const CircularProgressIndicator(
+                              color: AppColors.primaryColor,
+                            )
+                                : const Icon(Icons.send,color: AppColors.primaryColor,),
+                            onPressed: _isSubmittingComment ? null : () => submitComment(),
                           ),
                         ),
                         onSubmitted: (_) => submitComment(),
                       ),
+
                     ),
                   ],
                 ),
