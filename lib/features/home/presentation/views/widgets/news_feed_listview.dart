@@ -22,9 +22,9 @@ class NewsFeedListView extends StatelessWidget {
           ));
         } else if (state is NewsFeedSuccess) {
           return ListView.separated(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: state.posts.length,
+            physics:const NeverScrollableScrollPhysics(),
+           shrinkWrap: true,
+              itemCount: state.posts.length,
             separatorBuilder: (_, __) => const SizedBox(height: 10),
             itemBuilder: (context, index) => FinalPostSection(
               newsFeedModel: state.posts[index],

@@ -446,6 +446,8 @@ import 'package:damma_project/core/utils/widgets/full_screen_image_view.dart';
 import 'package:damma_project/core/utils/models/user_model.dart';
 import 'package:damma_project/features/profile/data/models/profile_post_model.dart';
 
+import '../../../../../core/utils/functions/get_user_info.dart';
+
 class PostCard extends StatefulWidget {
   final Posts post;
   final UserModel profile;
@@ -577,16 +579,19 @@ class _PostCardState extends State<PostCard> {
                       child: TextField(
                         controller: _commentController,
                         decoration: InputDecoration(
+                          focusColor:AppColors.primaryColor,
+                          iconColor: AppColors.primaryColor,
                           hintText: 'اكتب تعليق...',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20.r),
+
                           ),
                           contentPadding: EdgeInsets.symmetric(
                               horizontal: 12.w, vertical: 10.h),
                           suffixIcon: IconButton(
                             icon: _isSubmittingComment
                                 ? const CircularProgressIndicator()
-                                : const Icon(Icons.send),
+                                : const Icon(Icons.send,),
                             onPressed: _isSubmittingComment
                                 ? null
                                 : () => submitComment(),
@@ -614,6 +619,7 @@ class _PostCardState extends State<PostCard> {
     if (commentText.isEmpty) return;
 
     setState(() => _isSubmittingComment = true);
+    final currentUser = await getCurrentUser(); // جيب المستخدم الحالي
 
     final postsCubit = context.read<ProfilePostsCubit>();
     final success =
@@ -627,6 +633,7 @@ class _PostCardState extends State<PostCard> {
       return;
     }
 
+
     // Success
     setState(() {
       commentCount += 1;
@@ -634,10 +641,10 @@ class _PostCardState extends State<PostCard> {
           0,
           Comments(
             content: commentText,
-            userID: widget.profile.id,
-            firstName: widget.profile.firstName,
-            lastName: widget.profile.lastName,
-            profileImageUrl: widget.profile.profileImageUrl,
+            userID:currentUser.id,
+            firstName: currentUser.firstName,
+            lastName: currentUser.lastName,
+            profileImageUrl:currentUser.profileImageUrl,
           ));
       _commentController.clear();
       _isSubmittingComment = false;

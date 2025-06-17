@@ -3,6 +3,7 @@ import 'package:damma_project/core/utils/di/service_locator.dart';
 import 'package:damma_project/features/isFreind/presentation/widgets/is_friend_view_body.dart';
 import 'package:damma_project/features/profile/data/repo/profile_repo_imp.dart';
 import 'package:damma_project/features/profile/manager/cubit/profile_cubit.dart';
+import 'package:damma_project/features/profile/manager/profile_posts_cubit/profile_posts_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,9 +14,17 @@ class IsFriendView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) =>
-          ProfileCubit(getIt<ProfileRepoImpl>())..getProfile(userId),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              ProfileCubit(getIt<ProfileRepoImpl>())..getProfile(userId),
+        ),
+        BlocProvider(
+          create: (_) => ProfilePostsCubit(getIt<ProfileRepoImpl>())
+            ..getProfilePosts(userId),
+        ),
+      ],
       child: const Scaffold(
         backgroundColor: AppColors.whiteColor,
         body: SafeArea(child: IsFriendViewBody()),
