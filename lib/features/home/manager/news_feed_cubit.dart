@@ -25,7 +25,6 @@ class NewsFeedCubit extends Cubit<NewsFeedState> {
       await newsFeedRepo.addComment(postId, content);
       return true;
     } catch (e) {
-      // Optional: print or log error
       return false;
     }
   }
@@ -33,16 +32,16 @@ class NewsFeedCubit extends Cubit<NewsFeedState> {
   Future<void> addReaction(int postId, String reactionType) async {
     final result = await newsFeedRepo.addReaction(postId, reactionType);
     result.fold(
-      (failure) => null, // Handle error if needed
-      (_) => null, // Success - UI will handle the update
+      (failure) => null,
+      (_) => null,
     );
   }
 
   Future<void> removeReaction(int postId) async {
     final result = await newsFeedRepo.removeReaction(postId);
     result.fold(
-      (failure) => null, // Handle error if needed
-      (_) => null, // Success - UI will handle the update
+      (failure) => null,
+      (_) => null,
     );
   }
 }

@@ -17,14 +17,11 @@ class ProfilePostsCubit extends Cubit<ProfilePostsState> {
     );
   }
 
-// profile_posts_cubit.dart
-
   Future<bool> addComment(int postId, String content) async {
     try {
       await _repo.addComment(postId, content);
       return true;
     } catch (e) {
-      // Optional: print or log error
       return false;
     }
   }
@@ -32,16 +29,16 @@ class ProfilePostsCubit extends Cubit<ProfilePostsState> {
   Future<void> addReaction(int postId, String reactionType) async {
     final result = await _repo.addReaction(postId, reactionType);
     result.fold(
-      (failure) => null, // Handle error if needed
-      (_) => null, // Success - UI will handle the update
+      (failure) => null,
+      (_) => null,
     );
   }
 
   Future<void> removeReaction(int postId) async {
     final result = await _repo.removeReaction(postId);
     result.fold(
-      (failure) => null, // Handle error if needed
-      (_) => null, // Success - UI will handle the update
+      (failure) => null,
+      (_) => null,
     );
   }
 }

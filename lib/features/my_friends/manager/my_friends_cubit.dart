@@ -93,10 +93,9 @@ class MyFriendsCubit extends Cubit<MyFriendsState> {
         result.fold(
           (failure) {
             emit(MyFriendsFailure(failure));
-            emit(currentState); // Revert to previous state
+            emit(currentState);
           },
           (_) {
-            // Remove the friend from the list
             friendsList = friendsList.map((model) {
               return MyFriendsModel(
                 data: model.data
@@ -107,14 +106,13 @@ class MyFriendsCubit extends Cubit<MyFriendsState> {
 
             emit(MyFriendsSuccess(friendsList));
 
-            // Show success message through state if needed
             emit(FriendDeletedSuccessfully(friendId));
-            emit(MyFriendsSuccess(friendsList)); // Return to success state
+            emit(MyFriendsSuccess(friendsList));
           },
         );
       } catch (e) {
         emit(MyFriendsFailure(e.toString()));
-        emit(currentState); // Revert to previous state
+        emit(currentState);
       }
     }
   }

@@ -5,7 +5,7 @@ abstract class ApiConsumer {
     String path, {
     dynamic data,
     Map<String, dynamic>? queryParameters,
-    Options? options, // ✅ Add this
+    Options? options,
   });
 
   Future<dynamic> post(

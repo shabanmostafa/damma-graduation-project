@@ -23,7 +23,7 @@ class VerifyCubit extends Cubit<VerifyState> {
     emit(VerifyLoading());
     try {
       final message = await verifyRepo.resendVerificationCode(email);
-      emit(VerifyResendSuccess(message)); // 👈 New state
+      emit(VerifyResendSuccess(message));
     } catch (e) {
       emit(VerifyFailure(e.toString()));
     }

@@ -25,14 +25,12 @@ class RequestsReceivedCubit extends Cubit<RequestsReceivedState> {
     try {
       await requestsReceivedRepo.acceptRequest(requestId);
       emit(RequestAccepted(requestId));
-      // Return to success state to show updated list
       if (currentState is RequestsReceivedSuccess) {
         emit(RequestsReceivedSuccess(currentState.receivedRequests));
       }
     } catch (e) {
       emit(
           RequestsReceivedFailure('Failed to accept request: ${e.toString()}'));
-      // Revert to previous state
       if (currentState is RequestsReceivedSuccess) {
         emit(currentState);
       }
@@ -44,14 +42,12 @@ class RequestsReceivedCubit extends Cubit<RequestsReceivedState> {
     try {
       await requestsReceivedRepo.rejectRequest(requestId);
       emit(RequestRejected(requestId));
-      // Return to success state to show updated list
       if (currentState is RequestsReceivedSuccess) {
         emit(RequestsReceivedSuccess(currentState.receivedRequests));
       }
     } catch (e) {
       emit(
           RequestsReceivedFailure('Failed to reject request: ${e.toString()}'));
-      // Revert to previous state
       if (currentState is RequestsReceivedSuccess) {
         emit(currentState);
       }

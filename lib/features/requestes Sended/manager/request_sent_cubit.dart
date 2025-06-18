@@ -24,7 +24,6 @@ class RequestSentCubit extends Cubit<RequestSentState> {
     try {
       await requestSentRepo.cancelRequest(requestId);
       emit(RequestCancelled(requestId));
-      // Return to success state to show updated list
       if (currentState is RequestSentSuccess) {
         emit(RequestSentSuccess(currentState.sentRequests));
       }

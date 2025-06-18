@@ -409,10 +409,8 @@ class UpdateProfileViewBody extends StatelessWidget {
                         GestureDetector(
                           onTap: () async {
                             final cubit = context.read<ProfileCubit>();
-                            // Call getVerificationCode endpoint
                             final result = await cubit.getVerificationCode();
                             if (result) {
-                              // Show snackbar on success
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                     content: Text(
@@ -473,7 +471,7 @@ class UpdateProfileViewBody extends StatelessWidget {
                           final cubit = context.read<ProfileCubit>();
                           await cubit.deleteAccount();
                           Navigator.of(context).pushNamedAndRemoveUntil(
-                            Routes.registerView,
+                            Routes.welcomeView,
                             (Route<dynamic> route) => false,
                           );
                           showCustomSnackBar(context, 'تم حذف الحساب بنجاح');
